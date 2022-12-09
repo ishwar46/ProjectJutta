@@ -52,6 +52,26 @@ class ForgotPassword extends StatelessWidget {
                   return null;
                 },
               ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                child: const Text('Send OTP'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const OtpForm()),
+                  );
+                },
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                child: const Text('Back'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                  );
+                },
+              )
             ],
           ),
         ),
