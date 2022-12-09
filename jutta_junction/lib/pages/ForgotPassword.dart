@@ -21,6 +21,37 @@ class ForgotPassword extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              TextFormField(
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
+                  labelText: 'Phone Number',
+                  icon: Icon(
+                    Icons.phone,
+                    color: Colors.white,
+                  ),
+                  errorStyle: TextStyle(color: Colors.white),
+                  labelStyle: TextStyle(color: Colors.white),
+                  hintStyle: TextStyle(color: Colors.white),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  errorBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Please enter your number!";
+                  } else if (value.length < 10) {
+                    return "Invalid Number";
+                  }
+
+                  return null;
+                },
+              ),
             ],
           ),
         ),
