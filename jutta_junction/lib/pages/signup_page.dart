@@ -57,14 +57,23 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      vertical: 16.0, horizontal: 32.0),
+                      vertical: 16.0, horizontal: 50.0),
                   child: Column(
                     children: [
                       TextFormField(
                         // ignore: prefer_const_constructors
                         decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 16.0, horizontal: 32.0),
                           hintText: " Enter your full name",
                           labelText: "Full Name",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              width: 0,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -78,6 +87,15 @@ class _SignUpPageState extends State<SignUpPage> {
                         obscureText: true,
                         // ignore: prefer_const_constructors
                         decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 16.0, horizontal: 32.0),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              width: 0,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
                           hintText: "Enter your Password",
                           labelText: "Password",
                         ),
@@ -92,8 +110,17 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       TextFormField(
                         obscureText: false,
-                        decoration: const InputDecoration(
-                          hintText: "Enter your phone number",
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 16.0, horizontal: 32.0),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              width: 0,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          hintText: "Enter your Phone Number",
                           labelText: "Phone Number",
                         ),
                         validator: (value) {
@@ -109,6 +136,15 @@ class _SignUpPageState extends State<SignUpPage> {
                         obscureText: false,
                         // ignore: prefer_const_constructors
                         decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 16.0, horizontal: 32.0),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              width: 0,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
                           hintText: "Enter your Email Address",
                           labelText: "Email",
                         ),
@@ -124,6 +160,17 @@ class _SignUpPageState extends State<SignUpPage> {
                       TextFormField(
                         obscureText: false,
                         decoration: const InputDecoration(
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 16.0, horizontal: 32.0),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                            borderSide: BorderSide(
+                              width: 0,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
                           hintText: "Enter your Username",
                           labelText: "Username",
                         ),
@@ -135,28 +182,6 @@ class _SignUpPageState extends State<SignUpPage> {
                           }
                           return null;
                         },
-                      ),
-                      TextField(
-                        textAlign: TextAlign.center,
-                        //controller: someTextXontroller,
-                        keyboardType: TextInputType.text,
-                        decoration: InputDecoration(
-                          hintText: 'Hello',
-                          hintStyle: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
-                              width: 0,
-                              style: BorderStyle.none,
-                            ),
-                          ),
-                          filled: true,
-                          contentPadding: EdgeInsets.all(16),
-                          fillColor: Color.fromARGB(255, 103, 117, 238),
-                        ),
                       ),
                       const SizedBox(
                         height: 40.0,
