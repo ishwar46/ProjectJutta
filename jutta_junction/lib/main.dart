@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/pages/login_page.dart';
+import 'package:jutta_junction/pages/signup_page.dart';
 
 void main() {
   runApp(const Myapp());
@@ -15,12 +16,12 @@ class Myapp extends StatelessWidget {
       themeMode: ThemeMode.system,
       //theme: MyTheme.lightTheme(context),
       //darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/login",
+      initialRoute: "/signup",
       debugShowCheckedModeBanner: false,
       //initialRoute: MyRoutes.homeRoute,
       routes: {
-        "/": (context) => LoginPage(),
-        MyRoutes.loginRoute: (context) => LoginPage(),
+        "/": (context) => SignUpPage(),
+        MyRoutes.loginRoute: (context) => SignUpPage(),
       },
     );
   }
@@ -29,4 +30,5 @@ class Myapp extends StatelessWidget {
 class MyRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
+  static String signupRoute = "/signup";
 }
