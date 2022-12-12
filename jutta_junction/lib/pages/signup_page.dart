@@ -1,79 +1,72 @@
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/main.dart';
-import 'package:velocity_x/velocity_x.dart';
+import 'package:jutta_junction/pages/login_page.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class RegPage extends StatefulWidget {
+  const RegPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<RegPage> createState() => _RegPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _RegPageState extends State<RegPage> {
   bool changebutton = false;
-
   final _formkey = GlobalKey<FormState>();
-  moveToHome(BuildContext context) async {
-    //value != null && value.isEmpty
-    //if (value!.isEmpty)
-    if (_formkey.currentState!.validate())
-      setState(() {
-        changebutton = true;
-      });
-    await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.homeRoute);
-    setState(() {
-      changebutton = false;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-        color: context.canvasColor,
-        child: SingleChildScrollView(
-          child: Form(
-            key: _formkey,
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 20.0,
-                  child: Text(
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Color.fromARGB(255, 109, 146, 189),
+      body: Stack(
+        children: [
+          // Image.asset(
+          //   "assets/images/background.png",
+          //   fit: BoxFit.fill,
+          //   height: MediaQuery.of(context).size.height,
+          // ),
+          SafeArea(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Sign Up",
+                    style: Theme.of(context).textTheme.headline4!.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Text(
                     "Sign up to Jutta Junction to get started.",
-                    style: TextStyle(fontSize: 15, color: Colors.black),
+                    style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                          color: Colors.white,
+                        ),
                   ),
-                ),
-                const Text(
-                  "Signup",
-                  style: TextStyle(
-                    fontSize: 28,
-                    color: Color.fromARGB(255, 103, 117, 238),
-                    fontWeight: FontWeight.bold,
+                  SizedBox(
+                    height: 20.0,
                   ),
-                ),
-                // ignore: prefer_const_constructors
-                SizedBox(
-                  height: 20.0,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 16.0, horizontal: 50.0),
-                  child: Column(
+                  Form(
+                      child: Column(
                     children: [
                       TextFormField(
-                        // ignore: prefer_const_constructors
+                        style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(
-                              vertical: 16.0, horizontal: 32.0),
-                          hintText: " Enter your full name",
-                          labelText: "Full Name",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              width: 0,
-                              style: BorderStyle.solid,
+                              width: 3,
+                              color: Colors.white54,
                             ),
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          labelText: "Full Name",
+                          hintText: "Enter your full name",
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -83,21 +76,23 @@ class _SignUpPageState extends State<SignUpPage> {
                           return null;
                         },
                       ),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
                       TextFormField(
-                        obscureText: true,
-                        // ignore: prefer_const_constructors
+                        style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(
-                              vertical: 16.0, horizontal: 32.0),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              width: 0,
-                              style: BorderStyle.solid,
+                              width: 3,
+                              color: Colors.white54,
                             ),
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
-                          hintText: "Enter your Password",
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 255, 255, 255),
                           labelText: "Password",
+                          hintText: "Enter your password",
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -108,117 +103,172 @@ class _SignUpPageState extends State<SignUpPage> {
                           return null;
                         },
                       ),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
                       TextFormField(
-                        obscureText: false,
+                        obscureText: true,
                         decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(
-                              vertical: 16.0, horizontal: 32.0),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              width: 0,
-                              style: BorderStyle.solid,
+                              width: 3,
+                              color: Colors.white54,
                             ),
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
-                          hintText: "Enter your Phone Number",
-                          labelText: "Phone Number",
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          labelText: "Confirm Password",
+                          hintText: "Enter your password",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Phone Number cannot be empty";
-                          } else if (value.length < 10) {
-                            return "Phone Number length should be 10 digits";
+                            return "Password cannot be empty";
+                          } else if (value.length < 6) {
+                            return "Password length should be atleast 6 charachter";
                           }
                           return null;
                         },
                       ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
                       TextFormField(
-                        obscureText: false,
-                        // ignore: prefer_const_constructors
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(
-                              vertical: 16.0, horizontal: 32.0),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              width: 0,
-                              style: BorderStyle.solid,
+                              width: 3,
+                              color: Colors.white54,
                             ),
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
-                          hintText: "Enter your Email Address",
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 255, 255, 255),
                           labelText: "Email",
+                          hintText: "Enter your email",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Email is required";
+                            return "Email cannot be empty";
                           } else if (!value.contains("@")) {
                             return "Please enter a valid email";
                           }
                           return null;
                         },
                       ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
                       TextFormField(
-                        obscureText: false,
-                        decoration: const InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(
-                              vertical: 16.0, horizontal: 32.0),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
-                            ),
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              width: 0,
-                              style: BorderStyle.solid,
+                              width: 3,
+                              color: Colors.white54,
                             ),
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
-                          hintText: "Enter your Username",
-                          labelText: "Username",
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          labelText: "Phone Number",
+                          hintText: "Enter your phone number",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "Username cannot be empty";
-                          } else if (value.length < 6) {
-                            return "Username length should be atleast 6 charachter";
+                            return "Phone Number cannot be empty";
+                          } else if (value.length != 10) {
+                            return "Please enter a valid phone number";
                           }
                           return null;
                         },
                       ),
-                      const SizedBox(
-                        height: 40.0,
+                      SizedBox(
+                        height: 20.0,
                       ),
-                      Material(
-                        color: Color.fromARGB(255, 103, 117, 238),
-                        borderRadius: BorderRadius.circular(
-                          changebutton ? 50 : 8,
-                        ),
-                        child: InkWell(
-                          onTap: () => moveToHome(context),
-                          child: AnimatedContainer(
-                            duration: Duration(seconds: 1),
-                            height: 40,
-                            width: changebutton ? 50 : 150,
-                            alignment: Alignment.center,
-                            child: changebutton
-                                ? const Icon(
-                                    Icons.done,
-                                    color: Colors.white,
-                                  )
-                                : const Text(
-                                    "Sign Up",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18),
-                                  ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 3,
+                              color: Colors.white54,
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 255, 255, 255),
+                          labelText: "Username",
+                          hintText: "Enter your username",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Username cannot be empty";
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      FloatingActionButton.extended(
+                          label: Text('Signup'),
+                          backgroundColor: Colors.deepPurple.shade300,
+                          onPressed: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginPage(),
+                                ),
+                              )),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Already have an account?",
+                            style:
+                                Theme.of(context).textTheme.subtitle1!.copyWith(
+                                      color: Colors.white,
+                                    ),
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          Text(
+                            "Sign In",
+                            //Navigate to Sign In Page
+                            style:
+                                Theme.of(context).textTheme.subtitle1!.copyWith(
+                                      color: Colors.blue,
+                                    ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20.0,
                       ),
                     ],
-                  ),
-                ),
-              ],
+                  ))
+                ],
+              ),
             ),
           ),
-        ));
+        ],
+      ),
+    );
   }
 }
