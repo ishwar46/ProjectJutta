@@ -89,7 +89,7 @@ class Onboarding extends StatelessWidget {
         child: IntroductionScreen(
           pages: pages,
           dotsDecorator: const DotsDecorator(
-            size: Size(16, 16),
+            size: Size(15, 15),
             color: Color.fromARGB(255, 229, 139, 245),
             activeSize: Size.square(15),
 
