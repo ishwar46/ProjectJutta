@@ -103,6 +103,7 @@ class Onboarding extends StatelessWidget {
           next: const Icon(Icons.arrow_forward,size: 25,),
           onDone: (() => onDone(context)) ,
           curve: Curves.bounceOut,
+          
 
 
 
