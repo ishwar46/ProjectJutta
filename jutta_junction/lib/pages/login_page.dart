@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'dart:ui';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -67,6 +68,9 @@ class _LoginPageState extends State<LoginPage> {
                       TextFormField(
                         // ignore: prefer_const_constructors
                         decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
                           hintText: " Enter your username",
                           labelText: "Username",
                         ),
@@ -82,6 +86,9 @@ class _LoginPageState extends State<LoginPage> {
                         obscureText: true,
                         // ignore: prefer_const_constructors
                         decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
                           hintText: "Enter your Password",
                           labelText: "Password",
                         ),
