@@ -82,6 +82,9 @@ class _LoginPageState extends State<LoginPage> {
                           return null;
                         },
                       ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       TextFormField(
                         obscureText: true,
                         // ignore: prefer_const_constructors
@@ -107,9 +110,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Material(
                         color: Colors.green,
-                        borderRadius: BorderRadius.circular(
-                          changebutton ? 50 : 8,
-                        ),
+
+                        borderRadius: BorderRadius.circular(30),
+                        //changebutton ? 50 : 8,
+
                         child: InkWell(
                           onTap: () => moveToHome(context),
                           child: AnimatedContainer(
