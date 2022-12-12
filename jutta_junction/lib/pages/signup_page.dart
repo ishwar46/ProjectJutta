@@ -248,13 +248,22 @@ class _RegPageState extends State<RegPage> {
                           SizedBox(
                             width: 10.0,
                           ),
-                          Text(
-                            "Sign In",
-                            //Navigate to Sign In Page
-                            style:
-                                Theme.of(context).textTheme.subtitle1!.copyWith(
-                                      color: Colors.blue,
-                                    ),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.deepPurple.shade300,
+                            ),
+                            onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginPage(),
+                              ),
+                            ),
+                            child: Text(
+                              "Signin",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         ],
                       ),
