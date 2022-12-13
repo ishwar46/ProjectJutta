@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/main.dart';
+import 'package:jutta_junction/pages/signup_page.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
         changebutton = true;
       });
     await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.homeRoute);
+    await Navigator.pushNamed(context, MyRoutes.landingRoute);
     setState(() {
       changebutton = false;
     });
@@ -95,6 +96,16 @@ class _LoginPageState extends State<LoginPage> {
                           return null;
                         },
                       ),
+                      //forgot password link
+                      // ignore: prefer_const_constructors
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      InkWell(
+                          child: Text(
+                        "Forgot Password ? ",
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                      )),
                       const SizedBox(
                         height: 40.0,
                       ),
@@ -125,6 +136,36 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "don't have an account ? ",
+                            style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 14,
+                                color: Colors.grey),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => const RegPage()));
+                            },
+                            child: Text(
+                              "Sign Up ",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                  color: Theme.of(context).primaryColor),
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),
