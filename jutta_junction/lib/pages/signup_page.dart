@@ -1,8 +1,6 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/pages/login_page.dart';
-import 'package:jutta_junction/pages/test/landingpage.dart';
 
 class RegPage extends StatefulWidget {
   const RegPage({super.key});
@@ -29,21 +27,6 @@ class _RegPageState extends State<RegPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Color.fromARGB(255, 109, 146, 189),
-        items: <Widget>[
-          Icon(Icons.home),
-          Icon(Icons.chat),
-          Icon(Icons.shopping_cart),
-          Icon(
-            Icons.account_box,
-            size: 30,
-          ),
-        ],
-        onTap: (index) {
-          //Handle button tap
-        },
-      ),
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromARGB(255, 109, 146, 189),
       body: Stack(
@@ -249,7 +232,7 @@ class _RegPageState extends State<RegPage> {
                           onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => LandingPage(),
+                                  builder: (context) => LoginPage(),
                                 ),
                               )),
                       SizedBox(
