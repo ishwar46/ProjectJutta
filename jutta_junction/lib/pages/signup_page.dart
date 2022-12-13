@@ -1,6 +1,8 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/pages/login_page.dart';
+import 'package:jutta_junction/pages/test/landingpage.dart';
 
 class RegPage extends StatefulWidget {
   const RegPage({super.key});
@@ -12,10 +14,36 @@ class RegPage extends StatefulWidget {
 class _RegPageState extends State<RegPage> {
   bool changebutton = false;
   final _formkey = GlobalKey<FormState>();
+  moveToHome(BuildContext context) async {
+    if (_formkey.currentState!.validate())
+      setState(() {
+        changebutton = true;
+      });
+    await Future.delayed(Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.homeRoute);
+    setState(() {
+      changebutton = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Color.fromARGB(255, 109, 146, 189),
+        items: <Widget>[
+          Icon(Icons.home),
+          Icon(Icons.chat),
+          Icon(Icons.shopping_cart),
+          Icon(
+            Icons.account_box,
+            size: 30,
+          ),
+        ],
+        onTap: (index) {
+          //Handle button tap
+        },
+      ),
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromARGB(255, 109, 146, 189),
       body: Stack(
@@ -107,7 +135,7 @@ class _RegPageState extends State<RegPage> {
                         height: 20.0,
                       ),
                       TextFormField(
-                        obscureText: true,
+                        style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -120,9 +148,6 @@ class _RegPageState extends State<RegPage> {
                           fillColor: Color.fromARGB(255, 255, 255, 255),
                           labelText: "Confirm Password",
                           hintText: "Enter your password",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -137,7 +162,7 @@ class _RegPageState extends State<RegPage> {
                         height: 20.0,
                       ),
                       TextFormField(
-                        keyboardType: TextInputType.emailAddress,
+                        style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -149,16 +174,13 @@ class _RegPageState extends State<RegPage> {
                           filled: true,
                           fillColor: Color.fromARGB(255, 255, 255, 255),
                           labelText: "Email",
-                          hintText: "Enter your email",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
+                          hintText: "Enter your email address",
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "Email cannot be empty";
                           } else if (!value.contains("@")) {
-                            return "Please enter a valid email";
+                            return "Please enter a valid email address";
                           }
                           return null;
                         },
@@ -167,7 +189,7 @@ class _RegPageState extends State<RegPage> {
                         height: 20.0,
                       ),
                       TextFormField(
-                        keyboardType: TextInputType.number,
+                        style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -180,14 +202,11 @@ class _RegPageState extends State<RegPage> {
                           fillColor: Color.fromARGB(255, 255, 255, 255),
                           labelText: "Phone Number",
                           hintText: "Enter your phone number",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "Phone Number cannot be empty";
-                          } else if (value.length != 10) {
+                          } else if (value.length < 10) {
                             return "Please enter a valid phone number";
                           }
                           return null;
@@ -197,6 +216,7 @@ class _RegPageState extends State<RegPage> {
                         height: 20.0,
                       ),
                       TextFormField(
+                        style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -209,14 +229,14 @@ class _RegPageState extends State<RegPage> {
                           fillColor: Color.fromARGB(255, 255, 255, 255),
                           labelText: "Username",
                           hintText: "Enter your username",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
                             return "Username cannot be empty";
+                          } else if (value.length < 6) {
+                            return "Username length should be atleast 6 charachter";
                           }
+
                           return null;
                         },
                       ),
@@ -229,7 +249,7 @@ class _RegPageState extends State<RegPage> {
                           onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => LoginPage(),
+                                  builder: (context) => LandingPage(),
                                 ),
                               )),
                       SizedBox(
@@ -239,28 +259,25 @@ class _RegPageState extends State<RegPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Already have an account?",
-                            style:
-                                Theme.of(context).textTheme.subtitle1!.copyWith(
-                                      color: Colors.white,
-                                    ),
+                            "Already have an account ? ",
+                            style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 14,
+                                color: Colors.white),
                           ),
-                          SizedBox(
-                            width: 10.0,
-                          ),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.deepPurple.shade300,
-                            ),
-                            onPressed: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginPage(),
-                              ),
-                            ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => const LoginPage()));
+                            },
                             child: Text(
-                              "Signin",
+                              "Sign Up ",
                               style: TextStyle(
+                                decoration: TextDecoration.underline,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
                                 color: Colors.white,
                               ),
                             ),
