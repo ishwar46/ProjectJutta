@@ -22,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
         changebutton = true;
       });
     await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.landingRoute);
+    await Navigator.pushNamed(context, MyRoutes.homeRoute);
     setState(() {
       changebutton = false;
     });
@@ -96,16 +96,6 @@ class _LoginPageState extends State<LoginPage> {
                           return null;
                         },
                       ),
-                      //forgot password link
-                      // ignore: prefer_const_constructors
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      InkWell(
-                          child: Text(
-                        "Forgot Password ? ",
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
-                      )),
                       const SizedBox(
                         height: 40.0,
                       ),
@@ -137,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       SizedBox(
-                        height: 40,
+                        height: 20,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

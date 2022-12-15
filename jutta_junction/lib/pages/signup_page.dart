@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/pages/login_page.dart';
+import 'package:jutta_junction/pages/test/landingpage.dart';
 
 class RegPage extends StatefulWidget {
   const RegPage({super.key});
@@ -232,7 +233,7 @@ class _RegPageState extends State<RegPage> {
                           onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => LoginPage(),
+                                  builder: (context) => LandingPage(),
                                 ),
                               )),
                       SizedBox(
