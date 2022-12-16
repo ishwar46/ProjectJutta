@@ -6,6 +6,52 @@ class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
   static const String _imageUrl ='https://ichef.bbci.co.uk/news/976/cpsprodpb/B9FF/production/_117751674_satan-shoes1.jpg';
 
+ Widget singleProducta(){
+    return  Container(
+                  height: 230,
+                  width: 160,
+                  decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 242, 239, 239),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child:Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child:Image.network('https://media.restocks.net/products/CT8532-104/air-jordan-3-retro-unc-2020-2-1000.png')),
+
+                      Expanded(child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [Text('Air Jordan 3 Retro UNC',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        ),
+                        Text('670 USD',
+                        style: TextStyle(
+                          color: Colors.black,)),
+
+                         
+
+                           
+          
+
+
+                        
+                        ],),
+                      ))
+                  ],
+                ));
+
+  }
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +78,7 @@ class Homescreen extends StatelessWidget {
                           child: Icon(Icons.shop,size: 17,color: Colors.black,),
             ),
           )
-        ],
+        ],  
 
         backgroundColor: Color(0xffd6b738),
       
