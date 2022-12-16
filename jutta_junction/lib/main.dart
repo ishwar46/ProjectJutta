@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/pages/login_page.dart';
+import 'package:jutta_junction/pages/dashboard.dart';
 
 void main() {
   runApp(const Myapp());
@@ -19,8 +20,8 @@ class Myapp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //initialRoute: MyRoutes.homeRoute,
       routes: {
-        "/": (context) => LoginPage(),
-        MyRoutes.loginRoute: (context) => LoginPage(),
+        "/": (context) => Homescreen(),
+        MyRoutes.loginRoute: (context) => Homescreen(),
       },
     );
   }
