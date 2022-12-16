@@ -44,8 +44,94 @@ class _ConfirmPAsswordWidgetState extends State<ChangePassword> {
 
           ),
         ),
+        body:Container(
+          padding: EdgeInsets.symmetric(
+            horizontal:25.0,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width:343,
+                //  height:41,
+                padding:EdgeInsets.only(top:50,bottom:20),
+                child: Text(
+                    "Change Password",
+                    style:TextStyle(
+                      fontSize:32,
+                      fontWeight: FontWeight.w400,
+                    )
+                ),
+              ),
+              SizedBox(height:10),
+              Container(
+                  height:70,
+
+                  child:Form(
+                    key: _passKey,
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          controller:password,
+                          obscureText: !showPassword,
+                          validator:(val){
+                            confirmPass=val;
+                            if(val==null || val.isEmpty){
+                              return "Password cannot be empty";
+                            }else if (val.length<6){
+                              return "Password must be at least 6 characters";
+                            }else{
+                              return null;
+                            }
+
+                          },
+                          decoration: InputDecoration(
+                            // border:InputBorder.none,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+
+                            hintText:"New Password",
+                            suffixIcon: showPassword?
+                            InkWell(
+                                onTap: (){
+                                  setState(() {
+                                    showPassword = !showPassword;
+                                  });
+                                },
+                                child:Icon(Icons.panorama_fish_eye)
+                            )
+                                :
+                            InkWell(
+                                onTap: (){
+                                  setState(() {
+                                    showPassword = !showPassword;
+                                  });
+                                },
+                                child:Icon(Icons.remove_red_eye)
+                            ),
+                            filled:true,
+                            fillColor: Colors.white,
+
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal:20,
+                              vertical:13,
+                            ),
+
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+
+              ),
+            ]
+          ),
+        )
     );
   }
+
 
  
 }
