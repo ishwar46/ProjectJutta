@@ -1,6 +1,8 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -60,7 +62,7 @@ class Homescreen extends StatelessWidget {
         
         title:Text("Home",
         style: TextStyle(
-          color: Colors.black,
+          color: Colors.white,
           fontSize: 17)),
         
         actions: [
@@ -80,61 +82,171 @@ class Homescreen extends StatelessWidget {
           )
         ],  
 
-        backgroundColor: Color(0xffd6b738),
+        backgroundColor: Color.fromARGB(255, 21, 20, 18),
       
 
       ),
-      
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-        child: Column(children: [
-          Container(
-            height: 150,
-            decoration: BoxDecoration(
-              image: DecorationImage
-              (fit: BoxFit.cover,
-                image: NetworkImage(
-                _imageUrl),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Color.fromARGB(255, 2, 5, 8),
+        items: <Widget>[
+          Icon(Icons.home),
+          Icon(Icons.chat),
 
+          Icon(Icons.shopping_cart),
+
+          Icon(
+
+            Icons.account_box,
+
+            size: 30,
+
+          ),
+
+        ],
+
+        onTap: (index) {
+          //Handle button ta
+        },
+      ),   
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Container(
+              height: 150,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(_imageUrl)
+                ),
+                color: Colors.white,
+              borderRadius:BorderRadius.circular(10),
               ),
-                
-              
-              
-              
-              color: Colors.red,
-            borderRadius:BorderRadius.circular(10),
-            )
-            ,child: Row(
-              children: [
-                Expanded(
-                  child:Container(color: Colors.yellow,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 120,bottom: 10),
-                        child: Container(
-                          height: 50,
-                          width: 50,
-                          
-                          decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(30)
-                            )
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  )),
-
+              child: Row(
+                children: [
                   Expanded(
-                  child:Container(color: Colors.red ,))
+                    child:Container(
+                     
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 140,bottom: 10),
+                          child: Container(
+                            height: 40,
+                            width: 50,
+                            ),
+                        )
+                     ,],
+                    ),
+                    )
+                    ),
+ ],
+              ),
+            ),
+            
+          Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+              child: Column(children: [VxSwiper.builder(
+
+              itemCount: 10,
+
+              height: 200,
+
+              aspectRatio: 16 / 9,
+
+              viewportFraction: 0.8,
+
+              initialPage: 0,
+
+              enableInfiniteScroll: true,
+
+              reverse: false,
+
+              autoPlay: true,
+
+              autoPlayInterval: Duration(seconds: 3),
+
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+
+              autoPlayCurve: Curves.fastOutSlowIn,
+
+              enlargeCenterPage: true,
+
+              isFastScrollingEnabled: false,
+
+              //onPageChanged: callbackFunction,
+
+              scrollDirection: Axis.horizontal,
+
+              itemBuilder: (context, index) {
+
+                return "Item $index"
+
+                    .text
+
+                    .white
+
+                    .make()
+
+                    .box
+
+                    .rounded
+
+                    .alignCenter
+
+                    .color(Vx.randomOpaqueColor)
+
+                    .make()
+
+                    .p4();
+
+              },
+
+            ),
+
+              ]),
+            ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('The 2023 Collection: Chapter 01'),
+                Text('View all', style:TextStyle(color: Colors.white) ,)
+
+              ],
+            ),
+          ),
+
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                singleProducta(),
+                singleProducta(),
+                singleProducta(),
+                singleProducta(),
+                singleProducta(),
+               
+
+
+
               ],
             ),
           )
-        ]),
+
+          
+          
+          ],
+
+        
+        ),
       ),
     );
   }
 }
+
+
+
+      
+     
