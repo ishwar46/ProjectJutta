@@ -126,6 +126,81 @@ class _ConfirmPAsswordWidgetState extends State<ChangePassword> {
                   )
 
               ),
+              SizedBox(height:10),
+Container(
+    height:70,
+    child:Form(
+      key:_confirmPassKey,
+      child: Column(
+
+        children: [
+          TextFormField(
+            controller:confirmPassword,
+            obscureText: !showPassword,
+            validator:(val){
+              if(val==null || val.isEmpty){
+                return "Confirm password cannot be empty";
+              }else if(val.length<6){
+                return "Confirm password must be at least 6 characters";
+              }else if(val!=confirmPass){
+                return "Password doesn't match";
+              }else{
+                return null;
+              }
+            },
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                borderSide: BorderSide(color: Colors.white),
+              ),
+              hintText:"Confirm Password",
+
+              suffixIcon: showPassword?
+              InkWell(
+                  onTap: (){
+                    setState(() {
+                      showPassword = !showPassword;
+                    });
+                  },
+                  child:Icon(Icons.panorama_fish_eye)
+              )
+                  :
+              InkWell(
+                  onTap: (){
+                    setState(() {
+                      showPassword = !showPassword;
+                    });
+                  },
+                  child:Icon(Icons.remove_red_eye)
+              ),
+              filled:true,
+              fillColor: Colors.white,
+              contentPadding: EdgeInsets.symmetric(
+                horizontal:20,
+                vertical:13,
+              ),
+
+            ),
+          ),
+        ],
+      ),
+    )
+
+),
+SizedBox(height:30),
+CustomButton(
+    title: "Confirm",
+    onPressed: (){
+      if (_passKey.currentState!.validate() && _confirmPassKey.currentState!.validate()) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=>Otp())
+        );
+      }
+    },
+),
+
+              
             ]
           ),
         )
