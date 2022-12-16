@@ -1,3 +1,4 @@
+import 'package:jutta_junction/pages/test/qr_page.dart';
 import 'package:searchbar_animation/searchbar_animation.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class DashboardPage extends StatelessWidget {
       height: 50.0,
     );
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 109, 146, 189),
+      backgroundColor: Colors.white,
       appBar: (AppBar(
         title: Text("Jutta Junction"),
         backgroundColor: Color.fromARGB(255, 109, 146, 189),
@@ -37,12 +38,67 @@ class DashboardPage extends StatelessWidget {
             icon: Icon(Icons.search),
             onPressed: () {},
           ),
+          IconButton(
+            icon: Icon(Icons.qr_code_scanner),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => QRCode()),
+              );
+            },
+          ),
         ],
+        elevation: 0.0,
       )),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Good Morning, User!'),
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 109, 146, 189),
+                //User Image
+                image: DecorationImage(
+                  image: AssetImage('assets/images/usernew.png'),
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text(
+                'Adidas',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20.0,
+                ),
+              ),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: Text('Item 2'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+          ],
+        ),
+      ),
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Color.fromARGB(255, 109, 146, 189),
+        index: 0,
+        height: 50.0,
+        color: Colors.white,
+        backgroundColor: Colors.white,
+        buttonBackgroundColor: Colors.green,
+        animationCurve: Curves.easeInOut,
         items: <Widget>[
-          Icon(Icons.home),
+          Icon(
+            Icons.home,
+          ),
           Icon(Icons.chat),
           Icon(Icons.shopping_cart),
           Icon(

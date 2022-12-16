@@ -46,6 +46,7 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   motion_tab_bar_v2: ^0.2.6
   searchbar_animation: ^0.0.4
+  qr_flutter: ^4.0.0
  
 
 
