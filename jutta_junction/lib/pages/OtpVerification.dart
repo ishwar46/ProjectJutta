@@ -76,6 +76,18 @@ class _OtpVerifyState extends State<OtpVerify> {
               },
               onChanged: (value) {},
             ),
+
+             CustomButton(
+                  title: "Verify OTP",
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context)=>ChangePassword(),
+                        )
+                    );
+                  },
+                ),
             SizedBox(height:20),
 
                 Container(
