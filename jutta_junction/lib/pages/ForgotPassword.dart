@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jutta_junction/pages/OtpVerification.dart';
+import 'package:jutta_junction/pages/login_page.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});
@@ -58,7 +60,7 @@ class ForgotPassword extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const OtpForm()),
+                    MaterialPageRoute(builder: (context) => const OtpVerify()),
                   );
                 },
               ),
