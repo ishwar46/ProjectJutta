@@ -1,6 +1,8 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -51,8 +53,17 @@ class Homescreen extends StatelessWidget {
     return Scaffold(
       drawer: Drawer(),
       appBar: AppBar(
+<<<<<<< HEAD
         title:
             Text("Home", style: TextStyle(color: Colors.black, fontSize: 17)),
+=======
+        
+        title:Text("Home",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 17)),
+        
+>>>>>>> 2cbbb1a80c6bb5e3c17fcd2788aae4faa045df99
         actions: [
           CircleAvatar(
             radius: 12,
@@ -75,6 +86,7 @@ class Homescreen extends StatelessWidget {
               ),
             ),
           )
+<<<<<<< HEAD
         ],
         backgroundColor: Color(0xffd6b738),
       ),
@@ -116,11 +128,178 @@ class Homescreen extends StatelessWidget {
                     child: Container(
                   color: Colors.red,
                 ))
+=======
+        ],  
+
+        backgroundColor: Color.fromARGB(255, 21, 20, 18),
+      
+
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Color.fromARGB(255, 2, 5, 8),
+        items: <Widget>[
+          Icon(Icons.home),
+          Icon(Icons.chat),
+
+          Icon(Icons.shopping_cart),
+
+          Icon(
+
+            Icons.account_box,
+
+            size: 30,
+
+          ),
+
+        ],
+
+        onTap: (index) {
+          //Handle button ta
+        },
+      ),   
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Container(
+              height: 150,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(_imageUrl)
+                ),
+                color: Colors.white,
+              borderRadius:BorderRadius.circular(10),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child:Container(
+                     
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 140,bottom: 10),
+                          child: Container(
+                            height: 40,
+                            width: 50,
+                            ),
+                        )
+                     ,],
+                    ),
+                    )
+                    ),
+ ],
+              ),
+            ),
+            
+          Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+              child: Column(children: [VxSwiper.builder(
+
+              itemCount: 10,
+
+              height: 200,
+
+              aspectRatio: 16 / 9,
+
+              viewportFraction: 0.8,
+
+              initialPage: 0,
+
+              enableInfiniteScroll: true,
+
+              reverse: false,
+
+              autoPlay: true,
+
+              autoPlayInterval: Duration(seconds: 3),
+
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+
+              autoPlayCurve: Curves.fastOutSlowIn,
+
+              enlargeCenterPage: true,
+
+              isFastScrollingEnabled: false,
+
+              //onPageChanged: callbackFunction,
+
+              scrollDirection: Axis.horizontal,
+
+              itemBuilder: (context, index) {
+
+                return "Item $index"
+
+                    .text
+
+                    .white
+
+                    .make()
+
+                    .box
+
+                    .rounded
+
+                    .alignCenter
+
+                    .color(Vx.randomOpaqueColor)
+
+                    .make()
+
+                    .p4();
+
+              },
+
+            ),
+
+              ]),
+            ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('The 2023 Collection: Chapter 01'),
+                Text('View all', style:TextStyle(color: Colors.white) ,)
+
+              ],
+            ),
+          ),
+
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                singleProducta(),
+                singleProducta(),
+                singleProducta(),
+                singleProducta(),
+                singleProducta(),
+               
+
+
+
+>>>>>>> 2cbbb1a80c6bb5e3c17fcd2788aae4faa045df99
               ],
             ),
           )
-        ]),
+
+          
+          
+          ],
+
+        
+        ),
       ),
     );
   }
 }
+<<<<<<< HEAD
+=======
+
+
+
+      
+     
+>>>>>>> 2cbbb1a80c6bb5e3c17fcd2788aae4faa045df99
