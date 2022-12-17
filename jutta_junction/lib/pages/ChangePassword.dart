@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
+import 'package:jutta_junction/pages/login_page.dart';
 
 import '../customs/custom_icons.dart';
 
@@ -7,11 +8,11 @@ class ChangePassword extends StatefulWidget {
   const ChangePassword({super.key});
 
   @override
-  State<ChangePassword> createState() => _ConfirmPAsswordWidgetState();
+  State<ChangePassword> createState() => _ConfirmPAssword();
 }
 
 
-class _ConfirmPAsswordWidgetState extends State<ChangePassword> {
+class _ConfirmPAssword extends State<ChangePassword> {
   final GlobalKey<FormState> _passKey=GlobalKey();
   final GlobalKey<FormState> _confirmPassKey=GlobalKey();
 
@@ -194,7 +195,7 @@ CustomButton(
       if (_passKey.currentState!.validate() && _confirmPassKey.currentState!.validate()) {
         Navigator.push(
             context,
-            MaterialPageRoute(builder: (context)=>Otp())
+            MaterialPageRoute(builder: (context)=>LoginPage())
         );
       }
     },

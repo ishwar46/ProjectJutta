@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jutta_junction/pages/ChangePassword.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 
 void main() {
@@ -19,8 +20,8 @@ class Myapp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //initialRoute: MyRoutes.homeRoute,
       routes: {
-        "/": (context) => LoginPage(),
-        MyRoutes.loginRoute: (context) => LoginPage(),
+        "/": (context) => ChangePassword(),
+        MyRoutes.loginRoute: (context) => ChangePassword(),
       },
     );
   }
