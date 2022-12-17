@@ -121,7 +121,7 @@ class HomePage extends StatelessWidget {
       key: _key,
       //Drawer Section
       drawer: Drawer(
-        backgroundColor: Color.fromARGB(255, 69, 86, 240),
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
         child: ListView(
           children: [
             DrawerHeader(
