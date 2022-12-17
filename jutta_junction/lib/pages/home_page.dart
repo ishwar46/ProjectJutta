@@ -192,13 +192,19 @@ class HomePage extends StatelessWidget {
       ),
       //App Bar
       appBar: AppBar(
-        title: Text(
-          "Jutta Junction",
-          style: TextStyle(color: Colors.black),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              "assets/images/juttanew.png",
+              fit: BoxFit.contain,
+              height: 120,
+            ),
+          ],
         ),
         centerTitle: true,
         elevation: 0.0,
-        backgroundColor: Colors.grey.shade100,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         leading: IconButton(
           icon: Icon(
             Icons.menu,
@@ -245,7 +251,7 @@ class HomePage extends StatelessWidget {
                         TextFormField(
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.search),
-                            hintText: "What would you like to wear?",
+                            hintText: "The best shoes for best people.",
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
