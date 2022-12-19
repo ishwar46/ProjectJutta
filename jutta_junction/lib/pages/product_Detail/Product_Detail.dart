@@ -14,28 +14,15 @@ class _Product_detailState extends State<Product_detail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: newMethod(context),
-      
-      body: Body( ),
-      
-    
-    );
-  }
-
-  AppBar newMethod(BuildContext context) {
-    return AppBar(
-       automaticallyImplyLeading: false,
-       leading: Navigator.canPop(context)
-      ? IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-            size: 47,
-          ),
+      backgroundColor: Colors.green[200],
+      appBar: AppBar(
+        backgroundColor: Colors.green[200],
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Color.fromARGB(255, 255, 255, 255)),
           onPressed: () => Navigator.of(context).pop(),
-        )
-      : null,
-      
+        ),
+      ),
+      body: Body(),
     );
   }
 }
