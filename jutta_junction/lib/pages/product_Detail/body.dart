@@ -15,95 +15,278 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size as Size;
 
-    return Column(
-      children: <Widget>[
-        Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(top: 0),
-              child: Text(
-                "Nike",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    color: Colors.black),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 0, bottom: 0),
-              child: Image.asset(
-                "assets/images/nikes.png",
-                height: 200,
-                width: 200,
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                RatingBar.builder(
-                  initialRating: 4,
-                  minRating: 1,
-                  direction: Axis.horizontal,
-                  allowHalfRating: true,
-                  itemCount: 5,
-                  itemSize: 20,
-                  itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                  itemBuilder: (context, _) => Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                  ),
-                  onRatingUpdate: (rating) {
-                    print(rating);
-                  },
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 100),
-                  child: Image.asset(
-                    "assets/images/greendot.png",
-                    height: 20,
-                    width: 20,
-                  ),
-                ),
-                Text(
-                  "Stock",
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Column(
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(top: 0),
+                child: Text(
+                  "Nike",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: 30,
                       color: Colors.black),
                 ),
-              ],
-            ),
-          ],
-        ),
-        Container(
-          margin: EdgeInsets.only(top: size.height * 0.03),
-          height: size.height * 0.5,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 0, bottom: 0),
+                child: Image.asset(
+                  "assets/images/nikes.png",
+                  height: 200,
+                  width: 200,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  RatingBar.builder(
+                    initialRating: 4,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: true,
+                    itemCount: 5,
+                    itemSize: 20,
+                    itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                    itemBuilder: (context, _) => Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    onRatingUpdate: (rating) {
+                      print(rating);
+                    },
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 120),
+                    child: Image.asset(
+                      "assets/images/greendot.png",
+                      height: 20,
+                      width: 20,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Text(
+                      " In Stock",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: Colors.black),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Container(
+            margin: EdgeInsets.only(top: size.height * 0.03),
+            height: size.height * 0.5,
+    
+            decoration: BoxDecoration(
+                color: Color.fromARGB(255, 255, 255, 255),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(24),
+                  topRight: Radius.circular(24),
+                )),
+            // child: new Image.asset('assets/images/Jutta.png'),
+            alignment: Alignment.center,
+            child: Column(children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text("Product Description",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.black)),
+                        Padding(
+                          padding: EdgeInsets.only(left: 90),
+                          child: Text("Rs 90000",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.black)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Text(
+                            "Dunk High Retro sneakersA basketball silhouette, the Nike Dunk Retro is presented in a supportive high-top design here. Contrasting white and black tones create an effortlessly eye-catching look for the pair."),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      children: <Widget>[
+                        Text("Size:",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.black)),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              color: Color(0xFFffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 121, 120, 120),
+                                    blurRadius: 15.0,
+                                    offset: Offset(5.0, 5.0))
+                              ],
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: InkWell(
+                              child: Text(
+                                "6",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 10),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              color: Color(0xFFffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 121, 120, 120),
+                                    blurRadius: 15.0,
+                                    offset: Offset(5.0, 5.0))
+                              ],
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: InkWell(
+                              child: Text(
+                                "6.5",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 10),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              color: Color(0xFFffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 121, 120, 120),
+                                    blurRadius: 15.0,
+                                    offset: Offset(5.0, 5.0))
+                              ],
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: InkWell(
+                              child: Text(
+                                "7",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 10),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              color: Color(0xFFffffff),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 121, 120, 120),
+                                    blurRadius: 15.0,
+                                    offset: Offset(5.0, 5.0))
+                              ],
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: InkWell(
+                              child: Text(
+                                "8",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 10),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children:<Widget> [
+                        ElevatedButton(onPressed:(() {
+                          
+                        }), child: Text("Add to cart"),
+                        
+                        
+                        style: ElevatedButton.styleFrom(
+                          
+                          backgroundColor: Colors.black,
+                          elevation: 10,
+                          shadowColor: Colors.black54,
+                          
+                          
 
-          decoration: BoxDecoration(
-              color: Color.fromARGB(255, 230, 162, 162),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(24),
-                topRight: Radius.circular(24),
-              )),
-          // child: new Image.asset('assets/images/Jutta.png'),
-          alignment: Alignment.center,
-          child: Column(
-            children: <Widget>[
-            Row(
-              children: <Widget>[
-                Column(
-                  children: [
-                    Text("Product")
-                  ],
-                )
-              ],
-            )
-            ]
-            ),
-        ),
-      ],
+                          
+                        ),),
+
+                        ElevatedButton(onPressed:(() {
+                          
+                        }), child: Text("Buy now"))
+                      ],
+                      
+
+                    ),
+                  ),
+                  
+                ],
+              )
+            ]),
+          ),
+        ],
+      ),
     );
   }
 }

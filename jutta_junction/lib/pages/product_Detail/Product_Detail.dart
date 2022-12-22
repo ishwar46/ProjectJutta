@@ -15,7 +15,8 @@ class _Product_detailState extends State<Product_detail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      
+      backgroundColor: Colors.green[200],
       appBar: AppBar(
         backgroundColor: Colors.green[200],
         elevation: 0.0,
@@ -25,7 +26,9 @@ class _Product_detailState extends State<Product_detail> {
         ),
       ),
       
-      body: Body(),
+      body: Body ( 
+       
+      ),
       
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Color.fromARGB(255, 2, 5, 8),
