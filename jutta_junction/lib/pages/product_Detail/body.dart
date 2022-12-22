@@ -47,6 +47,7 @@ class _BodyState extends State<Body> {
                   direction: Axis.horizontal,
                   allowHalfRating: true,
                   itemCount: 5,
+                  itemSize: 20,
                   itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
                   itemBuilder: (context, _) => Icon(
                     Icons.star,
@@ -56,19 +57,29 @@ class _BodyState extends State<Body> {
                     print(rating);
                   },
                 ),
-                Image.asset(
-                  "assets/images/greendot.png",
-                  height: 20,
-                  width: 20,
+                Padding(
+                  padding: EdgeInsets.only(left: 100),
+                  child: Image.asset(
+                    "assets/images/greendot.png",
+                    height: 20,
+                    width: 20,
+                  ),
                 ),
-                Text("Stock"),
+                Text(
+                  "Stock",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.black),
+                ),
               ],
             ),
           ],
         ),
         Container(
-          margin: EdgeInsets.only(top: size.height * 0.05),
-          height: size.height * 0.48,
+          margin: EdgeInsets.only(top: size.height * 0.03),
+          height: size.height * 0.5,
 
           decoration: BoxDecoration(
               color: Color.fromARGB(255, 230, 162, 162),
@@ -78,6 +89,19 @@ class _BodyState extends State<Body> {
               )),
           // child: new Image.asset('assets/images/Jutta.png'),
           alignment: Alignment.center,
+          child: Column(
+            children: <Widget>[
+            Row(
+              children: <Widget>[
+                Column(
+                  children: [
+                    Text("Product")
+                  ],
+                )
+              ],
+            )
+            ]
+            ),
         ),
       ],
     );

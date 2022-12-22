@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:jutta_junction/pages/product_Detail/body.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class Product_detail extends StatefulWidget {
   const Product_detail({super.key});
@@ -25,21 +26,22 @@ class _Product_detailState extends State<Product_detail> {
       ),
       
       body: Body(),
-      // bottomNavigationBar: CurvedNavigationBar(
-      //   backgroundColor: Color.fromARGB(255, 2, 5, 8),
-      //   items: <Widget>[
-      //     Icon(Icons.home),
-      //     Icon(Icons.chat),
-      //     Icon(Icons.shopping_cart),
-      //     Icon(
-      //       Icons.account_box,
-      //       size: 30,
-      //     ),
-      //   ],
-      //   onTap: (index) {
-      //     //Handle button ta
-      //   },
-      // ),
+      
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Color.fromARGB(255, 2, 5, 8),
+        items: <Widget>[
+          Icon(Icons.home),
+          Icon(Icons.chat),
+          Icon(Icons.shopping_cart),
+          Icon(
+            Icons.account_box,
+            size: 30,
+          ),
+        ],
+        onTap: (index) {
+          //Handle button ta
+        },
+      ),
     );
   }
 }
