@@ -3,7 +3,6 @@ import 'package:jutta_junction/pages/home_page.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/dashboard.dart';
 import 'package:jutta_junction/pages/slider.dart';
-import 'package:flutter/services.dart';
 
 void main() {
   runApp(const Myapp());
@@ -28,7 +27,6 @@ class Myapp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         MyRoutes.homepageRoute: (context) => HomePage(),
-        MyRoutes.loginRoute: (context) => const LoginPage(),
       },
     );
   }
@@ -37,5 +35,6 @@ class Myapp extends StatelessWidget {
 class MyRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
-  static String homepageRoute = "/homepage";
+  static String productdetailRoute = "/Product";
+  
 }
