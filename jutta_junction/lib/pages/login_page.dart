@@ -125,6 +125,15 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, MyRoutes.homepageRoute);
+                        },
+                        child: const Text(
+                          "Create a new account",
+                          style: TextStyle(color: Colors.green),
+                        ),
+                      ),
                     ],
                   ),
                 ),

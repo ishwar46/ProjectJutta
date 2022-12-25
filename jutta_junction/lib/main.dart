@@ -3,9 +3,12 @@ import 'package:jutta_junction/pages/home_page.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/dashboard.dart';
 import 'package:jutta_junction/pages/slider.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const Myapp());
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+      overlays: [SystemUiOverlay.bottom]);
 }
 
 class Myapp extends StatelessWidget {
@@ -25,6 +28,7 @@ class Myapp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         MyRoutes.homepageRoute: (context) => HomePage(),
+        MyRoutes.loginRoute: (context) => const LoginPage(),
       },
     );
   }
