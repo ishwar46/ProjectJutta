@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jutta_junction/pages/drawer/faq.dart';
+import 'package:jutta_junction/pages/drawer/return_refund.dart';
 import 'package:jutta_junction/pages/home_page.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/dashboard.dart';
@@ -29,6 +31,8 @@ class Myapp extends StatelessWidget {
         "/": (context) => HomePage(),
         MyRoutes.homepageRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => const LoginPage(),
+        MyRoutes.returnrefundRoute: (context) => const RedturnRefund(),
+        MyRoutes.faqRoute: (context) => FaqPage(),
       },
     );
   }
@@ -38,4 +42,6 @@ class MyRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
   static String homepageRoute = "/homepage";
+  static String returnrefundRoute = "/returnrefund";
+  static String faqRoute = "/faq";
 }

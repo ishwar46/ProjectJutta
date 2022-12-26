@@ -10,10 +10,16 @@ import 'package:jutta_junction/models/product_model.dart';
 
 import '../models/catelog.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   int activeIndex = 0;
+
   //Widget for Featured Product
   Widget _buildFeatureProduct(
       {required String name, required double price, required String image}) {
@@ -73,7 +79,6 @@ class HomePage extends StatelessWidget {
   }
 
   //Widget for New Arrivals
-
   Widget _buildNewArrivals(
       {required String name, required double price, required String image}) {
     return Card(
@@ -112,8 +117,29 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  //Search Bar Suggestions
+  Widget _buildSearchBar() {
+    return Container(
+      height: 50,
+      width: 350,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: "Search",
+          hintStyle: TextStyle(color: Colors.grey),
+          border: InputBorder.none,
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.grey,
+          ),
+        ),
+      ),
+    );
+  }
 
+  //Search Bar Suggestions
   final List<String> _suggestions = [
     'Nike',
     'Adidas',
@@ -127,24 +153,9 @@ class HomePage extends StatelessWidget {
   ];
 
   // static List<ProductModel> products_details = [
-  //   ProductModel(
-  //     "Nike Air Max 270",
-  //     10000,
-  //   ),
-  //   ProductModel(
-  //     "Nike Air Max 280",
-  //     10000,
-  //   ),
-  //   ProductModel(
-  //     "Nike Air Max 290",
-  //     10000,
-  //   ),
-  // ];
-
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
 
   //List<ProductModel> _searchResult = List.from(products_details);
-
   void updateList(String value) {
     // this is the function that will filter our list
   }
@@ -155,9 +166,7 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.chat),
         backgroundColor: Colors.grey,
-        onPressed: () {
-          Navigator.pushNamed(context, MyRoutes.loginRoute);
-        },
+        onPressed: () {},
       ),
       backgroundColor: Colors.white,
       key: _key,
@@ -180,10 +189,11 @@ class HomePage extends StatelessWidget {
                   Text("Jutta Junction",
                       style: TextStyle(fontSize: 20, color: Colors.white)),
                   Text("support.juttaj@gmail.com",
-                      style: TextStyle(fontSize: 10, color: Colors.white)),
+                      style: TextStyle(fontSize: 15, color: Colors.white)),
                 ],
               ),
             ),
+            SizedBox(height: 20),
             const Divider(
                 thickness: 1, color: Color.fromARGB(255, 255, 255, 255)),
             ListTile(
@@ -193,21 +203,22 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(color: Colors.white)),
               onTap: () {
                 showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('My Profile'),
-                        content: const Text('Under Construction'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('Close'),
-                          ),
-                        ],
-                      );
-                    });
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text('My Profile'),
+                      content: const Text('Under Construction'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('Close'),
+                        ),
+                      ],
+                    );
+                  },
+                );
               },
             ),
             ListTile(
@@ -263,22 +274,7 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.question_answer),
               title: const Text('FAQ', style: TextStyle(color: Colors.white)),
               onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('FAQ'),
-                        content: const Text('No FAQ Available'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('OK'),
-                          ),
-                        ],
-                      );
-                    });
+                Navigator.pushNamed(context, MyRoutes.faqRoute);
               },
             ),
             ListTile(
@@ -287,22 +283,7 @@ class HomePage extends StatelessWidget {
               title: const Text('Refund & Return',
                   style: TextStyle(color: Colors.white)),
               onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Refund & Return'),
-                        content: const Text('No Refund & Return Available'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('OK'),
-                          ),
-                        ],
-                      );
-                    });
+                Navigator.pushNamed(context, MyRoutes.returnrefundRoute);
               },
             ),
             ListTile(
@@ -542,11 +523,12 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                   ),
-
                   SizedBox(
                     height: 20,
                   ),
+                  //Featured Products
                   SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
@@ -598,6 +580,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: Container(
                       height: 100,
@@ -613,27 +596,27 @@ class HomePage extends StatelessWidget {
                             width: 20,
                           ),
                           _buildBrands("convlogo.png"),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _buildBrands("drmartenslogo.png"),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           _buildBrands("nikelogo.png"),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           _buildBrands("adidaslogo.png"),
-                          SizedBox(
+                          const SizedBox(
                             width: 20,
                           ),
                           _buildBrands("convlogo.png"),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           _buildBrands("drmartenslogo.png"),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                         ],
@@ -642,7 +625,7 @@ class HomePage extends StatelessWidget {
                   ),
                   List.generate(
                       10,
-                      (index) => "Item $index"
+                      (index) => "Product $index"
                           .text
                           .white
                           .make()
@@ -684,8 +667,10 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(
                     height: 20,
-                  ), ////
+                  ),
+                  // New Arrivals
                   SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
