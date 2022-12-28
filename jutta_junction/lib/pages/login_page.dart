@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
         changebutton = true;
       });
     await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.homeRoute);
+    await Navigator.pushNamed(context, MyRoutes.homepageRoute);
     setState(() {
       changebutton = false;
     });

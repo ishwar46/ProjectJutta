@@ -166,7 +166,9 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.chat),
         backgroundColor: Colors.grey,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, MyRoutes.khaltiRoute);
+        },
       ),
       backgroundColor: Colors.white,
       key: _key,
@@ -375,7 +377,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.homeRoute);
+              Navigator.pushNamed(context, MyRoutes.homepageRoute);
             },
           ),
           IconButton(
