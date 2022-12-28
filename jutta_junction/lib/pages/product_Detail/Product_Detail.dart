@@ -15,6 +15,7 @@ class _Product_detailState extends State<Product_detail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset:false,
       
       backgroundColor: Colors.green[200],
       appBar: AppBar(
