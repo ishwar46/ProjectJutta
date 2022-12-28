@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:khalti_flutter/khalti_flutter.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class KhaltiPay extends StatefulWidget {
   const KhaltiPay({super.key});
@@ -14,36 +15,61 @@ class _KhaltiPayState extends State<KhaltiPay> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.white,
         elevation: 0.0,
-        title: const Text('Pay with Khalti'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new)
+              .iconColor(Colors.black)
+              .box
+              .make(),
+          onPressed: () {
+            Navigator.pushNamed(context, "/homepage");
+          },
+        ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            //Image for Khalti
-            GestureDetector(
-              onTap: () {
-                paywithKhaltiApp();
-              }, // Image tapped
-              child: Image.asset(
-                'assets/images/khaltilogo.png',
-                width: 200,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 20,
               ),
-            ),
-          ],
+              const Text(
+                "Pay with Khalti",
+                style: TextStyle(
+                  fontSize: 28,
+                  color: Color.fromARGB(255, 92, 15, 163),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              //Image for Khalti
+              InkWell(
+                splashColor: Colors.purple,
+                onTap: () {
+                  print("Image Tapped");
+                  khaltiWallet();
+                }, // Image tapped
+                child: Image.asset(
+                  'assets/images/khaltilogo.png',
+                  width: 200,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  paywithKhaltiApp() {
+  khaltiWallet() {
     KhaltiScope.of(context).pay(
       config: PaymentConfig(
-          amount: 1000, productIdentity: "Pd id", productName: "productName"),
+          amount: 1000,
+          productIdentity: "1",
+          productName: "nike blazers mid 77"),
       preferences: [PaymentPreference.khalti],
       onSuccess: onSuccess,
       onFailure: onFailure,
