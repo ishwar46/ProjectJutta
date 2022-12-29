@@ -35,7 +35,7 @@ class _KhaltiPayState extends State<KhaltiPay> {
                 height: 20,
               ),
               const Text(
-                "Pay with Khalti",
+                "Payment Methods",
                 style: TextStyle(
                   fontSize: 28,
                   color: Color.fromARGB(255, 92, 15, 163),
@@ -43,19 +43,85 @@ class _KhaltiPayState extends State<KhaltiPay> {
                 ),
               ),
               SizedBox(
-                height: 40,
+                height: 20,
               ),
+              Divider(
+                color: Color.fromARGB(255, 92, 15, 163),
+                height: 20,
+                thickness: 1,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+
               //Image for Khalti
               InkWell(
-                splashColor: Colors.purple,
+                splashColor: Colors.grey,
                 onTap: () {
                   print("Image Tapped");
                   khaltiWallet();
                 }, // Image tapped
                 child: Image.asset(
                   'assets/images/khaltilogo.png',
-                  width: 200,
+                  width: 180,
                 ),
+              ),
+
+              SizedBox(
+                height: 40,
+              ),
+
+              //Cash on Delivery
+              InkWell(
+                splashColor: Colors.grey,
+                onTap: () {
+                  AlertDialog(
+                    title: const Text("Cash on Delivery"),
+                    content: const Text("Payment successful"),
+                    actions: [
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text("OK"))
+                    ],
+                  );
+                },
+                child: Image.asset(
+                  'assets/images/cod.png',
+                  width: 100,
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              InkWell(
+                splashColor: Colors.grey,
+                onTap: () {
+                  AlertDialog(
+                    title: const Text("Cash on Delivery"),
+                    content: const Text("Payment successful"),
+                    actions: [
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text("OK"))
+                    ],
+                  );
+                },
+                child: Image.asset(
+                  'assets/images/visa.png',
+                  width: 150,
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Divider(
+                color: Color.fromARGB(255, 92, 15, 163),
+                height: 20,
+                thickness: 1,
               ),
             ],
           ),
@@ -69,7 +135,8 @@ class _KhaltiPayState extends State<KhaltiPay> {
       config: PaymentConfig(
           amount: 1000,
           productIdentity: "1",
-          productName: "nike blazers mid 77"),
+          productName: "nike blazers mid 77",
+          mobile: "9804704028"),
       preferences: [PaymentPreference.khalti],
       onSuccess: onSuccess,
       onFailure: onFailure,
@@ -135,3 +202,5 @@ class _KhaltiPayState extends State<KhaltiPay> {
         });
   }
 }
+
+//cash on  delivery
