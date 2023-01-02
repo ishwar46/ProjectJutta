@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1021001158847",
-    "project_id": "juttajunction-46a7a",
-    "storage_bucket": "juttajunction-46a7a.appspot.com"
+    "project_number": "253842604169",
+    "project_id": "projectjutta-30ef4",
+    "storage_bucket": "projectjutta-30ef4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1021001158847:android:07b0336d5d4d48070f760a",
+        "mobilesdk_app_id": "1:253842604169:android:5c74e2ad91c31c3dd30658",
         "android_client_info": {
           "package_name": "com.example.jutta_junction"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1021001158847-thjnrkv57afnvuoj5f7471pr550m7svi.apps.googleusercontent.com",
+          "client_id": "253842604169-3i64inrkuok8r41fblv591n08jdsenn9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBF7MQrSkJ_Mkki9Je8GhxYsr75fKaeFDI"
+          "current_key": "AIzaSyAFpI0bhFxM1VmxluvJf3ehs62lKA6dn4E"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1021001158847-thjnrkv57afnvuoj5f7471pr550m7svi.apps.googleusercontent.com",
+              "client_id": "253842604169-3i64inrkuok8r41fblv591n08jdsenn9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
