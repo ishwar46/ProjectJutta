@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jutta_junction/pages/edit_profile.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/themes.dart';
 
@@ -22,6 +23,8 @@ class Myapp extends StatelessWidget {
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
+        "/": (context) => EditProfilePage(),
+        MyRoutes.editprofile: (context) => EditProfilePage(),
       },
     );
   }
@@ -30,4 +33,5 @@ class Myapp extends StatelessWidget {
 class MyRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
+  static String editprofile = "/editprofile";
 }
