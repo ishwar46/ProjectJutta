@@ -116,7 +116,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
     );
   }
 
-//widget here
   Widget buildTextFiled(
       String labelText, String placeholder, bool isPasswordTextField) {
     return Padding(
