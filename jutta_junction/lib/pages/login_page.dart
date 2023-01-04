@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -11,18 +12,49 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController email = new TextEditingController();
+  TextEditingController password = new TextEditingController();
   bool changebutton = false;
+  bool _success = false;
+  String _uid = "";
 
   final _formkey = GlobalKey<FormState>();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  
+
+
+  void _login() async {
+  try {
+    final user = (await _auth.signInWithEmailAndPassword(
+      email: email.text,
+      password: password.text,
+    ))
+        .user;
+    if (user != null) {
+      setState(() {
+        _success = true;
+        _uid = user.uid.toString();
+      });
+    } else {
+      setState(() {
+        _success = true;
+      });
+    }
+  } on FirebaseAuthException catch (err) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(err.message.toString())));
+  }
+}
+
   moveToHome(BuildContext context) async {
     //value != null && value.isEmpty
     //if (value!.isEmpty)
     if (_formkey.currentState!.validate())
       setState(() {
-        changebutton = true;
+        _login();
       });
     await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.homeRoute);
+    await Navigator.pushNamed(context, "/register");
     setState(() {
       changebutton = false;
     });
@@ -66,6 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     children: [
                       TextFormField(
+                        controller: email,
                         // ignore: prefer_const_constructors
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -86,6 +119,9 @@ class _LoginPageState extends State<LoginPage> {
                         height: 20,
                       ),
                       TextFormField(
+                        controller: password,
+
+        
                         obscureText: true,
                         // ignore: prefer_const_constructors
                         decoration: InputDecoration(

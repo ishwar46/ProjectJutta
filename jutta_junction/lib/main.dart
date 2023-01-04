@@ -1,8 +1,13 @@
+
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/onboarding_screen.dart';
 
-void main() {
+Future <void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  
   runApp(const Myapp());
 }
 
@@ -16,7 +21,7 @@ class Myapp extends StatelessWidget {
       themeMode: ThemeMode.system,
       //theme: MyTheme.lightTheme(context),
       //darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/onboarding",
+      initialRoute: "/login",
       debugShowCheckedModeBanner: false,
       //initialRoute: MyRoutes.homeRoute,
       routes: {
