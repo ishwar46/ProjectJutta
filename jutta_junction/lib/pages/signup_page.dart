@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/test/landingpage.dart';
@@ -11,6 +12,39 @@ class RegPage extends StatefulWidget {
 }
 
 class _RegPageState extends State<RegPage> {
+   TextEditingController fullName=new TextEditingController();
+  TextEditingController username=new TextEditingController();
+  TextEditingController password=new TextEditingController();
+  TextEditingController email=new TextEditingController();
+  TextEditingController phonenumber=new TextEditingController();
+  TextEditingController confirmpassword=new TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<void> register() async {
+    try{
+      final user=(await _auth.createUserWithEmailAndPassword(
+          email: email.text,
+          password: password.text
+      )).user;
+
+      if(user!=null){
+        print("User created");
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+                backgroundColor:Colors.green,
+                content: Text("Register success"))
+        );
+        // Navigator.of(context).pushReplacementNamed("/homescreen");
+      }
+    }catch(e){
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+    }
+  }
+
+
+  bool showPassword=false;
   bool changebutton = false;
   final _formkey = GlobalKey<FormState>();
   moveToHome(BuildContext context) async {
@@ -63,11 +97,14 @@ class _RegPageState extends State<RegPage> {
                     height: 20.0,
                   ),
                   Form(
+                    key: _formKey,
                       child: Column(
                     children: [
                       TextFormField(
+                        controller: fullName,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
+
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               width: 3,
@@ -92,6 +129,7 @@ class _RegPageState extends State<RegPage> {
                         height: 20.0,
                       ),
                       TextFormField(
+                        controller: password,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -119,6 +157,7 @@ class _RegPageState extends State<RegPage> {
                         height: 20.0,
                       ),
                       TextFormField(
+                        controller: confirmpassword,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -146,8 +185,11 @@ class _RegPageState extends State<RegPage> {
                         height: 20.0,
                       ),
                       TextFormField(
+                        controller:email ,
                         style: TextStyle(color: Colors.black),
+
                         decoration: InputDecoration(
+                          
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               width: 3,
@@ -174,6 +216,7 @@ class _RegPageState extends State<RegPage> {
                       ),
                       TextFormField(
                         style: TextStyle(color: Colors.black),
+                        controller:phonenumber ,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -200,6 +243,7 @@ class _RegPageState extends State<RegPage> {
                         height: 20.0,
                       ),
                       TextFormField(
+                        controller:username ,
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -230,12 +274,15 @@ class _RegPageState extends State<RegPage> {
                       FloatingActionButton.extended(
                           label: Text('Signup'),
                           backgroundColor: Colors.deepPurple.shade300,
-                          onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => LandingPage(),
-                                ),
-                              )),
+                          onPressed: (){
+                    if(_formKey.currentState!.validate()){
+                    register();
+                  }else{
+                    print("fail");}
+              },
+                  
+                          
+                              ),
                       SizedBox(
                         height: 20.0,
                       ),
