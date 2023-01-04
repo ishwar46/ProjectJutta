@@ -3,11 +3,9 @@ import 'package:jutta_junction/pages/edit_profile.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/themes.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
 
-
-
-Future <void> main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const Myapp());
@@ -27,8 +25,8 @@ class Myapp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //initialRoute: MyRoutes.homeRoute,
       routes: {
-        "/": (context) => LoginPage(),
-        MyRoutes.loginRoute: (context) => LoginPage(),
+        // "/": (context) => LoginPage(),
+        // MyRoutes.loginRoute: (context) => LoginPage(),
         "/": (context) => EditProfilePage(),
         MyRoutes.editprofile: (context) => EditProfilePage(),
       },

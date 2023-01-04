@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "239615320437",
+    "project_id": "ishu-296ba",
+    "storage_bucket": "ishu-296ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239615320437:android:6ea10c117d197c1c08b33c",
+        "android_client_info": {
+          "package_name": "com.example.jutta_junction"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239615320437-oceiav1e24e0kkoctg4t6ce1k4pb2uo4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCus0snLO1d4ChUi5u-fO5N8zo6YArlUM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239615320437-oceiav1e24e0kkoctg4t6ce1k4pb2uo4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
