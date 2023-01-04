@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:jutta_junction/pages/profilesettings.dart';
 
 class SettingsUI extends StatelessWidget {
   @override
@@ -39,7 +40,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
               Icons.settings,
               color: Colors.green,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => SettingPage()));
+            },
           ),
         ],
       ),
