@@ -146,7 +146,7 @@ class _SettingPageState extends State<SettingPage> {
                 content: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Option 1"),
+                    Text("Option 1"), //changes are yet to made here
                     Text("Option 2"),
                     Text("Option 3"),
                   ],
