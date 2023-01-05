@@ -16,7 +16,7 @@ class  _PaymentState extends State<Payment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFF6EA),
+      backgroundColor: Color(0xFF90A4AE),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
@@ -53,43 +53,58 @@ class  _PaymentState extends State<Payment> {
                     const SizedBox(
                       height: 8,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            'Total Amount',
-                            style: TextStyle(color: Color.fromRGBO(
-                                21, 34, 56, 1.0), fontSize: 17),
-                          ),
-                        )
-                      ],
-                    ),
+              //       Row(
+              //         mainAxisAlignment: MainAxisAlignment.start,
+              //         children: [
+              //           TextButton(
+              //             onPressed: () {},
+              //             child: const Text(
+              //               'Total Amount',
+              //               style: TextStyle(color: Color.fromRGBO(
+              //                   21, 34, 56, 1.0), fontSize: 17),
+              //             ),
+              //           )
+              //         ],
+              //       ),
 
 
 
-                    Container(
-                      // margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(157, 200, 224, 1.0),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: TextFormField(
-                        keyboardType: TextInputType.number,
-                        inputFormatters: <TextInputFormatter>[
-                          FilteringTextInputFormatter.digitsOnly
-                        ],
-                        obscureText: false,
-                        decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            // label: Text("Password"),
-                            hintText: "Enter Amount to Pay",
-                            prefixIcon: Icon(Icons.payment)),
-                      ),
-                    ),
+                    // Container(
+                    //   // margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    //   decoration: BoxDecoration(
+                    //     color: Color.fromARGB(255, 230, 244, 252),
+                    //     borderRadius: BorderRadius.circular(30),
+                    //   ),
+                    //   child: TextFormField(
+                    //     keyboardType: TextInputType.number,
+                    //     inputFormatters: <TextInputFormatter>[
+                    //       FilteringTextInputFormatter.digitsOnly
+                    //     ],
+                    //     obscureText: false,
+                    //     decoration: const InputDecoration(
+                    //         border: InputBorder.none,
+                    //         // label: Text("Password"),
+                    //         hintText: "Enter Amount to Pay",
+                    //         prefixIcon: Icon(Icons.payment)),
+                    //   ),
+                    // ),
                   ],
                 ),
+              ),
+              RadioListTile(
+                title: const Text("Cash On Delivery",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+                value: "COD",
+                groupValue: payment,
+                onChanged: (value){
+                  setState(() {
+                    payment = value.toString();
+                  });
+                },
               ),
               RadioListTile(
                 title: const Text("Esewa",
@@ -133,12 +148,12 @@ class  _PaymentState extends State<Payment> {
                     // );
                   },
                   style: ElevatedButton.styleFrom(
-                      primary: const Color.fromRGBO(133, 153, 189, 1.0),
+                      primary: Color.fromARGB(255, 20, 79, 189),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       )),
 
-                  child: const Text("Pay Now",
+                  child: const Text("Pay",
                       style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1.0),
                           fontSize: 17,
                         fontWeight: FontWeight.bold
