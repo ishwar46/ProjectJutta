@@ -25,11 +25,15 @@ class Myapp extends StatelessWidget {
       //theme: MyTheme.lightTheme(context),
       //darkTheme: MyTheme.darkTheme(context),
       initialRoute: "/HomePage",
-      debugShowCheckedModeBanner: false,
+       
+      
+
+      // debugShowCheckedModeBanner: false,
       //initialRoute: MyRoutes.homeRoute,
       routes: {
-        "/": (context) => HomePage(),
-        MyRoutes.homepageRoute: (context) => HomePage(),
+        "/HomePage":(BuildContext context)=>HomePage(),
+        "/Product_detail":(BuildContext context)=>const Product_detail(),
+        // "/task":(BuildContext context) => HomeScreen(),
         // MyRoutes.Product_detailRoute: (context) => const Product_detail(),
       },
     );

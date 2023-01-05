@@ -17,7 +17,7 @@ class _BodyState extends State<Body> {
     Size size = MediaQuery.of(context).size as Size;
 
     return SingleChildScrollView(
-    // resizeToAvoidBottomInset:false,
+      // resizeToAvoidBottomInset:false,
       scrollDirection: Axis.vertical,
       child: Column(
         children: <Widget>[
@@ -86,7 +86,7 @@ class _BodyState extends State<Body> {
           ),
           Container(
             margin: EdgeInsets.only(top: size.height * 0.03),
-            height: size.height * 0.95,
+            height: size.height * 0.7,
 
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 255, 255, 255),
@@ -275,8 +275,6 @@ class _BodyState extends State<Body> {
                   Padding(
                     padding: const EdgeInsets.all(8),
                     child: Container(
-                    
-                     
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
@@ -294,7 +292,6 @@ class _BodyState extends State<Body> {
                                     fontSize: 17, fontWeight: FontWeight.bold),
                               ),
                             ],
-                            
                           ),
                           SingleChildScrollView(
                             child: Padding(
@@ -305,12 +302,12 @@ class _BodyState extends State<Body> {
                                 child: Row(
                                   children: [
                                     Column(
-                                      
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 10),
+                                          padding:
+                                              const EdgeInsets.only(top: 10),
                                           child: Row(
                                             children: <Widget>[
                                               _buildNewArrivals(
@@ -320,7 +317,8 @@ class _BodyState extends State<Body> {
                                               _buildNewArrivals(
                                                   image: "vegan_black.png",
                                                   price: 8000,
-                                                  name: "DR Martens Vegan Black"),
+                                                  name:
+                                                      "DR Martens Vegan Black"),
                                               _buildNewArrivals(
                                                   image: "stan.png",
                                                   price: 9000,
@@ -335,7 +333,6 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                           ),
-                          
                         ],
                       ),
                     ),
