@@ -91,62 +91,62 @@ class  _PaymentState extends State<Payment> {
                   ],
                 ),
               ),
-              // RadioListTile(
-              //   title: const Text("Esewa",
-              //   style: TextStyle(
-              //     fontSize: 20,
-              //     fontWeight: FontWeight.normal,
-              //   ),
-              //   ),
-              //   value: "Esewa",
-              //   groupValue: payment,
-              //   onChanged: (value){
-              //     setState(() {
-              //       payment = value.toString();
-              //     });
-              //   },
-              // ),
-              // RadioListTile(
-              //   title: const Text("Khalti",
-              //     style: TextStyle(
-              //       fontSize: 20,
-              //       fontWeight: FontWeight.normal,
-              //     ),
-              //   ),
-              //   value: "Khalti",
-              //   groupValue: payment,
-              //   onChanged: (value){
-              //     setState(() {
-              //       payment = value.toString();
-              //     });
-              //   },
-              // ),
-              // Container(
-              //   width: 150,
-              //   height: 40,
-              //   child: ElevatedButton(
-              //     onPressed: () {
-              //       // Navigator.of(context).pushReplacement(
-              //       //   MaterialPageRoute(
-              //       //     builder: (BuildContext context) => LoginScreen(),
-              //       //   ),
-              //       // );
-              //     },
-              //     style: ElevatedButton.styleFrom(
-              //         primary: const Color.fromRGBO(133, 153, 189, 1.0),
-              //         shape: RoundedRectangleBorder(
-              //           borderRadius: BorderRadius.circular(30),
-              //         )),
+              RadioListTile(
+                title: const Text("Esewa",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.normal,
+                ),
+                ),
+                value: "Esewa",
+                groupValue: payment,
+                onChanged: (value){
+                  setState(() {
+                    payment = value.toString();
+                  });
+                },
+              ),
+              RadioListTile(
+                title: const Text("Khalti",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+                value: "Khalti",
+                groupValue: payment,
+                onChanged: (value){
+                  setState(() {
+                    payment = value.toString();
+                  });
+                },
+              ),
+              Container(
+                width: 150,
+                height: 40,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Navigator.of(context).pushReplacement(
+                    //   MaterialPageRoute(
+                    //     builder: (BuildContext context) => LoginScreen(),
+                    //   ),
+                    // );
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: const Color.fromRGBO(133, 153, 189, 1.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      )),
 
-              //     child: const Text("Pay Now",
-              //         style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1.0),
-              //             fontSize: 17,
-              //           fontWeight: FontWeight.bold
+                  child: const Text("Pay Now",
+                      style: TextStyle(color: Color.fromRGBO(255, 255, 255, 1.0),
+                          fontSize: 17,
+                        fontWeight: FontWeight.bold
 
-              //         ),
-              //     ),
-              //   ),
-              // ),
+                      ),
+                  ),
+                ),
+              ),
               const SizedBox(
                 height: 10,
               ),
