@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
         _login();
       });
     await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, "/register");
+    await Navigator.pushNamed(context, MyRoutes.homeRoute);
     setState(() {
       changebutton = false;
     });
