@@ -22,9 +22,9 @@ class _CartState extends State<Cart> {
         
       ),
       body: Column(children: [
-        Placeholder().p32().expand(),Divider(),
+         _CartList().p32().expand(),Divider(),
         _CartTotal(),
-        _CartList(),
+       
 
       ]),
 
@@ -39,6 +39,7 @@ class _CartTotal extends StatelessWidget {
     return SizedBox(
       height: 200,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           "\$9000".text.xl5.make(),
           30.widthBox,
@@ -63,6 +64,17 @@ class _CartList extends StatefulWidget {
 class __CartListState extends State<_CartList> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ListView.builder(
+      itemCount: 5,
+      itemBuilder: (context, index) => ListTile(
+        leading: Icon(Icons.done),
+        trailing: IconButton(icon: Icon(Icons.remove_circle_outline),
+         onPressed:(){},),
+          title: "Item 1".text.make(),
+        
+       
+      ),
+     
+    );
   }
 }

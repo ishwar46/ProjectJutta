@@ -1,4 +1,6 @@
+
 {
+
     "products": [{
             "id": 1,
             "name": "It Ends with Us: A Novel",
@@ -63,5 +65,16 @@
             "color": "#7c95eb",
             "image": "https://m.media-amazon.com/images/I/4133xMQHgEL.jpg"
         }
+    ],
+    "new_products":[
+        {
+            "id": 1,
+            "name": "It Ends with Us: A Novel",
+            "description": "by Colleen Hoover ",
+            "price": 19,
+            "color": "#33505a",
+            "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1470427482l/27362503._SY475_.jpg"
+        }
+
     ]
 }

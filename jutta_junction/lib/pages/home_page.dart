@@ -472,7 +472,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.black,
             ),
             onPressed: () {
-              // Navigator.pushNamed(context, MyRoutes.Product_detailRoute);
+              Navigator.pushNamed(context, MyRoutes.CartRoute);
             },
           ),
           IconButton(

@@ -6,6 +6,7 @@ import 'package:jutta_junction/pages/home_page.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/dashboard.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
+import 'package:jutta_junction/pages/product_Detail/cart.dart';
 import 'package:jutta_junction/pages/slider.dart';
 
 void main() {
@@ -33,6 +34,7 @@ class Myapp extends StatelessWidget {
       routes: {
         "/HomePage":(BuildContext context)=>HomePage(),
         "/Product_detail":(BuildContext context)=>const Product_detail(),
+        "/Cart":(BuildContext context)=>const Cart(),
         // "/task":(BuildContext context) => HomeScreen(),
         // MyRoutes.Product_detailRoute: (context) => const Product_detail(),
       },
@@ -45,4 +47,5 @@ class MyRoutes {
   static String homeRoute = "/home";
   static String homepageRoute = "/homepage";
   static String Product_detailRoute="/Product_detail";
+   static String CartRoute="/Cart";
 }
