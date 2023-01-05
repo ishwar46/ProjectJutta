@@ -5,6 +5,7 @@ import 'package:jutta_junction/pages/drawer/return_refund.dart';
 import 'package:jutta_junction/pages/home_page.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/dashboard.dart';
+import 'package:jutta_junction/pages/payment.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 import 'package:jutta_junction/pages/slider.dart';
 
@@ -24,7 +25,7 @@ class Myapp extends StatelessWidget {
 
       //theme: MyTheme.lightTheme(context),
       //darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/HomePage",
+      initialRoute: "/Payment",
        
       
 
@@ -33,6 +34,7 @@ class Myapp extends StatelessWidget {
       routes: {
         "/HomePage":(BuildContext context)=>HomePage(),
         "/Product_detail":(BuildContext context)=>const Product_detail(),
+        "/Payment":(BuildContext context)=>Payment(),
         // "/task":(BuildContext context) => HomeScreen(),
         // MyRoutes.Product_detailRoute: (context) => const Product_detail(),
       },

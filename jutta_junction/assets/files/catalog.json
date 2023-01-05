@@ -1,65 +1,65 @@
 {
     "products": [{
             "id": 1,
-            "name": "It Ends with Us: A Novel",
-            "description": "by Colleen Hoover ",
-            "price": 19,
+            "name": "Black Air Jordan 11 ",
+            "description": "",
+            "price":6800,
             "color": "#33505a",
             "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1470427482l/27362503._SY475_.jpg"
         },
         {
             "id": 2,
-            "name": "Rich Dad Poor Dad",
-            "description": "by Robert T. Kiyosaki",
-            "price": 20,
+            "name": "Air Jordan 13 Retro",
+            "description": "",
+            "price": 6500,
             "color": "#00ac51",
             "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1590522901l/53491356._SY475_.jpg"
         },
         {
             "id": 3,
-            "name": "Bhagavad Gita",
+            "name": "Nike Air Jordar 1",
             "description": "Bhagavad Gita as It is Original in English",
-            "price": 25,
+            "price": 6500,
             "color": "#e0bfae",
             "image": "https://images-na.ssl-images-amazon.com/images/I/518aPMbn8uL._SX292_BO1,204,203,200_.jpg"
         },
         {
             "id": 4,
-            "name": "Steve Jobs: The Exclusive Biography",
+            "name": "Black/White Air Jordan 11",
             "description": "by Walter Isaacson",
-            "price": 22,
+            "price": 6800,
             "color": "#544ee4",
             "image": "https://images-na.ssl-images-amazon.com/images/I/41ZlN7iry-L._SX317_BO1,204,203,200_.jpg"
         },
         {
             "id": 5,
-            "name": "Cristiano Ronaldo: The Biography",
+            "name": "Nike Blazer",
             "description": "by Guillem Balague",
-            "price": 20,
+            "price": 7000,
             "color": "#e3e4e9",
             "image": "https://images-na.ssl-images-amazon.com/images/I/51g64SWvgpL._SX322_BO1,204,203,200_.jpg"
         },
         {
             "id": 6,
-            "name": "Introduction to Algorithms",
+            "name": "YEEZY BOOST 350 ",
             "description": "3rd Edition (The MIT Press)",
-            "price": 79,
+            "price": 5000,
             "color": "#f73984",
             "image": "https://images-na.ssl-images-amazon.com/images/I/41T0iBxY8FL._SX440_BO1,204,203,200_.jpg"
         },
         {
             "id": 7,
-            "name": "Half Girlfriend: Movie Tie-In Edition",
+            "name": "Nike SB Parra Dunk",
             "description": "by Chetan Bhagat",
-            "price": 10,
+            "price": 7000,
             "color": "#1c1c1c",
             "image": "https://images-na.ssl-images-amazon.com/images/I/51AYpGe-UcL._SX325_BO1,204,203,200_.jpg"
         },
         {
             "id": 8,
-            "name": "Tim Cook",
+            "name": " Air Jordan 4",
             "description": "The Genius Who Took Apple to the Next Level",
-            "price": 20,
+            "price": 5800,
             "color": "#7c95eb",
             "image": "https://m.media-amazon.com/images/I/4133xMQHgEL.jpg"
         }
