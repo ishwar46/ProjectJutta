@@ -154,10 +154,11 @@ class _KhaltiPayState extends State<KhaltiPay> {
             content: Text("Payment successful"),
             actions: [
               TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text("OK"))
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("OK"),
+              ),
             ],
           );
         });
@@ -201,6 +202,6 @@ class _KhaltiPayState extends State<KhaltiPay> {
           );
         });
   }
-}
+}                                 
 
 //cash on  delivery
