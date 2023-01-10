@@ -40,10 +40,6 @@ dependencies:
   velocity_x: ^3.4.0
   introduction_screen: ^3.1.1
   http: ^0.13.0
-  intl: ^0.17.0
-  firebase_core: ^2.4.0
-  firebase_auth: ^4.2.0
-  firebase_database: ^10.0.7
 
 dev_dependencies:
   flutter_test:

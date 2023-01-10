@@ -7,7 +7,11 @@ packages:
       name: _flutterfire_internals
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "1.0.12"
+=======
+    version: "1.0.11"
+>>>>>>> 89e92ef0f73e0d9ce078f0995e6d76a09765a130
   async:
     dependency: transitive
     description:
@@ -43,6 +47,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
+  cloud_firestore_platform_interface:
+    dependency: transitive
+    description:
+      name: cloud_firestore_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.10.0"
+  cloud_firestore_web:
+    dependency: transitive
+    description:
+      name: cloud_firestore_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.2.0"
   collection:
     dependency: transitive
     description:
@@ -98,28 +116,44 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "4.2.4"
+=======
+    version: "4.2.3"
+>>>>>>> 89e92ef0f73e0d9ce078f0995e6d76a09765a130
   firebase_auth_platform_interface:
     dependency: transitive
     description:
       name: firebase_auth_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "6.11.7"
+=======
+    version: "6.11.6"
+>>>>>>> 89e92ef0f73e0d9ce078f0995e6d76a09765a130
   firebase_auth_web:
     dependency: transitive
     description:
       name: firebase_auth_web
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "5.2.4"
+=======
+    version: "5.2.3"
+>>>>>>> 89e92ef0f73e0d9ce078f0995e6d76a09765a130
   firebase_core:
     dependency: "direct main"
     description:
       name: firebase_core
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "2.4.1"
+=======
+    version: "2.4.0"
+>>>>>>> 89e92ef0f73e0d9ce078f0995e6d76a09765a130
   firebase_core_platform_interface:
     dependency: transitive
     description:
@@ -133,28 +167,44 @@ packages:
       name: firebase_core_web
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "2.1.0"
+=======
+    version: "2.0.2"
+>>>>>>> 89e92ef0f73e0d9ce078f0995e6d76a09765a130
   firebase_database:
     dependency: "direct main"
     description:
       name: firebase_database
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "10.0.9"
+=======
+    version: "10.0.8"
+>>>>>>> 89e92ef0f73e0d9ce078f0995e6d76a09765a130
   firebase_database_platform_interface:
     dependency: transitive
     description:
       name: firebase_database_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "0.2.2+17"
+=======
+    version: "0.2.2+16"
+>>>>>>> 89e92ef0f73e0d9ce078f0995e6d76a09765a130
   firebase_database_web:
     dependency: transitive
     description:
       name: firebase_database_web
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "0.2.1+19"
+=======
+    version: "0.2.1+18"
+>>>>>>> 89e92ef0f73e0d9ce078f0995e6d76a09765a130
   flutter:
     dependency: "direct main"
     description: flutter

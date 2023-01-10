@@ -2,16 +2,24 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/pages/login_page.dart';
-<<<<<<< HEAD
+
 import 'package:jutta_junction/pages/themes.dart';
-=======
+
 import 'package:jutta_junction/pages/onboarding_screen.dart';
->>>>>>> login
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
+
+
+
+
 
 Future <void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  
+
   runApp(const Myapp());
 }
 
@@ -40,3 +48,4 @@ class MyRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
 }
+
