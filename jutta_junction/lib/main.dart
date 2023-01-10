@@ -1,8 +1,17 @@
+
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/pages/login_page.dart';
+<<<<<<< HEAD
 import 'package:jutta_junction/pages/themes.dart';
+=======
+import 'package:jutta_junction/pages/onboarding_screen.dart';
+>>>>>>> login
 
-void main() {
+Future <void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  
   runApp(const Myapp());
 }
 
@@ -20,8 +29,8 @@ class Myapp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //initialRoute: MyRoutes.homeRoute,
       routes: {
-        "/": (context) => LoginPage(),
-        MyRoutes.loginRoute: (context) => LoginPage(),
+        "/": (context) => Onboarding(),
+        MyRoutes.loginRoute: (context) => Onboarding(),
       },
     );
   }
