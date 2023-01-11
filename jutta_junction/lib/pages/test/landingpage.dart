@@ -1,6 +1,6 @@
 import 'package:jutta_junction/pages/test/qr_page.dart';
-import 'package:searchbar_animation/searchbar_animation.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+// import 'package:searchbar_animation/searchbar_animation.dart';
+// import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -88,28 +88,28 @@ class DashboardPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-        index: 0,
-        height: 50.0,
-        color: Colors.white,
-        backgroundColor: Colors.white,
-        buttonBackgroundColor: Colors.green,
-        animationCurve: Curves.easeInOut,
-        items: <Widget>[
-          Icon(
-            Icons.home,
-          ),
-          Icon(Icons.chat),
-          Icon(Icons.shopping_cart),
-          Icon(
-            Icons.account_box,
-            size: 30,
-          ),
-        ],
-        onTap: (index) {
-          //Handle button tap
-        },
-      ),
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   index: 0,
+      //   height: 50.0,
+      //   color: Colors.white,
+      //   backgroundColor: Colors.white,
+      //   buttonBackgroundColor: Colors.green,
+      //   animationCurve: Curves.easeInOut,
+      //   items: <Widget>[
+      //     Icon(
+      //       Icons.home,
+      //     ),
+      //     Icon(Icons.chat),
+      //     Icon(Icons.shopping_cart),
+      //     Icon(
+      //       Icons.account_box,
+      //       size: 30,
+      //     ),
+      //   ],
+      //   onTap: (index) {
+      //     //Handle button tap
+      //   },
+      // ),
       body: VxSwiper.builder(
         itemCount: 10,
         height: 200,

@@ -15,11 +15,11 @@ class MyTheme {
         appBarTheme: AppBarTheme(
           color: Colors.white,
           elevation: 0.0,
-<<<<<<< HEAD
-          iconTheme: IconThemeData(color: Colors.white),
-=======
+
+          // iconTheme: IconThemeData(color: Colors.white),
+
           iconTheme: IconThemeData(color: Colors.black),
->>>>>>> login
+
           toolbarTextStyle: Theme.of(context).textTheme.bodyText2,
           titleTextStyle: Theme.of(context).textTheme.headline6,
         ),
