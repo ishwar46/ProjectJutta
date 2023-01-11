@@ -126,9 +126,6 @@ class _LoginPageState extends State<LoginPage> {
                         obscureText: true,
                         // ignore: prefer_const_constructors
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
                           hintText: "Enter your Password",
                           labelText: "Password",
                         ),
@@ -147,10 +144,9 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Material(
                         color: Colors.green,
-
-                        borderRadius: BorderRadius.circular(30),
-                        //changebutton ? 50 : 8,
-
+                        borderRadius: BorderRadius.circular(
+                          changebutton ? 50 : 8,
+                        ),
                         child: InkWell(
                           onTap: () => moveToHome(context),
                           child: AnimatedContainer(
@@ -173,36 +169,6 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "don't have an account ? ",
-                            style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 14,
-                                color: Colors.grey),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => const RegPage()));
-                            },
-                            child: Text(
-                              "Sign Up ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                  color: Theme.of(context).primaryColor),
-                            ),
-                          ),
-                        ],
-                      )
                     ],
                   ),
                 ),
