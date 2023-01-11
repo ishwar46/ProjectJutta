@@ -1,16 +1,15 @@
+
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/pages/login_page.dart';
-import 'package:jutta_junction/pages/themes.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:jutta_junction/pages/signup_page.dart';
 
-
-
-Future <void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+void main() {
   runApp(const Myapp());
 }
+
+
 
 class Myapp extends StatelessWidget {
   const Myapp({Key? key}) : super(key: key);
@@ -20,8 +19,8 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
       //home: HomePage(),
       themeMode: ThemeMode.system,
-      theme: MyTheme.lightTheme(context),
-      darkTheme: MyTheme.darkTheme(context),
+      //theme: MyTheme.lightTheme(context),
+      //darkTheme: MyTheme.darkTheme(context),
       initialRoute: "/login",
       debugShowCheckedModeBanner: false,
       //initialRoute: MyRoutes.homeRoute,
@@ -36,4 +35,6 @@ class Myapp extends StatelessWidget {
 class MyRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
+  static String signupRoute = "/signup";
 }
+
