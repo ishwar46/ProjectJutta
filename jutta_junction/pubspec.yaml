@@ -44,12 +44,15 @@ dependencies:
   firebase_auth: ^4.2.0
   flutter_svg: ^1.1.6
   firebase_database: ^10.0.7
-  curved_navigation_bar: ^1.0.3
   motion_tab_bar_v2: ^0.2.6
   searchbar_animation: ^0.0.4
   qr_flutter: ^4.0.0
- 
-
+  pin_code_fields: ^7.4.0
+  curved_navigation_bar: ^1.0.3
+  smooth_page_indicator: ^1.0.0+2
+  flutter_rating_bar: ^4.0.1
+  smooth_star_rating: 1.0.4+2
+  like_button: ^2.0.5
 
 
 dev_dependencies:
@@ -78,6 +81,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svg/
+    # - assets/files/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

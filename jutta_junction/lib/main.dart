@@ -1,7 +1,14 @@
+// import 'package:firebase_core/firebase_core.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:jutta_junction/pages/drawer/faq.dart';
+import 'package:jutta_junction/pages/drawer/return_refund.dart';
+import 'package:jutta_junction/pages/home_page.dart';
 import 'package:jutta_junction/pages/login_page.dart';
+import 'package:jutta_junction/pages/dashboard.dart';
+import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
+
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:jutta_junction/pages/signup_page.dart';
@@ -25,17 +32,19 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
       //home: HomePage(),
       themeMode: ThemeMode.system,
+
       //theme: MyTheme.lightTheme(context),
       //darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/login",
+      initialRoute: "/HomePage",
       debugShowCheckedModeBanner: false,
-      //initialRoute: MyRoutes.homeRoute,
+      // initialRoute: MyRoutes.homeRoute,
       routes: {
 
-        "/": (context) => LoginPage(),
-        MyRoutes.loginRoute: (context) => LoginPage(),
+        "/": (context) => HomePage(),
+        MyRoutes.loginRoute: (context) => HomePage(),
 
         "/register":(BuildContext context) =>RegPage(),
+        // MyRoutes.loginRoute: (context) => HomePage(),
         // "/": (context) => LoginPage(),
         // MyRoutes.loginRoute: (context) => LoginPage(),
 
@@ -49,4 +58,6 @@ class MyRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
   static String signupRoute = "/signup";
+  static String homepageRoute = "/HomePage";
+  static String Product_detailRoute="/Product_detail";
 }

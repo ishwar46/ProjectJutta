@@ -160,13 +160,22 @@ class _LoginPageState extends State<LoginPage> {
                                     color: Colors.white,
                                   )
                                 : const Text(
-                                    "Login",
+                                    "Login",  
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18),
                                   ),
                           ),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, MyRoutes.homepageRoute);
+                        },
+                        child: const Text(
+                          "Create a new account",
+                          style: TextStyle(color: Colors.green),
                         ),
                       ),
                     ],
