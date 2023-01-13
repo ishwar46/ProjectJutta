@@ -89,7 +89,7 @@ class _SettingPageState extends State<SettingPage> {
               height: 10,
             ),
             buildNotificationOptionRow("New for you", true),
-            buildNotificationOptionRow("Account activity", true),
+            buildNotificationOptionRow("Delivery Notification", true),
             buildNotificationOptionRow("Opportunity", false),
             SizedBox(
               height: 50,
