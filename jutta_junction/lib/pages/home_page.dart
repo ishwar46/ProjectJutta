@@ -3,6 +3,7 @@ import 'dart:convert';
 // import 'package:carousel_slider/carousel_controller.dart';
 // import 'package:carousel_slider/carousel_slider.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jutta_junction/main.dart';
@@ -185,25 +186,19 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  //Search Bar Suggestions
-  final List<String> _suggestions = [
-    'Nike',
-    'Adidas',
-    'Puma',
-    'Reebok',
-    'Fila',
-    'New Balance',
-    'Under Armour',
-    'Asics',
-    'Vans',
-  ];
-
   // static List<ProductModel> products_details = [
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
 
   //List<ProductModel> _searchResult = List.from(products_details);
   void updateList(String value) {
     // this is the function that will filter our list
+  }
+
+  //User SignOut
+  void SignUserOut() async {
+    await FirebaseAuth.instance.signOut(
+        //show loading dialog
+        );
   }
 
   @override
@@ -370,10 +365,11 @@ class _HomePageState extends State<HomePage> {
                         content: const Text('Are you sure you want to logout?'),
                         actions: [
                           TextButton(
-                            child: const Text('Yes'),
                             onPressed: () {
-                              Navigator.pushNamed(context, MyRoutes.loginRoute);
+                              SignUserOut();
+                              Navigator.pop(context);
                             },
+                            child: Text("Sign Out"),
                           ),
                           TextButton(
                             child: const Text('No'),
