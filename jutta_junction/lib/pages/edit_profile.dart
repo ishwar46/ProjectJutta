@@ -56,7 +56,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           child: ListView(
             children: [
               Text(
-                "Edit Profile",
+                "User Profile",
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
               ),
               SizedBox(
