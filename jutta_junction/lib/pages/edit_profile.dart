@@ -112,7 +112,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               ),
               buildTextFiled("Full Name", "your name", false),
               buildTextFiled("E- mail", "example@gmail.com", false),
-              buildTextFiled("Password", "********", true),
+              buildTextFiled("Password", "*********", true),
               buildTextFiled("Location", "Ktm, Townplanning", false),
               SizedBox(
                 height: 35,
