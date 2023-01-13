@@ -9,20 +9,15 @@ import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/dashboard.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:jutta_junction/pages/signup_page.dart';
 
-
-
-Future <void> main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
   runApp(const Myapp());
 }
-
-
 
 class Myapp extends StatelessWidget {
   const Myapp({Key? key}) : super(key: key);
@@ -39,16 +34,11 @@ class Myapp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // initialRoute: MyRoutes.homeRoute,
       routes: {
-
         "/": (context) => HomePage(),
-        MyRoutes.loginRoute: (context) => HomePage(),
-
-        "/register":(BuildContext context) =>RegPage(),
-        // MyRoutes.loginRoute: (context) => HomePage(),
-        // "/": (context) => LoginPage(),
-        // MyRoutes.loginRoute: (context) => LoginPage(),
-
-
+        MyRoutes.homepageRoute: (context) => HomePage(),
+        MyRoutes.loginRoute: ((context) => LoginPage()),
+        MyRoutes.homepageRoute: ((context) => HomePage()),
+        MyRoutes.signupRoute: ((context) => RegPage()),
       },
     );
   }
@@ -59,5 +49,5 @@ class MyRoutes {
   static String homeRoute = "/home";
   static String signupRoute = "/signup";
   static String homepageRoute = "/HomePage";
-  static String Product_detailRoute="/Product_detail";
+  static String Product_detailRoute = "/Product_detail";
 }
