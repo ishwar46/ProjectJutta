@@ -1,0 +1,1 @@
+const apiSecretKey="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";
