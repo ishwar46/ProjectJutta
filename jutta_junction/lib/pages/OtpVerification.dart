@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:jutta_junction/customs/custom_icon.dart';
 import 'package:jutta_junction/customs/custom_icons.dart';
-// import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpVerify extends StatefulWidget {
   const OtpVerify({super.key});
@@ -53,30 +54,30 @@ class _OtpVerifyState extends State<OtpVerify> {
               ),
             ),
             SizedBox(height: 30),
-            // PinCodeTextField(
-            //   length: 5,
-            //   obscureText: false,
-            //   appContext: context,
-            //   animationType: AnimationType.fade,
-            //   pinTheme: PinTheme(
-            //     shape: PinCodeFieldShape.box,
-            //     borderRadius: BorderRadius.circular(5),
-            //     fieldHeight: 58,
-            //     fieldWidth: 58,
-            //     activeFillColor: Colors.white,
-            //     activeColor: Colors.red,
-            //     inactiveColor: Colors.white,
-            //     inactiveFillColor: Colors.white,
-            //     selectedColor: Colors.red,
-            //     selectedFillColor: Colors.white,
-            //   ),
-            //   animationDuration: Duration(milliseconds: 300),
-            //   enableActiveFill: true,
-            //   onCompleted: (v) {
-            //     print("Completed");
-            //   },
-            //   onChanged: (value) {},
-            // ),
+            PinCodeTextField(
+              length: 5,
+              obscureText: false,
+              appContext: context,
+              animationType: AnimationType.fade,
+              pinTheme: PinTheme(
+                shape: PinCodeFieldShape.box,
+                borderRadius: BorderRadius.circular(5),
+                fieldHeight: 58,
+                fieldWidth: 58,
+                activeFillColor: Colors.white,
+                activeColor: Colors.red,
+                inactiveColor: Colors.white,
+                inactiveFillColor: Colors.white,
+                selectedColor: Colors.red,
+                selectedFillColor: Colors.white,
+              ),
+              animationDuration: Duration(milliseconds: 300),
+              enableActiveFill: true,
+              onCompleted: (v) {
+                print("Completed");
+              },
+              onChanged: (value) {},
+            ),
           ],
         ),
       ),
