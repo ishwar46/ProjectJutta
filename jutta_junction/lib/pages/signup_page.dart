@@ -12,39 +12,35 @@ class RegPage extends StatefulWidget {
 }
 
 class _RegPageState extends State<RegPage> {
-   TextEditingController fullName=new TextEditingController();
-  TextEditingController username=new TextEditingController();
-  TextEditingController password=new TextEditingController();
-  TextEditingController email=new TextEditingController();
-  TextEditingController phonenumber=new TextEditingController();
-  TextEditingController confirmpassword=new TextEditingController();
+  TextEditingController fullName = new TextEditingController();
+  TextEditingController username = new TextEditingController();
+  TextEditingController password = new TextEditingController();
+  TextEditingController email = new TextEditingController();
+  TextEditingController phonenumber = new TextEditingController();
+  TextEditingController confirmpassword = new TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> register() async {
-    try{
-      final user=(await _auth.createUserWithEmailAndPassword(
-          email: email.text,
-          password: password.text
-      )).user;
+    try {
+      final user = (await _auth.createUserWithEmailAndPassword(
+              email: email.text, password: password.text))
+          .user;
 
-      if(user!=null){
+      if (user != null) {
         print("User created");
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-                backgroundColor:Colors.green,
-                content: Text("Register success"))
-        );
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            backgroundColor: Colors.green, content: Text("Register success")));
         // Navigator.of(context).pushReplacementNamed("/homescreen");
       }
-    }catch(e){
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+    } catch (e) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.toString())));
     }
   }
 
-
-  bool showPassword=false;
+  bool showPassword = false;
   bool changebutton = false;
   final _formkey = GlobalKey<FormState>();
   moveToHome(BuildContext context) async {
@@ -97,229 +93,225 @@ class _RegPageState extends State<RegPage> {
                     height: 20.0,
                   ),
                   Form(
-                    key: _formKey,
+                      key: _formKey,
                       child: Column(
-                    children: [
-                      TextFormField(
-                        controller: fullName,
-                        style: TextStyle(color: Colors.black),
-                        decoration: InputDecoration(
-
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 3,
-                              color: Colors.white54,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          filled: true,
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
-                          labelText: "Full Name",
-                          hintText: "Enter your full name",
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Full Name cannot be empty";
-                          }
-
-                          return null;
-                        },
-                      ),
-                      const SizedBox(
-                        height: 20.0,
-                      ),
-                      TextFormField(
-                        controller: password,
-                        style: TextStyle(color: Colors.black),
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 3,
-                              color: Colors.white54,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          filled: true,
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
-                          labelText: "Password",
-                          hintText: "Enter your password",
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Password cannot be empty";
-                          } else if (value.length < 6) {
-                            return "Password length should be atleast 6 charachter";
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(
-                        height: 20.0,
-                      ),
-                      TextFormField(
-                        controller: confirmpassword,
-                        style: TextStyle(color: Colors.black),
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 3,
-                              color: Colors.white54,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          filled: true,
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
-                          labelText: "Confirm Password",
-                          hintText: "Enter your password",
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Password cannot be empty";
-                          } else if (value.length < 6) {
-                            return "Password length should be atleast 6 charachter";
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      TextFormField(
-                        controller:email ,
-                        style: TextStyle(color: Colors.black),
-
-                        decoration: InputDecoration(
-                          
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 3,
-                              color: Colors.white54,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          filled: true,
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
-                          labelText: "Email",
-                          hintText: "Enter your email address",
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Email cannot be empty";
-                          } else if (!value.contains("@")) {
-                            return "Please enter a valid email address";
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      TextFormField(
-                        style: TextStyle(color: Colors.black),
-                        controller:phonenumber ,
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 3,
-                              color: Colors.white54,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          filled: true,
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
-                          labelText: "Phone Number",
-                          hintText: "Enter your phone number",
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Phone Number cannot be empty";
-                          } else if (value.length < 10) {
-                            return "Please enter a valid phone number";
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      TextFormField(
-                        controller:username ,
-                        style: TextStyle(color: Colors.black),
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 3,
-                              color: Colors.white54,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          filled: true,
-                          fillColor: Color.fromARGB(255, 255, 255, 255),
-                          labelText: "Username",
-                          hintText: "Enter your username",
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Username cannot be empty";
-                          } else if (value.length < 6) {
-                            return "Username length should be atleast 6 charachter";
-                          }
-
-                          return null;
-                        },
-                      ),
-                      SizedBox(
-                        height: 30.0,
-                      ),
-                      FloatingActionButton.extended(
-                          label: Text('Signup'),
-                          backgroundColor: Colors.deepPurple.shade300,
-                          onPressed: (){
-                    if(_formKey.currentState!.validate()){
-                    register();
-                  }else{
-                    print("fail");}
-              },
-                  
-                          
-                              ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            "Already have an account ? ",
-                            style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 14,
-                                color: Colors.white),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => const LoginPage()));
-                            },
-                            child: Text(
-                              "Sign Up ",
-                              style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                                color: Colors.white,
+                          TextFormField(
+                            controller: fullName,
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 3,
+                                  color: Colors.white54,
+                                ),
+                                borderRadius: BorderRadius.circular(10.0),
                               ),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 255, 255, 255),
+                              labelText: "Full Name",
+                              hintText: "Enter your full name",
                             ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Full Name cannot be empty";
+                              }
+
+                              return null;
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20.0,
+                          ),
+                          TextFormField(
+                            controller: password,
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 3,
+                                  color: Colors.white54,
+                                ),
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 255, 255, 255),
+                              labelText: "Password",
+                              hintText: "Enter your password",
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Password cannot be empty";
+                              } else if (value.length < 6) {
+                                return "Password length should be atleast 6 charachter";
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20.0,
+                          ),
+                          TextFormField(
+                            controller: confirmpassword,
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 3,
+                                  color: Colors.white54,
+                                ),
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 255, 255, 255),
+                              labelText: "Confirm Password",
+                              hintText: "Enter your password",
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Password cannot be empty";
+                              } else if (value.length < 6) {
+                                return "Password length should be atleast 6 charachter";
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          TextFormField(
+                            controller: email,
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 3,
+                                  color: Colors.white54,
+                                ),
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 255, 255, 255),
+                              labelText: "Email",
+                              hintText: "Enter your email address",
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Email cannot be empty";
+                              } else if (!value.contains("@")) {
+                                return "Please enter a valid email address";
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          TextFormField(
+                            style: TextStyle(color: Colors.black),
+                            controller: phonenumber,
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 3,
+                                  color: Colors.white54,
+                                ),
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 255, 255, 255),
+                              labelText: "Phone Number",
+                              hintText: "Enter your phone number",
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Phone Number cannot be empty";
+                              } else if (value.length < 10) {
+                                return "Please enter a valid phone number";
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          TextFormField(
+                            controller: username,
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 3,
+                                  color: Colors.white54,
+                                ),
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 255, 255, 255),
+                              labelText: "Username",
+                              hintText: "Enter your username",
+                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Username cannot be empty";
+                              } else if (value.length < 6) {
+                                return "Username length should be atleast 6 charachter";
+                              }
+
+                              return null;
+                            },
+                          ),
+                          SizedBox(
+                            height: 30.0,
+                          ),
+                          FloatingActionButton.extended(
+                            label: Text('Signup'),
+                            backgroundColor: Colors.deepPurple.shade300,
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                register();
+                              } else {
+                                print("fail");
+                              }
+                            },
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Already have an account ? ",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 14,
+                                    color: Colors.white),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => const LoginPage()));
+                                },
+                                child: Text(
+                                  "Signin ",
+                                  style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20.0,
                           ),
                         ],
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                    ],
-                  ))
+                      ))
                 ],
               ),
             ),

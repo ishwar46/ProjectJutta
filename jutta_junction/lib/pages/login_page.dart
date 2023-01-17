@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/main.dart';
+import 'package:jutta_junction/pages/ForgotPassword.dart';
 import 'package:jutta_junction/pages/signup_page.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'dart:ui';
@@ -83,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                   "Welcome",
                   style: TextStyle(
                     fontSize: 28,
-                    color: Colors.green,
+                    color: Colors.purple,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -139,6 +140,36 @@ class _LoginPageState extends State<LoginPage> {
                           return null;
                         },
                       ),
+
+
+                      SizedBox(height:10),
+
+                      Padding(padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context){
+                                    return ForgotPassword();
+                                  }
+                                )
+                              );
+                            },
+                            child:const Text(
+                              'Forgot Password?',
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold,
+                          
+                              ),),
+                          )
+                        ],
+                      )),
+
                       const SizedBox(
                         height: 40.0,
                       ),
@@ -175,7 +206,10 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         child: const Text(
                           "Create a new account",
-                          style: TextStyle(color: Colors.green),
+                          style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold,
+                                ),
                         ),
                       ),
                     ],
