@@ -243,73 +243,12 @@ class _HomePageState extends State<HomePage> {
               title: const Text('My Profile',
                   style: TextStyle(color: Colors.white)),
               onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: const Text('My Profile'),
-                      content: const Text('Under Construction'),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: const Text('Close'),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
+                
+              Navigator.pushNamed(context, "/profilepage");
+
+                         },
             ),
-            ListTile(
-              iconColor: Colors.white,
-              leading: const Icon(Icons.category),
-              title:
-                  const Text('Brands', style: TextStyle(color: Colors.white)),
-              onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Brands'),
-                        content: const Text('Under Construction'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('Close'),
-                          ),
-                        ],
-                      );
-                    });
-              },
-            ),
-            ListTile(
-              iconColor: Colors.white,
-              leading: const Icon(Icons.wallet_giftcard_rounded),
-              title:
-                  const Text('Offers', style: TextStyle(color: Colors.white)),
-              onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Offers'),
-                        content: const Text('No Offers Available'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('OK'),
-                          ),
-                        ],
-                      );
-                    });
-              },
-            ),
+           
             ListTile(
               iconColor: Colors.white,
               leading: const Icon(Icons.question_answer),
