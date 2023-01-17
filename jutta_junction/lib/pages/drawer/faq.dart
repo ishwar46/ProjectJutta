@@ -25,7 +25,7 @@ class _FaqPageState extends State<FaqPage> {
               .box
               .make(),
           onPressed: () {
-            Navigator.pushNamed(context, "/homepage");
+            Navigator.pushNamed(context, "/HomePage");
           },
         ),
       ),

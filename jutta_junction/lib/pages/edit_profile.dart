@@ -32,7 +32,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
             Icons.arrow_back,
             color: Colors.green,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, "/HomePage");
+          },
         ),
         actions: [
           IconButton(
