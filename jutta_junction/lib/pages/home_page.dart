@@ -207,7 +207,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.chat),
         backgroundColor: Colors.grey,
-        onPressed: () {},
+        onPressed: () {Navigator.pushNamed(context, MyRoutes.chatRoute);},
       ),
       backgroundColor: Colors.white,
       key: _key,
@@ -254,7 +254,7 @@ class _HomePageState extends State<HomePage> {
               leading: const Icon(Icons.question_answer),
               title: const Text('FAQ', style: TextStyle(color: Colors.white)),
               onTap: () {
-                //Navigator.pushNamed(context, MyRoutes.faqRoute);
+                Navigator.pushNamed(context, MyRoutes.faqRoute);
               },
             ),
             ListTile(
@@ -263,7 +263,7 @@ class _HomePageState extends State<HomePage> {
               title: const Text('Refund & Return',
                   style: TextStyle(color: Colors.white)),
               onTap: () {
-                //Navigator.pushNamed(context, MyRoutes.returnrefundRoute);
+                Navigator.pushNamed(context, "/returnrefundRoute");
               },
             ),
             ListTile(
@@ -425,7 +425,10 @@ class _HomePageState extends State<HomePage> {
               Icons.qr_code_sharp,
               color: Colors.black,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, MyRoutes.loginRoute);
+
+            },
           ),
         ],
       ),

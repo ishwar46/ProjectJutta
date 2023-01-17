@@ -35,11 +35,16 @@ class _FaqPageState extends State<FaqPage> {
           child: Column(
             children: [
               const Text(
-                "Frequently Asked Questions",
+
+                "FREQUENTLY ASKED QUESTIONS \n \n *Are there any physical store? \n No, We are only based online. \n \n *Are the products geneuine? \n Yes,all the products are geneuine. \n \n *How long does the shipping take? \n It depends on your location.Usually it takes around 4-5 days.",
+
+                
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 18,
                   color: Colors.black,
-                  fontWeight: FontWeight.bold,
+                
+                  fontWeight: FontWeight.bold
+                  
                 ),
               ),
             ],

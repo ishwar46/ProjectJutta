@@ -2,6 +2,7 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:jutta_junction/pages/chatbot/ChatPage.dart';
 import 'package:jutta_junction/pages/drawer/faq.dart';
 import 'package:jutta_junction/pages/drawer/return_refund.dart';
 import 'package:jutta_junction/pages/edit_profile.dart';
@@ -41,6 +42,9 @@ class Myapp extends StatelessWidget {
         MyRoutes.homepageRoute: ((context) => HomePage()),
         MyRoutes.signupRoute: ((context) => RegPage()),
         MyRoutes.profileRoute: ((context) => EditProfilePage()),
+        MyRoutes.chatRoute: ((context) => ChatPage()),
+        MyRoutes.faqRoute: ((context) => FaqPage()),
+        MyRoutes.refundRoute: ((context) => RedturnRefund()),
       },
     );
   }
@@ -53,4 +57,7 @@ class MyRoutes {
   static String homepageRoute = "/HomePage";
   static String Product_detailRoute = "/Product_detail";
   static String profileRoute= "/profilepage";
+  static String chatRoute= "/chatpage";
+  static String faqRoute= "/faqpage";
+  static String refundRoute= "/returnrefundRoute";
 }
