@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
         _login();
       });
     await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.homepageRoute);
+    await Navigator.pushNamed(context, MyRoutes.homeRoute);
     setState(() {
       changebutton = false;
     });
@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                   "Welcome",
                   style: TextStyle(
                     fontSize: 28,
-                    color: Colors.green,
+                    color: Colors.purple,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -202,7 +202,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, MyRoutes.signupRoute);
+                          Navigator.pushNamed(context, MyRoutes.loginRoute);
                         },
                         child: const Text(
                           "Create a new account",
