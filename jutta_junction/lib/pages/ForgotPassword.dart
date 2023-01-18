@@ -4,6 +4,8 @@ import 'package:jutta_junction/pages/onboarding_screen.dart';
 import 'package:jutta_junction/pages/OtpVerification.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 
+import '../customs/custom_icons.dart';
+
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});
 
@@ -11,6 +13,21 @@ class ForgotPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF90A4AE),
+      appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(133, 143, 177, 21),
+        elevation: 0,
+        //   children: [
+        leading: Center(
+          child: Container(
+            child: CustomIcon(
+              icon: Icons.arrow_back,
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
+        ),
+      ),
       body: Form(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30.0),
