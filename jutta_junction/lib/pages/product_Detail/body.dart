@@ -86,7 +86,7 @@ class _BodyState extends State<Body> {
           ),
           Container(
             margin: EdgeInsets.only(top: size.height * 0.03),
-            height: size.height * 0.95,
+            height: size.height * 0.7,
 
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 255, 255, 255),
