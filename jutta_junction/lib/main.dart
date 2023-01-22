@@ -34,7 +34,7 @@ class Myapp extends StatelessWidget {
       routes: {
         "/HomePage":(BuildContext context)=>HomePage(),
         "/Product_detail":(BuildContext context)=>const Product_detail(),
-        "/Cart":(BuildContext context)=>const Cart(),
+        // "/Cart":(BuildContext context)=>const Cart(),
         // "/task":(BuildContext context) => HomeScreen(),
         // MyRoutes.Product_detailRoute: (context) => const Product_detail(),
       },
