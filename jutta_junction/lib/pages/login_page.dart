@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/pages/ForgotPassword.dart';
+import 'package:jutta_junction/pages/home_page.dart';
 import 'package:jutta_junction/pages/signup_page.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'dart:ui';
@@ -179,7 +180,15 @@ class _LoginPageState extends State<LoginPage> {
                           changebutton ? 50 : 8,
                         ),
                         child: InkWell(
-                          onTap: () => moveToHome(context),
+                          onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>
+              HomePage(),
+        ),
+      );
+    },
                           child: AnimatedContainer(
                             duration: Duration(seconds: 1),
                             height: 40,
