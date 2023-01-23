@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, MyRoutes.homepageRoute);
+                          Navigator.pushNamed(context, MyRoutes.NewhomepageRoute);
                         },
                         child: const Text(
                           "Create a new account",
