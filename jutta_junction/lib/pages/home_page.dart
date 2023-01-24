@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 // import 'package:carousel_slider/carousel_controller.dart';
 // import 'package:carousel_slider/carousel_slider.dart';
@@ -6,6 +7,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/models/product_model.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -201,13 +203,77 @@ class _HomePageState extends State<HomePage> {
         );
   }
 
+  //method for notification
+  void showNotification() async {
+    AndroidNotificationDetails androidNotificationDetails =
+        AndroidNotificationDetails(
+      "channelId",
+      "channelName",
+      importance: Importance.max,
+      priority: Priority.max,
+      ticker: "test",
+      enableLights: true,
+      enableVibration: true,
+    );
+
+    //for ios
+    DarwinNotificationDetails darwinNotificationDetails =
+        DarwinNotificationDetails(
+      presentAlert: true,
+      presentBadge: true,
+      presentSound: true,
+    );
+
+    NotificationDetails notificationDetails = NotificationDetails(
+      android: androidNotificationDetails,
+      iOS: darwinNotificationDetails,
+    );
+
+    await flutterLocalNotificationsPlugin.show(
+      0,
+      "Jutta Junction",
+      "Welcome to Jutta Junction",
+      notificationDetails,
+    );
+
+    DateTime time = DateTime.now().add(Duration(seconds: 10));
+    //time based notification
+    await flutterLocalNotificationsPlugin.schedule(
+        0, "New Year Sale", "Nike Blazers Mid 77", time, notificationDetails,
+        payload: "ok");
+  }
+
+  //App launch notification
+  void checkForNotification() async {
+    NotificationAppLaunchDetails? details =
+        await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
+    if (details != null) {
+      if (details.didNotificationLaunchApp) {
+        NotificationResponse? response = details.notificationResponse;
+        if (response != null) {
+          String? payload = response.payload;
+          log("Noitification payload: $payload");
+        }
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkForNotification();
+    showNotification();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.chat),
         backgroundColor: Colors.grey,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, MyRoutes.chatRoute);
+        },
       ),
       backgroundColor: Colors.white,
       key: _key,
@@ -243,71 +309,7 @@ class _HomePageState extends State<HomePage> {
               title: const Text('My Profile',
                   style: TextStyle(color: Colors.white)),
               onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: const Text('My Profile'),
-                      content: const Text('Under Construction'),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: const Text('Close'),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-            ),
-            ListTile(
-              iconColor: Colors.white,
-              leading: const Icon(Icons.category),
-              title:
-                  const Text('Brands', style: TextStyle(color: Colors.white)),
-              onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Brands'),
-                        content: const Text('Under Construction'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('Close'),
-                          ),
-                        ],
-                      );
-                    });
-              },
-            ),
-            ListTile(
-              iconColor: Colors.white,
-              leading: const Icon(Icons.wallet_giftcard_rounded),
-              title:
-                  const Text('Offers', style: TextStyle(color: Colors.white)),
-              onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Offers'),
-                        content: const Text('No Offers Available'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('OK'),
-                          ),
-                        ],
-                      );
-                    });
+                Navigator.pushNamed(context, "/profilepage");
               },
             ),
             ListTile(
@@ -315,7 +317,7 @@ class _HomePageState extends State<HomePage> {
               leading: const Icon(Icons.question_answer),
               title: const Text('FAQ', style: TextStyle(color: Colors.white)),
               onTap: () {
-                //Navigator.pushNamed(context, MyRoutes.faqRoute);
+                Navigator.pushNamed(context, MyRoutes.faqRoute);
               },
             ),
             ListTile(
@@ -324,7 +326,7 @@ class _HomePageState extends State<HomePage> {
               title: const Text('Refund & Return',
                   style: TextStyle(color: Colors.white)),
               onTap: () {
-                //Navigator.pushNamed(context, MyRoutes.returnrefundRoute);
+                Navigator.pushNamed(context, "/returnrefundRoute");
               },
             ),
             ListTile(
@@ -479,14 +481,18 @@ class _HomePageState extends State<HomePage> {
               Icons.notifications_none,
               color: Colors.black,
             ),
-            onPressed: () {},
+            onPressed: () {
+              showNotification();
+            },
           ),
           IconButton(
             icon: Icon(
               Icons.qr_code_sharp,
               color: Colors.black,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, MyRoutes.loginRoute);
+            },
           ),
         ],
       ),
