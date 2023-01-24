@@ -85,6 +85,12 @@ class Myapp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // initialRoute: MyRoutes.homeRoute,
       routes: {
+
+        // "/": (context) => LoginPage(),
+        // MyRoutes.loginRoute: (context) => LoginPage(),
+        "/": (context) => SettingsUI(),
+        MyRoutes.profileRoute: (context) => SettingsUI(),
+
         "/": (context) => HomePage(),
         MyRoutes.homepageRoute: (context) => HomePage(),
         MyRoutes.loginRoute: ((context) => LoginPage()),
@@ -109,10 +115,13 @@ class CategoryViewModel {
 class MyRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
+
+  static String profileRoute = "/profile";
+
   static String signupRoute = "/signup";
   static String homepageRoute = "/HomePage";
   static String Product_detailRoute = "/Product_detail";
-  static String profileRoute = "/profilepage";
+  // static String profileRoute = "/profilepage";
   static String chatRoute = "/chatpage";
   static String faqRoute = "/faqpage";
   static String refundRoute = "/returnrefundRoute";
