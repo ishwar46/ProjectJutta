@@ -443,8 +443,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
-<<<<<<< HEAD
-=======
   json_annotation:
     dependency: transitive
     description:
@@ -452,7 +450,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.7.0"
->>>>>>> 60e6948694cbe0caf0ac291c0c785abc1326d9de
   like_button:
     dependency: "direct main"
     description:
