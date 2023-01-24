@@ -35,8 +35,10 @@ class Myapp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // initialRoute: MyRoutes.homeRoute,
       routes: {
-        "/": (context) => LoginPage(),
-        MyRoutes.loginRoute: (context) => LoginPage(),
+        // "/": (context) => LoginPage(),
+        // MyRoutes.loginRoute: (context) => LoginPage(),
+        "/": (context) => SettingsUI(),
+        MyRoutes.profileRoute: (context) => SettingsUI(),
       },
     );
   }
@@ -45,4 +47,5 @@ class Myapp extends StatelessWidget {
 class MyRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
+  static String profileRoute = "/profile";
 }

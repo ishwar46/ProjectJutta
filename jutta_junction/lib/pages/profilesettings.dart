@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:jutta_junction/pages/login_page.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -96,17 +97,43 @@ class _SettingPageState extends State<SettingPage> {
             ),
             Center(
               child: OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 40),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    "SIGN OUT",
-                    style: TextStyle(
-                        fontSize: 16, letterSpacing: 2.2, color: Colors.black),
-                  )),
+                style: OutlinedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                ),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (ctx) => AlertDialog(
+                      title: const Text("You pressed Logout"),
+                      content: const Text("Are you sure you want to logout?"),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(ctx).pop();
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    LoginPage()));
+                          },
+                          child: Container(
+                            color: Colors.grey,
+                            padding: const EdgeInsets.all(14),
+                            child: const Text("okay"),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                child: const Text("Log Out"),
+              ),
+              // };
+              //       child: Text(
+              //         "SIGN OUT",
+              //         style: TextStyle(
+              //             fontSize: 16, letterSpacing: 2.2, color: Colors.black),
+              //       )),
             )
           ],
         ),
