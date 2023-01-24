@@ -1,8 +1,14 @@
 import 'dart:convert';
 import 'dart:developer';
 
+<<<<<<< HEAD
 // import 'package:carousel_slider/carousel_controller.dart';
 // import 'package:carousel_slider/carousel_slider.dart';
+=======
+
+import 'package:carousel_slider/carousel_controller.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+>>>>>>> qr
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +16,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/models/product_model.dart';
+import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 import 'package:velocity_x/velocity_x.dart';
 //import products.dart';
 import 'package:jutta_junction/models/product_model.dart';
@@ -36,6 +43,7 @@ class _HomePageState extends State<HomePage> {
         width: 150,
         child: Column(
           children: <Widget>[
+<<<<<<< HEAD
             Container(
               height: 120,
               width: 120,
@@ -91,6 +99,75 @@ class _HomePageState extends State<HomePage> {
 
               //   }),
               // ),
+=======
+          
+           
+            InkWell(
+                 onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Product_detail(),
+                              ),
+                            );
+                          },
+              child: Container(
+                height: 120,
+                width: 120,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/$image"),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 90, left: 75),
+                  child: LikeButton(
+                    size: 20,
+                    circleColor: CircleColor(
+                        start: Color(0xff00ddff), end: Color(0xff0099cc)),
+                    bubblesColor: BubblesColor(
+                      dotPrimaryColor: Color(0xff33b5e5),
+                      dotSecondaryColor: Color(0xff0099cc),
+                    ),
+                    likeBuilder: (bool isLiked) {
+                      return Icon(
+                        Icons.favorite,
+                        color: isLiked
+                            ? Color.fromARGB(255, 255, 0, 0)
+                            : Colors.grey,
+                        size: 20,
+                      );
+                    },
+                    //"like count backend code"
+                    likeCount: 69,
+                    //  countBuilder: (int count, bool isLiked, String text) {
+                    //   var color = isLiked ? Colors.deepPurpleAccent : Colors.grey;
+                    //   Widget result;
+                    //   if (count == 0) {
+                    //     result = Text(
+                    //       "love",
+                    //       style: TextStyle(color: color),
+                    //     );
+                    //   } else
+                    //     result = Text(
+                    //       text,
+                    //       style: TextStyle(color: color),
+                    //     );
+                    //   return result;
+                    // },
+                  ),
+                ),
+            
+                // child: new IconButton(
+                // padding: EdgeInsets.only(left: 110, top: 10, bottom:80),
+                //   icon: Icon(Icons.favorite_border),
+            
+                //   onPressed: (() {Icon(Icons.favorite,color: Colors.red,size:30,);
+            
+                //   }),
+                // ),
+              ),
+>>>>>>> qr
             ),
             Text(
               "Rs. $price",
@@ -103,13 +180,19 @@ class _HomePageState extends State<HomePage> {
               name,
               style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
             ),
-            // IconButton(
+           
             //   icon: Icon(Icons.check),
             //   onPressed: (() {}),
             // ),
           ],
+          
         ),
+        
+     
+      
       ),
+     
+         
     );
   }
 
@@ -131,17 +214,30 @@ class _HomePageState extends State<HomePage> {
   Widget _buildNewArrivals(
       {required String name, required double price, required String image}) {
     return Card(
+      
       child: Container(
         height: 200,
         width: 150,
+        
         child: Column(
           children: <Widget>[
-            Container(
-              height: 120,
-              width: 120,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/$image"),
+            
+            InkWell(
+              onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Product_detail(),
+                              ),
+                            );
+                          },
+              child: Container(
+                height: 120,
+                width: 120,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/$image"),
+                  ),
                 ),
               ),
             ),
@@ -437,7 +533,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.black,
             ),
             onPressed: () {
-              //Navigator.pushNamed(context, MyRoutes.cartRoute);
+              // Navigator.pushNamed(context, MyRoutes.Product_detailRoute);
             },
           ),
           IconButton(
@@ -446,7 +542,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.loginRoute);
+              // Navigator.pushNamed(context, MyRoutes.loginRoute);                                 
             },
           ),
         ],

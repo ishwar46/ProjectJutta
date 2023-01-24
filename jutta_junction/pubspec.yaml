@@ -70,7 +70,15 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   smooth_star_rating_null_safety: ^1.0.4+2
   like_button: ^2.0.5
+<<<<<<< HEAD
   
+=======
+  path_provider: ^2.0.11
+  qr_flutter: ^4.0.0
+  flutter_barcode_scanner: ^2.0.0
+
+
+>>>>>>> qr
 
 dev_dependencies:
   flutter_test:
