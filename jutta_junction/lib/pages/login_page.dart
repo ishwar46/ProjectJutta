@@ -4,8 +4,13 @@ import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/pages/ForgotPassword.dart';
 import 'package:jutta_junction/pages/home_page.dart';
 import 'package:jutta_junction/pages/signup_page.dart';
+import 'package:jutta_junction/viewmodels/auth_viewmodel.dart';
+import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'dart:ui';
+
+import '../services/local_notification.dart';
+import '../viewmodels/global_ui_viewmodel.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -21,45 +26,42 @@ class _LoginPageState extends State<LoginPage> {
   bool _success = false;
   String _uid = "";
 
-  final _formkey = GlobalKey<FormState>();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+   bool _obscureTextPassword = true;
 
-  void _login() async {
-    try {
-      final user = (await _auth.signInWithEmailAndPassword(
-        email: email.text,
-        password: password.text,
-      ))
-          .user;
-      if (user != null) {
-        setState(() {
-          _success = true;
-          _uid = user.uid.toString();
-        });
-      } else {
-        setState(() {
-          _success = true;
-        });
-      }
-    } on FirebaseAuthException catch (err) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(err.message.toString())));
+  final _formKey = GlobalKey<FormState>();
+
+  void login() async {
+    if (_formKey.currentState == null || !_formKey.currentState!.validate()) {
+      return;
     }
+    _ui.loadState(true);
+    try {
+      await _authViewModel.login(email.text, password.text).then((value) {
+
+        NotificationService.display(
+          title: "Welcome back",
+          body: "Hello ${_authViewModel.loggedInUser?.fullName},\n Hope you are having a wonderful day.",
+        );
+        Navigator.of(context).pushReplacementNamed('/dashboard');
+      }).catchError((e) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message.toString())));
+      });
+    } catch (err) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(err.toString())));
+    }
+    _ui.loadState(false);
   }
 
-  moveToHome(BuildContext context) async {
-    //value != null && value.isEmpty
-    //if (value!.isEmpty)
-    if (_formkey.currentState!.validate())
-      setState(() {
-        _login();
-      });
-    await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.homeRoute);
-    setState(() {
-      changebutton = false;
-    });
+  late GlobalUIViewModel _ui;
+  late AuthViewModel _authViewModel;
+  @override
+  void initState() {
+    _ui = Provider.of<GlobalUIViewModel>(context, listen: false);
+    _authViewModel = Provider.of<AuthViewModel>(context, listen: false);
+    super.initState();
   }
+
+    
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
         color: context.canvasColor,
         child: SingleChildScrollView(
           child: Form(
-            key: _formkey,
+            key: _formKey,
             child: Column(
               children: [
                 Image.asset(
@@ -100,6 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       TextFormField(
                         controller: email,
+                        validator:ValidateLogin.emailValidate,
                         // ignore: prefer_const_constructors
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -108,19 +111,20 @@ class _LoginPageState extends State<LoginPage> {
                           hintText: " Enter your username",
                           labelText: "Username",
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Username cannot be empty";
-                          }
+                        // validator: (value) {
+                        //   if (value!.isEmpty) {
+                        //     return "Username cannot be empty";
+                        //   }
 
-                          return null;
-                        },
+                        //   return null;
+                        // },
                       ),
                       const SizedBox(
                         height: 20,
                       ),
                       TextFormField(
                         controller: password,
+                        validator: ValidateLogin.password,
 
                         obscureText: true,
                         // ignore: prefer_const_constructors
@@ -130,16 +134,28 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           hintText: "Enter your Password",
                           labelText: "Password",
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Password cannot be empty";
-                          } else if (value.length < 6) {
-                            return "Password length should be atleast 6 charachter";
-                          }
-
-                          return null;
+                          suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _obscureTextPassword = !_obscureTextPassword;
+                          });
                         },
+                        child: Icon(
+                          _obscureTextPassword ? Icons.visibility : Icons.visibility_off,
+                          size: 20.0,
+                          color: Colors.black,
+                        ),
+                      ),
+                        ),
+                        // validator: (value) {
+                        //   if (value!.isEmpty) {
+                        //     return "Password cannot be empty";
+                        //   } else if (value.length < 6) {
+                        //     return "Password length should be atleast 6 charachter";
+                        //   }
+
+                        //   return null;
+                        // },
                       ),
 
 
@@ -231,5 +247,21 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ));
+  }
+}
+class ValidateLogin {
+  static String? emailValidate(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Email is required";
+    }
+
+    return null;
+  }
+
+  static String? password(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Password is required";
+    }
+    return null;
   }
 }

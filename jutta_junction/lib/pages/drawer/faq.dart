@@ -40,22 +40,23 @@ class _FaqPageState extends State<FaqPage> {
                 collapsedIcon: Icon(Icons.add),
                 expandedIcon: Icon(Icons.minimize),
                 title: "Has my ordern been dispatched yet?",
-                content: 'When you place your order we will send you an email confirming that the order has been placed and the items you have ordered.\n \n When your order has been dispatched from our warehouse, we will send you a second email to confirm this.',
+                content:
+                    'When you place your order we will send you an email confirming that the order has been placed and the items you have ordered.\n \n When your order has been dispatched from our warehouse, we will send you a second email to confirm this.',
               ),
               GFAccordion(
                 collapsedIcon: Icon(Icons.add),
                 expandedIcon: Icon(Icons.minimize),
                 title: "How long does the shipping take?",
-                content: ' It depends on your location.Usually it takes around 4-5 days.',
+                content:
+                    ' It depends on your location.Usually it takes around 4-5 days.',
               ),
               GFAccordion(
                 collapsedIcon: Icon(Icons.add),
                 expandedIcon: Icon(Icons.minimize),
                 title: "How do I change the personal details of my account?",
-
-                content: ' You can log in to your account and click on myprofile and then on settings.',
+                content:
+                    ' You can log in to your account and click on myprofile and then on settings.',
               ),
-              
             ],
           ),
         ),

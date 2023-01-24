@@ -78,6 +78,41 @@ class _OtpVerifyState extends State<OtpVerify> {
               },
               onChanged: (value) {},
             ),
+      SizedBox(height:20),
+
+       CustomButton(
+         title: "Verify OTP",
+         onPressed: () {
+          // Navigator.push(
+          //   // /// context,
+          //   // //  MaterialPageRoute(
+          //   // //   //  builder: (context)=>ChangePassword(),
+          //   // //  )
+          //   //  );
+         },
+         ),
+         SizedBox(height:20),
+
+       Container(
+         margin:EdgeInsets.only(left:10),
+         child: RichText(
+                text: TextSpan(
+                  text:"Didn't received any code ?",
+                  style:TextStyle(
+                    fontSize:15,
+                    color:Color.fromARGB(255, 61, 60, 60),
+                  ),
+                  children:[
+                    TextSpan(
+                      text: "Resend code",
+                      style:TextStyle(
+                        color:Colors.red),
+                      ),
+                    
+                  ]
+                )
+                ),
+       ),
           ],
         ),
       ),
