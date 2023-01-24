@@ -1,14 +1,9 @@
 import 'dart:convert';
 import 'dart:developer';
 
-<<<<<<< HEAD
+
 // import 'package:carousel_slider/carousel_controller.dart';
 // import 'package:carousel_slider/carousel_slider.dart';
-=======
-
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:carousel_slider/carousel_slider.dart';
->>>>>>> qr
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -43,63 +38,6 @@ class _HomePageState extends State<HomePage> {
         width: 150,
         child: Column(
           children: <Widget>[
-<<<<<<< HEAD
-            Container(
-              height: 120,
-              width: 120,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/$image"),
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 90, left: 75),
-                child: LikeButton(
-                  size: 20,
-                  circleColor: CircleColor(
-                      start: Color(0xff00ddff), end: Color(0xff0099cc)),
-                  bubblesColor: BubblesColor(
-                    dotPrimaryColor: Color(0xff33b5e5),
-                    dotSecondaryColor: Color(0xff0099cc),
-                  ),
-                  likeBuilder: (bool isLiked) {
-                    return Icon(
-                      Icons.favorite,
-                      color: isLiked
-                          ? Color.fromARGB(255, 255, 0, 0)
-                          : Colors.grey,
-                      size: 20,
-                    );
-                  },
-                  //"like count backend code"
-                  likeCount: 69,
-                  //  countBuilder: (int count, bool isLiked, String text) {
-                  //   var color = isLiked ? Colors.deepPurpleAccent : Colors.grey;
-                  //   Widget result;
-                  //   if (count == 0) {
-                  //     result = Text(
-                  //       "love",
-                  //       style: TextStyle(color: color),
-                  //     );
-                  //   } else
-                  //     result = Text(
-                  //       text,
-                  //       style: TextStyle(color: color),
-                  //     );
-                  //   return result;
-                  // },
-                ),
-              ),
-
-              // child: new IconButton(
-              // padding: EdgeInsets.only(left: 110, top: 10, bottom:80),
-              //   icon: Icon(Icons.favorite_border),
-
-              //   onPressed: (() {Icon(Icons.favorite,color: Colors.red,size:30,);
-
-              //   }),
-              // ),
-=======
           
            
             InkWell(
@@ -167,7 +105,6 @@ class _HomePageState extends State<HomePage> {
                 //   }),
                 // ),
               ),
->>>>>>> qr
             ),
             Text(
               "Rs. $price",

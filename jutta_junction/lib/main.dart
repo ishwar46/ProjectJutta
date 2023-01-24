@@ -8,6 +8,7 @@ import 'package:jutta_junction/pages/drawer/faq.dart';
 import 'package:jutta_junction/pages/drawer/return_refund.dart';
 import 'package:jutta_junction/pages/edit_profile.dart';
 import 'package:jutta_junction/pages/home_page.dart';
+import 'package:jutta_junction/pages/ChangePassword.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/onboarding_screen.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
