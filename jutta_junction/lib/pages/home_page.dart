@@ -180,13 +180,13 @@ class _HomePageState extends State<HomePage> {
       //           ),
       //         ),
       //       ),
-      //       Text(
-      //         "Rs. $price",
-      //         style: TextStyle(
-      //             color: Color(0xff9b96d6),
-      //             fontSize: 12,
-      //             fontWeight: FontWeight.bold),
-      //       ),
+            // Text(
+            //   "Rs. $price",
+            //   style: TextStyle(
+            //       color: Color(0xff9b96d6),
+            //       fontSize: 12,
+            //       fontWeight: FontWeight.bold),
+            // ),
       //       Text(
       //         name,
       //         style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),

@@ -17,70 +17,45 @@ class Product{
     Product(
       id:1,
       title:"Nike",
-      price:4000,
+      price:14000,
       description:"jdhfjahfsdahfuhdfjhadsh",
       image:"assets/images/nike.png",
-      color: Colors.lightBlue,
+      color: Color.fromARGB(255, 239, 146, 146),
 ),
-   Product(
-      id:1,
-      title:"Nike",
-      price:4000,
-      description:"jdhfjahfsdahfuhdfjhadsh",
-      image:"assets/images/nike.png",
-      color: Colors.lightBlue,
-),
-
-   Product(
+       Product(
       id:2,
-      title:"jordan",
-      price:200,
+      title:"Stan",
+      price:5000,
       description:"jdhfjahfsdahfuhdfjhadsh",
-      image:"assets/images/jordan.png",
-      color: Colors.lightBlue,
+      image:"assets/images/stan.png",
+      color: Color.fromARGB(255, 195, 195, 195),
 ),
-   Product(
+    Product(
       id:3,
-      title:"Nike",
-      price:4000,
+      title:"NB550",
+      price:10000,
       description:"jdhfjahfsdahfuhdfjhadsh",
-      image:"assets/images/nike.png",
-      color: Colors.lightBlue,
+      image:"assets/images/nb550.png",
+      color: Color.fromARGB(255, 170, 228, 173),
 ),
-   Product(
+    Product(
       id:4,
-      title:"Nike",
-      price:4000,
+      title:"Vegan Black",
+      price:14000,
       description:"jdhfjahfsdahfuhdfjhadsh",
-      image:"assets/images/nike.png",
-      color: Colors.lightBlue,
+      image:"assets/images/vegan_black.png",
+      color: Color.fromARGB(255, 197, 166, 154),
 ),
-   Product(
+    Product(
       id:5,
       title:"Nike",
-      price:4000,
+      price:12000,
       description:"jdhfjahfsdahfuhdfjhadsh",
-      image:"assets/images/nike.png",
-      color: Colors.lightBlue,
+      image:"assets/images/nikes.png",
+      color: Color.fromARGB(255, 138, 160, 210),
 ),
-   Product(
-      id:6,
-      title:"Nike",
-      price:4000,
-      description:"jdhfjahfsdahfuhdfjhadsh",
-      image:"assets/images/nike.png",
-      color: Colors.lightBlue,
-),
-   Product(
-      id:7,
-      title:"Nike",
-      price:4000,
-      description:"jdhfjahfsdahfuhdfjhadsh",
-      image:"assets/images/nike.png",
-      color: Colors.lightBlue,
-)
+  
   
 
   ];
-
-
+    

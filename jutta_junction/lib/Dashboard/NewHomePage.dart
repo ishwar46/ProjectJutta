@@ -12,6 +12,19 @@ class Newhomepage extends StatefulWidget {
   @override
   State<Newhomepage> createState() => _NewhomepageState();
 }
+  Widget _buildBrands(String image) {
+    return CircleAvatar(
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      maxRadius: 40,
+      child: Container(
+        height: 75,
+        child: Image(
+          image: AssetImage("assets/images/$image"),
+        ),
+      ),
+    );
+  }
+
 
 class _NewhomepageState extends State<Newhomepage> {
     final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
@@ -308,17 +321,193 @@ class _NewhomepageState extends State<Newhomepage> {
           ),
         ],
       ),
-      body:Column(
-        children: [
-          Top(),
+      body:SingleChildScrollView(
        
-        ],
-      )
+                    // width: double.infinity,
+                    //color: Colors.purple,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          TextField(
+                            decoration: InputDecoration(
+                              filled: true,
+                              prefixIcon: Icon(Icons.search),
+                              hintText: "The best shoes for best people.",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none,
+                              ),
+                            ),
+                          ),
+                           Container(
+                            height: 50,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Featured",
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "See all",
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            
+                          ),
+                          Top(),
+                          Container(
+                            height: 50,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Brands",
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "See all",
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            
+                          ),
+                          
+                          SingleChildScrollView(
+                      physics: BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      child: Container(
+                        height: 100,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            _buildBrands("nikelogo.png"),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            _buildBrands("adidaslogo.png"),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            _buildBrands("convlogo.png"),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            _buildBrands("drmartenslogo.png"),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            _buildBrands("nikelogo.png"),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            _buildBrands("adidaslogo.png"),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            _buildBrands("convlogo.png"),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            _buildBrands("drmartenslogo.png"),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                          ],
+                        ),
+                      ),
+                  ),
+                  // List.generate(
+                  //     10,
+                  //     (index) => "Product $index"
+                  //         .text
+                  //         .white
+                  //         .make()
+                  //         .box
+                  //         .rounded
+                  //         .alignCenter
+                  //         .color(Vx.randomOpaqueColor)
+                  //         .make()
+                  //         .p4()).swiper(
+                  //     height: context.isMobile ? 100 : 200,
+                  //     enlargeCenterPage: true,
+                  //     viewportFraction: context.isMobile ? 0.8 : 0.4,
+                  //     autoPlay: true,
+                  //     isFastScrollingEnabled: true,
+                  //     scrollDirection:
+                  //         context.isMobile ? Axis.horizontal : Axis.horizontal),
+                  Container(
+                      height: 50,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "New arrivals",
+                                style: TextStyle(
+                                    fontSize: 17, fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "See all",
+                                style: TextStyle(
+                                    fontSize: 17, fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                  ),
+                  Buttom(),
+                  ],
+                  ),
+                    ),
+                  ),
+                        
+          
+       
+     
       
     );
       // resizeToAvoidBottomInset: false,
   }
   
+}
+class Buttom extends StatelessWidget {
+  const Buttom({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Container(),
+    );
+  }
 }
 class Top extends StatelessWidget {
   const Top({super.key});
@@ -328,29 +517,36 @@ class Top extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
 
-      child: Container(
-        height: 200,
-        child: Column(
-           children: [
+      child: InkWell(
+        child: Container(
+          height: 200,
+          child: Column(
+             children: [
+              Row(
+                children: [
+                  
+                ],
+              ),
+           
+               Expanded(
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                  itemCount: product1.length,
+                  // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  //   crossAxisCount: 2,
+                  //   //height of ticket paper
+                  //   childAspectRatio: 2.2,
+                  // ),
+                  itemBuilder: (context, index) => ItemCart(
+                    product: product1[index],
+                  ),
+                ))
+            
+          ],
+      
+          ),
          
-             Expanded(
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                itemCount: product1.length,
-                // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                //   crossAxisCount: 2,
-                //   //height of ticket paper
-                //   childAspectRatio: 2.2,
-                // ),
-                itemBuilder: (context, index) => ItemCart(
-                  product: product1[index],
-                ),
-              ))
-          
-        ],
-
         ),
-       
       ),
 
     ) ;
