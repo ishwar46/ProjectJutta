@@ -34,7 +34,7 @@ class Myapp extends StatelessWidget {
       //initialRoute: MyRoutes.homeRoute,
       routes: {
         "/Newhomepage":(BuildContext context)=>Newhomepage(),
-        "/Product_detail":(BuildContext context)=> Product_detail(),
+        // "/Product_Detail":(BuildContext context)=>Product_Detail(),
         // "/Cart":(BuildContext context)=>const Cart(),
         // "/task":(BuildContext context) => HomeScreen(),
         // MyRoutes.Product_detailRoute: (context) => const Product_detail(),
@@ -47,6 +47,6 @@ class MyRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
   static String NewhomepageRoute = "/Newhomepage";
-  static String Product_detailRoute="/Product_detail";
+  static String Product_DetailRoute="/Product_Detail";
    static String CartRoute="/Cart";
 }

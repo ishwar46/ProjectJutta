@@ -18,14 +18,14 @@ class Brands extends StatelessWidget {
       child: Column(
         children: <Widget>[
           InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Product_detail(),
-                ),
-              );
-            },
+            // onTap: () {
+            //   Navigator.push(
+            //     context,
+            //     // MaterialPageRoute(
+            //       // builder: (context) => const Product_detail(),
+            //     ),
+            //   );
+            // },
             child: Container(
               height: 120,
               width: 120,

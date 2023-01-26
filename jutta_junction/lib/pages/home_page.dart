@@ -42,14 +42,14 @@ class _HomePageState extends State<HomePage> {
           
            
             InkWell(
-                 onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Product_detail(),
-                              ),
-                            );
-                          },
+                //  onTap: () {
+                //             Navigator.push(
+                //               context,
+                //               MaterialPageRoute(
+                //                 // builder: (context) => const Product_detail(),
+                //               ),
+                //             );
+                //           },
               child: Container(
                 height: 120,
                 width: 120,

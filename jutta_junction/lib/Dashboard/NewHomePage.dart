@@ -3,6 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/Dashboard/ItemCart.dart';
 import 'package:jutta_junction/Dashboard/Product.dart';
+import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 
 import '../main.dart';
 
@@ -483,7 +484,7 @@ class _NewhomepageState extends State<Newhomepage> {
                         ],
                       ),
                   ),
-                  Buttom(),
+                  // Buttom(),
                   ],
                   ),
                     ),
@@ -498,22 +499,24 @@ class _NewhomepageState extends State<Newhomepage> {
   }
   
 }
-class Buttom extends StatelessWidget {
-  const Buttom({super.key});
+// class Buttom extends StatelessWidget {
+//   const Buttom({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Container(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.all(10),
+//       child: Container(),
+//     );
+//   }
+// }
 class Top extends StatelessWidget {
+
   const Top({super.key});
 
   @override
   Widget build(BuildContext context) {
+      
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
 
@@ -538,7 +541,7 @@ class Top extends StatelessWidget {
                   //   childAspectRatio: 2.2,
                   // ),
                   itemBuilder: (context, index) => ItemCart(
-                    product: product1[index],
+                    product: product1[index],press: ()=> Navigator.push(context,MaterialPageRoute(builder:((context) => Product_Detail(product:product1[index])))),
                   ),
                 ))
             

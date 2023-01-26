@@ -9,7 +9,7 @@ class ItemCart extends StatelessWidget {
   // final Function press;
   const ItemCart({
     key,
-    required this.product,
+    required this.product, required Future Function() press,
   }) : super(key: key);
 
   @override
@@ -17,14 +17,14 @@ class ItemCart extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(15),
       child: InkWell(
-        onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Product_detail(),
-                              ),
-                            );
-                          },
+        // onTap: () {
+        //                     Navigator.push(
+        //                       context,
+        //                       MaterialPageRoute(
+        //                         builder: (context) => const Product_detail( ),
+        //                       ),
+        //                     );
+        //                   },
         child: Container(
          
           

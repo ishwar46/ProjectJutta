@@ -4,17 +4,58 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:jutta_junction/models/product_model.dart';
 
-class Body extends StatefulWidget {
-  const Body({super.key});
+import '../../Dashboard/Product.dart';
 
-  @override
-  State<Body> createState() => _BodyState();
-}
 
-class _BodyState extends State<Body> {
+
+  Widget _buildNewArrivals(
+      {required String name, required double price, required String image}) {
+    return Card(
+      child: Container(
+        height: 200,
+        width: 150,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 120,
+              width: 120,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/$image"),
+                ),
+              ),
+            ),
+            Text(
+              "Rs. $price",
+              style: TextStyle(
+                  color: Color(0xff9b96d6),
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              name,
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+            ),
+
+            // IconButton(
+            //   icon: Icon(Icons.check),
+            //   onPressed: (() {}),
+            // ),
+          ],
+        ),
+      ),
+    );
+  }
+
+
+class Body extends StatelessWidget {
+    final Product product;
+  const Body({super.key, required this.product});
+ 
+
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size as Size;
+     Size size = MediaQuery.of(context).size as Size;
 
     return SingleChildScrollView(
       // resizeToAvoidBottomInset:false,
@@ -26,7 +67,7 @@ class _BodyState extends State<Body> {
               Padding(
                 padding: EdgeInsets.only(top: 0),
                 child: Text(
-                  "Nike",
+                  product.title,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -34,14 +75,18 @@ class _BodyState extends State<Body> {
                       color: Colors.black),
                 ),
               ),
-              Padding(
+              Row(children: [
+                  Padding(
                 padding: const EdgeInsets.only(top: 0, bottom: 0),
                 child: Image.asset(
-                  "assets/images/nikes.png",
+                 product.image,
                   height: 200,
                   width: 200,
                 ),
               ),
+
+              ],),
+            
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -111,7 +156,7 @@ class _BodyState extends State<Body> {
                                 color: Colors.black)),
                         Padding(
                           padding: EdgeInsets.only(left: 90),
-                          child: Text("Rs 90000",
+                          child: Text("Rs${product.price}",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
@@ -125,7 +170,7 @@ class _BodyState extends State<Body> {
                       Padding(
                         padding: const EdgeInsets.all(10),
                         child: Text(
-                            "Dunk High Retro sneakersA basketball silhouette, the Nike Dunk Retro is presented in a supportive high-top design here. Contrasting white and black tones create an effortlessly eye-catching look for the pair."),
+                           product.description),
                       ),
                     ],
                   ),
@@ -342,45 +387,6 @@ class _BodyState extends State<Body> {
             ]),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildNewArrivals(
-      {required String name, required double price, required String image}) {
-    return Card(
-      child: Container(
-        height: 200,
-        width: 150,
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 120,
-              width: 120,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/$image"),
-                ),
-              ),
-            ),
-            Text(
-              "Rs. $price",
-              style: TextStyle(
-                  color: Color(0xff9b96d6),
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              name,
-              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-            ),
-
-            // IconButton(
-            //   icon: Icon(Icons.check),
-            //   onPressed: (() {}),
-            // ),
-          ],
-        ),
       ),
     );
   }
