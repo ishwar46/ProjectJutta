@@ -2,8 +2,13 @@ import 'dart:ui';
 // import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:jutta_junction/models/catelog.dart';
 import 'package:jutta_junction/models/product_model.dart';
+import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:flutter/src/material/theme_data.dart';
 
+import '../../Dashboard/ItemCart.dart';
 import '../../Dashboard/Product.dart';
 
 
@@ -49,12 +54,15 @@ import '../../Dashboard/Product.dart';
 
 
 class Body extends StatelessWidget {
+    get index => product2;
     final Product product;
   const Body({super.key, required this.product});
+  // bool isAdded = false;
  
 
   @override
   Widget build(BuildContext context) {
+    bool isAdded = false;
      Size size = MediaQuery.of(context).size as Size;
 
     return SingleChildScrollView(
@@ -307,13 +315,18 @@ class Body extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
                         ElevatedButton(
-                          onPressed: (() {}),
-                          child: Text("Add to cart"),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
-                            elevation: 15,
-                            shadowColor: Colors.black54,
-                          ),
+                          onPressed: (() {
+                            isAdded = isAdded.toggle();
+                            // setState((){});
+                            // final _catalog = CatalogModel();
+                            // final _cart =CartModel();
+                            // Navigator.push(actions,)
+                          }),
+                        // ignore: deprecated_member_use
+                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
+                        
+                        shape: MaterialStateProperty.all(StadiumBorder(),) ),
+                        child: isAdded ? Icon(Icons.done) :"Add to Cart".text.make(),
                         ),
                         ElevatedButton(
                             onPressed: (() {}), child: Text("Buy now"))
@@ -341,46 +354,51 @@ class Body extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SingleChildScrollView(
-                            child: Padding(
-                              padding: const EdgeInsets.all(9),
-                              child: SingleChildScrollView(
-                                physics: BouncingScrollPhysics(),
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 10),
-                                          child: Row(
-                                            children: <Widget>[
-                                              _buildNewArrivals(
-                                                  image: "nb550.png",
-                                                  price: 9000,
-                                                  name: "New Balance 550"),
-                                              _buildNewArrivals(
-                                                  image: "vegan_black.png",
-                                                  price: 8000,
-                                                  name:
-                                                      "DR Martens Vegan Black"),
-                                              _buildNewArrivals(
-                                                  image: "stan.png",
-                                                  price: 9000,
-                                                  name: "Stan Smith"),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
+                          Buttom(press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            Product_Detail(product: product2[index],)))) )
+                          // SingleChildScrollView(
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.all(9),
+                          //     child: SingleChildScrollView(
+                          //       physics: BouncingScrollPhysics(),
+                          //       scrollDirection: Axis.horizontal,
+                          //       child: Row(
+                          //         children: [
+                          //           Column(
+                          //             crossAxisAlignment:
+                          //                 CrossAxisAlignment.start,
+                          //             children: [
+                          //               Padding(
+                          //                 padding:
+                          //                     const EdgeInsets.only(top: 10),
+                          //                 child: Row(
+                          //                   children: <Widget>[
+                          //                     _buildNewArrivals(
+                          //                         image: "nb550.png",
+                          //                         price: 9000,
+                          //                         name: "New Balance 550"),
+                          //                     _buildNewArrivals(
+                          //                         image: "vegan_black.png",
+                          //                         price: 8000,
+                          //                         name:
+                          //                             "DR Martens Vegan Black"),
+                          //                     _buildNewArrivals(
+                          //                         image: "stan.png",
+                          //                         price: 9000,
+                          //                         name: "Stan Smith"),
+                          //                   ],
+                          //                 ),
+                          //               ),
+                          //             ],
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
@@ -391,6 +409,48 @@ class Body extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+class Buttom extends StatelessWidget {
+  final Function press;
+  const Buttom({super.key, required this.press});
+
+  @override
+  Widget build(BuildContext context) {
+    return  SingleChildScrollView(
+      
+      scrollDirection: Axis.vertical,
+      child: Container(
+        height: 200,
+        child: Column(
+          children: [
+            Row(
+              children: [],
+            ),
+            Expanded(
+                child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              itemCount: product2.length,
+              // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //   crossAxisCount: 2,
+              //   //height of ticket paper
+              //   childAspectRatio: 2.2,
+              // ),
+              itemBuilder: (context, index) => ItemCart(
+                product: product2[index],
+                press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            Product_Detail(product: product2[index],)))),
+              ),
+            ))
+          ],
+        ),
+      ),
+    
     );
   }
 }

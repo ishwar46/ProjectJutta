@@ -16,11 +16,11 @@ class Product{
   List<Product> product1=[
     Product(
       id:1,
-      title:"Nike",
+      title:"Jordan",
       price:14000,
       description:"jdhfjahfsdahfuhdfjhadsh",
-      image:"assets/images/nike.png",
-      color: Color.fromARGB(255, 239, 146, 146),
+      image:"assets/images/jordan4.png",
+      color: Color.fromARGB(255, 195, 195, 195),
 ),
        Product(
       id:2,
@@ -58,4 +58,41 @@ class Product{
   
 
   ];
-    
+ List<Product> product2=[
+    Product(
+      id:1,
+      title:"Converse",
+      price:14000,
+      description:"jdhfjahfsdahfuhdfjhadsh",
+      image:"assets/images/converse.png",
+      color: Color.fromARGB(255, 170, 228, 173),
+),
+       Product(
+      id:2,
+      title:"Nike Air",
+      price:5000,
+      description:"jdhfjahfsdahfuhdfjhadsh",
+      image:"assets/images/air.png",
+      color: Color.fromARGB(255, 195, 195, 195),
+),
+    Product(
+      id:3,
+      title:"NB550",
+      price:10000,
+      description:"jdhfjahfsdahfuhdfjhadsh",
+      image:"assets/images/nb550.png",
+      color: Color.fromARGB(255, 170, 228, 173),
+),
+    Product(
+      id:5,
+      title:"Nike",
+      price:12000,
+      description:"jdhfjahfsdahfuhdfjhadsh",
+      image:"assets/images/nikes.png",
+      color: Color.fromARGB(255, 138, 160, 210),
+),
+  
+  
+
+  ];
+        

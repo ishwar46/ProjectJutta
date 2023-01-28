@@ -1,6 +1,7 @@
 // import 'package:flutter/material.dart';
 // import 'package:flutter/src/widgets/container.dart';
 // import 'package:flutter/src/widgets/framework.dart';
+// import 'package:jutta_junction/Dashboard/Product.dart';
 // import 'package:velocity_x/velocity_x.dart';
 
 // class Cart extends StatefulWidget {
@@ -62,7 +63,7 @@
 // }
 
 // class __CartListState extends State<_CartList> {
-//   final _cart =CartModel();
+//   final _cart = CartModel();
 //   @override
 //   Widget build(BuildContext context) {
 //     return ListView.builder(
@@ -71,7 +72,7 @@
 //         leading: Icon(Icons.done),
 //         trailing: IconButton(icon: Icon(Icons.remove_circle_outline),
 //          onPressed:(){},),
-//           title: _cart.items[index].name.text/make(),
+//           title:product1[index].name.text/make(),
         
        
 //       ),

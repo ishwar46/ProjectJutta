@@ -479,6 +479,11 @@ class _NewhomepageState extends State<Newhomepage> {
                   ],
                 ),
               ),
+              Buttom( press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            Product_Detail(product: product2[index],)))))
               // Buttom(),
             ],
           ),
@@ -488,24 +493,14 @@ class _NewhomepageState extends State<Newhomepage> {
     // resizeToAvoidBottomInset: false,
   }
 }
-// class Buttom extends StatelessWidget {
-//   const Buttom({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: const EdgeInsets.all(10),
-//       child: Container(),
-//     );
-//   }
-// }
-class Top extends StatelessWidget {
+class Buttom extends StatelessWidget {
   final Function press;
-  const Top({super.key, required this.press});
+  const Buttom({super.key, required this.press});
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return  SingleChildScrollView(
+      
       scrollDirection: Axis.vertical,
       child: Container(
         height: 200,
@@ -517,6 +512,49 @@ class Top extends StatelessWidget {
             Expanded(
                 child: ListView.builder(
               scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              itemCount: product2.length,
+              // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //   crossAxisCount: 2,
+              //   //height of ticket paper
+              //   childAspectRatio: 2.2,
+              // ),
+              itemBuilder: (context, index) => ItemCart(
+                product: product2[index],
+                press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            Product_Detail(product: product2[index],)))),
+              ),
+            ))
+          ],
+        ),
+      ),
+    
+    );
+  }
+}
+class Top extends StatelessWidget {
+  final Function press;
+  const Top({super.key, required this.press});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+     
+      child: Container(
+        height: 200,
+        child: Column(
+          children: [
+            Row(
+              children: [],
+            ),
+            Expanded(
+                child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+               physics: const BouncingScrollPhysics(),
               itemCount: product1.length,
               // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               //   crossAxisCount: 2,

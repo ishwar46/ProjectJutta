@@ -5,12 +5,14 @@ import 'package:jutta_junction/pages/product_Detail/body.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 import '../../Dashboard/Product.dart';
+import '../../models/catelog.dart';
 class Product_Detail extends StatelessWidget {
   final Product product;
   const Product_Detail({key, required this.product}) :super(key: key);
 
   @override
   Widget build(BuildContext context) {
+     List<Item> _cart = [];
     return  Scaffold(
       resizeToAvoidBottomInset:false,
       

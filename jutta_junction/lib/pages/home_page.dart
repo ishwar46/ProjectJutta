@@ -9,10 +9,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:jutta_junction/Dashboard/ItemCart.dart';
+import 'package:jutta_junction/Dashboard/Product.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/models/product_model.dart';
-import 'package:jutta_junction/pages/Brands.dart';
-import 'package:jutta_junction/pages/product_Detail/Product.dart';
+// import 'package:jutta_junction/pages/Brands.dart';
+// import 'package:jutta_junction/pages/product_Detail/Product.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 import 'package:velocity_x/velocity_x.dart';
 //import products.dart';
@@ -613,25 +615,25 @@ class _HomePageState extends State<HomePage> {
                     height: 20,
                   ),
                   //Featured Products
-                  Row(
-                    children: <Widget>[
-                       SingleChildScrollView(
-                    // physics: BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: <Widget>[
-                              ListView.builder(
-                                  itemCount: product1.length,
-                                  itemBuilder: ((context, index) =>Brands(product: product1[index]))
-                                  )
-                              ],
+                //   Row(
+                //     children: <Widget>[
+                //        SingleChildScrollView(
+                //     // physics: BouncingScrollPhysics(),
+                //     scrollDirection: Axis.horizontal,
+                //     child: Row(
+                //       children: <Widget>[
+                //               ListView.builder(
+                //                   itemCount: product1.length,
+                //                   itemBuilder: ((context, index) =>ItemCart(product: product1[index]))
+                //                   )
+                //               ],
                       
-                    ),
-                  ),
+                //     ),
+                //   ),
 
-                    ],
-                  )
-                 ,
+                //     ],
+                //   )
+                //  ,
                   Container(
                     height: 50,
                     //color: Colors.amber,
