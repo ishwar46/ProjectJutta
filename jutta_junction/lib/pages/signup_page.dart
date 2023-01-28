@@ -3,6 +3,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/test/landingpage.dart';
+import 'package:provider/provider.dart';
+
+import '../models/user_model.dart';
+import '../services/local_notification.dart';
+import '../viewmodels/auth_viewmodel.dart';
+import '../viewmodels/global_ui_viewmodel.dart';
 
 class RegPage extends StatefulWidget {
   const RegPage({super.key});
@@ -18,42 +24,51 @@ class _RegPageState extends State<RegPage> {
   TextEditingController email = new TextEditingController();
   TextEditingController phonenumber = new TextEditingController();
   TextEditingController confirmpassword = new TextEditingController();
+  bool _obscureTextPassword = true;
+  bool _obscureTextPasswordConfirm = true;
+
+  late GlobalUIViewModel _ui;
+  late AuthViewModel _authViewModel;
+
+  @override
+  void initState() {
+    _ui = Provider.of<GlobalUIViewModel>(context, listen: false);
+    _authViewModel = Provider.of<AuthViewModel>(context, listen: false);
+    super.initState();
+  }
+
+
+  void register() async{
+    if(_formKey.currentState == null || !_formKey.currentState!.validate()){
+      return;
+    }
+    _ui.loadState(true);
+    try{
+      await _authViewModel.register(
+          UserModel(
+              email: email.text,
+              password:password.text,
+            phone:phonenumber.text,
+            username: username.text,
+            fullName: fullName.text
+          )).then((value) {
+
+            NotificationService.display(
+              title: "Welcome to this app",
+              body: "Hello ${_authViewModel.loggedInUser?.fullName},\n Thank you for registering in this application.",
+            );
+            Navigator.of(context).pushReplacementNamed("/dashboard");
+      })
+          .catchError((e){
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message.toString())));
+      });
+    }catch(err){
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(err.toString())));
+    }
+    _ui.loadState(false);
+  }
   final _formKey = GlobalKey<FormState>();
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  Future<void> register() async {
-    try {
-      final user = (await _auth.createUserWithEmailAndPassword(
-              email: email.text, password: password.text))
-          .user;
-
-      if (user != null) {
-        print("User created");
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Colors.green, content: Text("Register success")));
-        // Navigator.of(context).pushReplacementNamed("/homescreen");
-      }
-    } catch (e) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(e.toString())));
-    }
-  }
-
-  bool showPassword = false;
-  bool changebutton = false;
-  final _formkey = GlobalKey<FormState>();
-  moveToHome(BuildContext context) async {
-    if (_formkey.currentState!.validate())
-      setState(() {
-        changebutton = true;
-      });
-    await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.homeRoute);
-    setState(() {
-      changebutton = false;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

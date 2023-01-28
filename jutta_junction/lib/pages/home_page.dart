@@ -455,15 +455,15 @@ class _HomePageState extends State<HomePage> {
               Navigator.pushNamed(context, MyRoutes.homeRoute);
             },
           ),
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              //Navigator.pushNamed(context, MyRoutes.searchRoute);
-            },
-          ),
+          // IconButton(
+          //   icon: Icon(
+          //     Icons.search,
+          //     color: Colors.black,
+          //   ),
+          //   onPressed: () {
+          //     //Navigator.pushNamed(context, MyRoutes.searchRoute);
+          //   },
+          // ),
           IconButton(
             icon: Icon(
               Icons.shopping_cart,
@@ -492,7 +492,7 @@ class _HomePageState extends State<HomePage> {
             Image.asset(
               "assets/images/juttanew.png",
               fit: BoxFit.contain,
-              height: 120,
+              height: 150,
             ),
           ],
         ),
@@ -713,6 +713,7 @@ class _HomePageState extends State<HomePage> {
                           .box
                           .rounded
                           .alignCenter
+                          
                           .color(Vx.randomOpaqueColor)
                           .make()
                           .p4()).swiper(
