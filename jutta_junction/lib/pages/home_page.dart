@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
 
-
 // import 'package:carousel_slider/carousel_controller.dart';
 // import 'package:carousel_slider/carousel_slider.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -11,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/models/product_model.dart';
+import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 import 'package:velocity_x/velocity_x.dart';
 //import products.dart';
@@ -38,17 +38,15 @@ class _HomePageState extends State<HomePage> {
         width: 150,
         child: Column(
           children: <Widget>[
-          
-           
             InkWell(
-                 onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Product_detail(),
-                              ),
-                            );
-                          },
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Product_detail(),
+                  ),
+                );
+              },
               child: Container(
                 height: 120,
                 width: 120,
@@ -95,13 +93,13 @@ class _HomePageState extends State<HomePage> {
                     // },
                   ),
                 ),
-            
+
                 // child: new IconButton(
                 // padding: EdgeInsets.only(left: 110, top: 10, bottom:80),
                 //   icon: Icon(Icons.favorite_border),
-            
+
                 //   onPressed: (() {Icon(Icons.favorite,color: Colors.red,size:30,);
-            
+
                 //   }),
                 // ),
               ),
@@ -117,19 +115,13 @@ class _HomePageState extends State<HomePage> {
               name,
               style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
             ),
-           
+
             //   icon: Icon(Icons.check),
             //   onPressed: (() {}),
             // ),
           ],
-          
         ),
-        
-     
-      
       ),
-     
-         
     );
   }
 
@@ -151,23 +143,20 @@ class _HomePageState extends State<HomePage> {
   Widget _buildNewArrivals(
       {required String name, required double price, required String image}) {
     return Card(
-      
       child: Container(
         height: 200,
         width: 150,
-        
         child: Column(
           children: <Widget>[
-            
             InkWell(
               onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Product_detail(),
-                              ),
-                            );
-                          },
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Product_detail(),
+                  ),
+                );
+              },
               child: Container(
                 height: 120,
                 width: 120,
@@ -401,8 +390,10 @@ class _HomePageState extends State<HomePage> {
                         actions: [
                           TextButton(
                             onPressed: () {
-                              SignUserOut();
-                              Navigator.pop(context);
+                              Navigator.of(context).pop();
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      LoginPage()));
                             },
                             child: Text("Sign Out"),
                           ),
@@ -479,7 +470,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.black,
             ),
             onPressed: () {
-              // Navigator.pushNamed(context, MyRoutes.loginRoute);                                 
+              // Navigator.pushNamed(context, MyRoutes.loginRoute);
             },
           ),
         ],
@@ -713,7 +704,6 @@ class _HomePageState extends State<HomePage> {
                           .box
                           .rounded
                           .alignCenter
-                          
                           .color(Vx.randomOpaqueColor)
                           .make()
                           .p4()).swiper(
