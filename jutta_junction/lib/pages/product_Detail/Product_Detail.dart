@@ -4,22 +4,19 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:jutta_junction/pages/product_Detail/body.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-class Product_detail extends StatefulWidget {
-  const Product_detail({super.key});
+import '../../Dashboard/Product.dart';
+class Product_Detail extends StatelessWidget {
+  final Product product;
+  const Product_Detail({super.key, required this.product});
 
-  @override
-  State<Product_detail> createState() => _Product_detailState();
-}
-
-class _Product_detailState extends State<Product_detail> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       resizeToAvoidBottomInset:false,
       
-      backgroundColor: Colors.green[200],
+      backgroundColor: product.color,
       appBar: AppBar(
-        backgroundColor: Colors.green[200],
+        backgroundColor: product.color,
         elevation: 0.0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Color.fromARGB(255, 255, 255, 255)),
@@ -27,7 +24,7 @@ class _Product_detailState extends State<Product_detail> {
         ),
       ),
       
-      body: Body ( 
+      body: Body (product: product, 
        
       ),
       
@@ -47,5 +44,5 @@ class _Product_detailState extends State<Product_detail> {
         },
       ),
     );
-  }
+}
 }
