@@ -12,6 +12,12 @@ import 'package:jutta_junction/pages/ChangePassword.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/onboarding_screen.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
+import 'package:jutta_junction/pages/signup_page.dart';
+import 'package:jutta_junction/services/local_notification.dart';
+import 'package:jutta_junction/viewmodels/auth_viewmodel.dart';
+import 'package:jutta_junction/viewmodels/global_ui_viewmodel.dart';
+import 'package:loader_overlay/loader_overlay.dart';
+import 'package:provider/provider.dart';
 
 
 
