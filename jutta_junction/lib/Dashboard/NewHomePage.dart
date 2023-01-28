@@ -1,4 +1,3 @@
-
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/Dashboard/ItemCart.dart';
@@ -13,26 +12,27 @@ class Newhomepage extends StatefulWidget {
   @override
   State<Newhomepage> createState() => _NewhomepageState();
 }
-  Widget _buildBrands(String image) {
-    return CircleAvatar(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
-      maxRadius: 40,
-      child: Container(
-        height: 75,
-        child: Image(
-          image: AssetImage("assets/images/$image"),
-        ),
-      ),
-    );
-  }
 
+Widget _buildBrands(String image) {
+  return CircleAvatar(
+    backgroundColor: Color.fromARGB(255, 255, 255, 255),
+    maxRadius: 40,
+    child: Container(
+      height: 75,
+      child: Image(
+        image: AssetImage("assets/images/$image"),
+      ),
+    ),
+  );
+}
 
 class _NewhomepageState extends State<Newhomepage> {
-    final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
-    //collecting data from fire base
-    // final CollectionRefrence _items=
-    // FirebaseFirestore.instance.collection('items');
-
+  final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
+  
+  get index => product1;
+  //collecting data from fire base
+  // final CollectionRefrence _items=
+  // FirebaseFirestore.instance.collection('items');
 
   @override
   Widget build(BuildContext context) {
@@ -249,7 +249,7 @@ class _NewhomepageState extends State<Newhomepage> {
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.NewhomepageRoute);
+              Navigator.pushNamed(context, MyRoutes.NewHomePageRoute);
             },
           ),
           IconButton(
@@ -276,7 +276,7 @@ class _NewhomepageState extends State<Newhomepage> {
               color: Colors.black,
             ),
             onPressed: () {
-              // Navigator.pushNamed(context, MyRoutes.loginRoute);                                 
+              // Navigator.pushNamed(context, MyRoutes.loginRoute);
             },
           ),
         ],
@@ -322,182 +322,171 @@ class _NewhomepageState extends State<Newhomepage> {
           ),
         ],
       ),
-      body:SingleChildScrollView(
-       
-                    // width: double.infinity,
-                    //color: Colors.purple,
-                    child: Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          TextField(
-                            decoration: InputDecoration(
-                              filled: true,
-                              prefixIcon: Icon(Icons.search),
-                              hintText: "The best shoes for best people.",
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide.none,
-                              ),
-                            ),
-                          ),
-                           Container(
-                            height: 50,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "Featured",
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      "See all",
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            
-                          ),
-                          Top(),
-                          Container(
-                            height: 50,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "Brands",
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      "See all",
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            
-                          ),
-                          
-                          SingleChildScrollView(
-                      physics: BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      child: Container(
-                        height: 100,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            _buildBrands("nikelogo.png"),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            _buildBrands("adidaslogo.png"),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            _buildBrands("convlogo.png"),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            _buildBrands("drmartenslogo.png"),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            _buildBrands("nikelogo.png"),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            _buildBrands("adidaslogo.png"),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            _buildBrands("convlogo.png"),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            _buildBrands("drmartenslogo.png"),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                          ],
+      body: SingleChildScrollView(
+        // width: double.infinity,
+        //color: Colors.purple,
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextField(
+                decoration: InputDecoration(
+                  filled: true,
+                  prefixIcon: Icon(Icons.search),
+                  hintText: "The best shoes for best people.",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+              Container(
+                height: 50,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Featured",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
                         ),
-                      ),
-                  ),
-                  // List.generate(
-                  //     10,
-                  //     (index) => "Product $index"
-                  //         .text
-                  //         .white
-                  //         .make()
-                  //         .box
-                  //         .rounded
-                  //         .alignCenter
-                  //         .color(Vx.randomOpaqueColor)
-                  //         .make()
-                  //         .p4()).swiper(
-                  //     height: context.isMobile ? 100 : 200,
-                  //     enlargeCenterPage: true,
-                  //     viewportFraction: context.isMobile ? 0.8 : 0.4,
-                  //     autoPlay: true,
-                  //     isFastScrollingEnabled: true,
-                  //     scrollDirection:
-                  //         context.isMobile ? Axis.horizontal : Axis.horizontal),
-                  Container(
-                      height: 50,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "New arrivals",
-                                style: TextStyle(
-                                    fontSize: 17, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                "See all",
-                                style: TextStyle(
-                                    fontSize: 17, fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                  ),
-                  // Buttom(),
-                  ],
-                  ),
+                        Text(
+                          "See all",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
+                  ],
+                ),
+              ),
+              Top( press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            Product_Detail(product: product1[index],))))),
+              Container(
+                height: 50,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Brands",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "See all",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                child: Container(
+                  height: 100,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      _buildBrands("nikelogo.png"),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      _buildBrands("adidaslogo.png"),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      _buildBrands("convlogo.png"),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      _buildBrands("drmartenslogo.png"),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      _buildBrands("nikelogo.png"),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      _buildBrands("adidaslogo.png"),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      _buildBrands("convlogo.png"),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      _buildBrands("drmartenslogo.png"),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                    ],
                   ),
-                        
-          
-       
-     
-      
+                ),
+              ),
+              // List.generate(
+              //     10,
+              //     (index) => "Product $index"
+              //         .text
+              //         .white
+              //         .make()
+              //         .box
+              //         .rounded
+              //         .alignCenter
+              //         .color(Vx.randomOpaqueColor)
+              //         .make()
+              //         .p4()).swiper(
+              //     height: context.isMobile ? 100 : 200,
+              //     enlargeCenterPage: true,
+              //     viewportFraction: context.isMobile ? 0.8 : 0.4,
+              //     autoPlay: true,
+              //     isFastScrollingEnabled: true,
+              //     scrollDirection:
+              //         context.isMobile ? Axis.horizontal : Axis.horizontal),
+              Container(
+                height: 50,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "New arrivals",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "See all",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              // Buttom(),
+            ],
+          ),
+        ),
+      ),
     );
-      // resizeToAvoidBottomInset: false,
+    // resizeToAvoidBottomInset: false,
   }
-  
 }
 // class Buttom extends StatelessWidget {
 //   const Buttom({super.key});
@@ -511,74 +500,67 @@ class _NewhomepageState extends State<Newhomepage> {
 //   }
 // }
 class Top extends StatelessWidget {
-
-  const Top({super.key});
+  final Function press;
+  const Top({super.key, required this.press});
 
   @override
   Widget build(BuildContext context) {
-      
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
-
-      child: InkWell(
-        child: Container(
-          height: 200,
-          child: Column(
-             children: [
-              Row(
-                children: [
-                  
-                ],
+      child: Container(
+        height: 200,
+        child: Column(
+          children: [
+            Row(
+              children: [],
+            ),
+            Expanded(
+                child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: product1.length,
+              // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //   crossAxisCount: 2,
+              //   //height of ticket paper
+              //   childAspectRatio: 2.2,
+              // ),
+              itemBuilder: (context, index) => ItemCart(
+                product: product1[index],
+                press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            Product_Detail(product: product1[index],)))),
               ),
-           
-               Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                  itemCount: product1.length,
-                  // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  //   crossAxisCount: 2,
-                  //   //height of ticket paper
-                  //   childAspectRatio: 2.2,
-                  // ),
-                  itemBuilder: (context, index) => ItemCart(
-                    product: product1[index],press: ()=> Navigator.push(context,MaterialPageRoute(builder:((context) => Product_Detail(product:product1[index])))),
-                  ),
-                ))
-            
+            ))
           ],
-      
-          ),
-         
         ),
       ),
+    );
+    // body: StreamBuilder(
+    //   stream: _items.snapshot(),
+    //   builder: (context, AsyncSnapshot<QuerySnapshot>streamSnapshot) {
+    //     if (streamSnapshot.hasData){
+    //       return ListView.builder(
+    //         itemCount: streamSnapshot.data!.dos.length,
+    //         itemBuilder:((context, index) {
+    //           final DocumentSnapshot documentSnapshot=streamSnapshot.data!.docs[index];
+    //           return Card(
+    //             child: Container(
+    //               child: Row(
+    //                 children: [
+    //                   Text(documentSnapshot['name']),
+    //                   Text(documentSnapshot['price'.toString()])
+    //                 ],
+    //               ),
+    //              ),
 
-    ) ;
-      // body: StreamBuilder(
-      //   stream: _items.snapshot(),
-      //   builder: (context, AsyncSnapshot<QuerySnapshot>streamSnapshot) {
-      //     if (streamSnapshot.hasData){
-      //       return ListView.builder(
-      //         itemCount: streamSnapshot.data!.dos.length,
-      //         itemBuilder:((context, index) {
-      //           final DocumentSnapshot documentSnapshot=streamSnapshot.data!.docs[index];
-      //           return Card(
-      //             child: Container(
-      //               child: Row(
-      //                 children: [
-      //                   Text(documentSnapshot['name']),
-      //                   Text(documentSnapshot['price'.toString()])
-      //                 ],
-      //               ),
-      //              ),
+    //           ),
 
-      //           ),
-                
-      //         }));
-      //     }
-      //     return const Center(
-      //       child: CircularProgressIndicator(),
-      //     );
-      //   }),
-    
+    //         }));
+    //     }
+    //     return const Center(
+    //       child: CircularProgressIndicator(),
+    //     );
+    //   }),
   }
 }

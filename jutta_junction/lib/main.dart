@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:jutta_junction/Dashboard/NewHomePage.dart';
 import 'package:jutta_junction/pages/chatbot/ChatPage.dart';
 import 'package:jutta_junction/pages/drawer/faq.dart';
 import 'package:jutta_junction/pages/drawer/return_refund.dart';
@@ -82,18 +83,19 @@ class Myapp extends StatelessWidget {
 
       //theme: MyTheme.lightTheme(context),
       //darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/onboardingRoute",
+      initialRoute: "/NewHomePage",
       debugShowCheckedModeBanner: false,
       // initialRoute: MyRoutes.homeRoute,
       routes: {
 
-        // "/": (context) => LoginPage(),
-        // MyRoutes.loginRoute: (context) => LoginPage(),
-        "/": (context) => SettingsUI(),
-        MyRoutes.profileRoute: (context) => SettingsUI(),
+        "/": (context) => Newhomepage(),
+        MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
+        MyRoutes.loginRoute: ((context) => Card()),
+        // "/": (context) => SettingsUI(),
+        // MyRoutes.profileRoute: (context) => SettingsUI(),
 
-        "/": (context) => HomePage(),
-        MyRoutes.homepageRoute: (context) => HomePage(),
+        // "/": (context) => HomePage(),
+        // MyRoutes.homepageRoute: (context) => HomePage(),
         MyRoutes.loginRoute: ((context) => LoginPage()),
         MyRoutes.homepageRoute: ((context) => HomePage()),
         MyRoutes.signupRoute: ((context) => RegPage()),
@@ -114,6 +116,7 @@ class CategoryViewModel {
 }
 
 class MyRoutes {
+   static String NewHomePageRoute = "/NewHomePage";
   static String loginRoute = "/login";
   static String homeRoute = "/home";
 

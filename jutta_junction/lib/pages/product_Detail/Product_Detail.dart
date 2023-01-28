@@ -7,7 +7,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import '../../Dashboard/Product.dart';
 class Product_Detail extends StatelessWidget {
   final Product product;
-  const Product_Detail({super.key, required this.product});
+  const Product_Detail({key, required this.product}) :super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -75,15 +75,18 @@ class Body extends StatelessWidget {
                       color: Colors.black),
                 ),
               ),
-              Row(children: [
-                  Padding(
-                padding: const EdgeInsets.only(top: 0, bottom: 0),
-                child: Image.asset(
+              
+              Column(children: [
+               
+              
+                  
+                 Image.asset(
                  product.image,
                   height: 200,
                   width: 200,
+                  
                 ),
-              ),
+              
 
               ],),
             
