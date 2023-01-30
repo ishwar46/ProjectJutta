@@ -102,6 +102,8 @@ class Myapp extends StatelessWidget {
         MyRoutes.faqRoute: ((context) => FaqPage()),
         MyRoutes.refundRoute: ((context) => RedturnRefund()),
         MyRoutes.onboardingRoute: ((context) => Onboarding()),
+                MyRoutes.changepassRoute: ((context) => ChangePassword()),
+
       },
     );
   }
@@ -126,6 +128,8 @@ class MyRoutes {
   static String chatRoute = "/chatpage";
   static String faqRoute = "/faqpage";
   static String refundRoute = "/returnrefundRoute";
-  static String onboardingRoute= "/onboardingRoute";
+  static String onboardingRoute= "/onboardingRoute";  
+  static String changepassRoute= "/changepassRoute";
+
 
 }

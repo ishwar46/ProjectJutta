@@ -2,6 +2,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter/material.dart';
+import 'package:jutta_junction/customs/custom_icons.dart';
 import 'package:jutta_junction/pages/qr/generateqr.dart';
 import 'package:jutta_junction/pages/qr/scanqr.dart';
 
@@ -17,6 +18,10 @@ class _qrhomepageState extends State<qrhomepage> {
 @override
 Widget build(BuildContext context) {
 	return Scaffold(
+	//Appbar having title
+	appBar: AppBar(
+		title: Center(child: Text("QR Code")),
+	),
 	
 	body: Container(
 		width: 500,
