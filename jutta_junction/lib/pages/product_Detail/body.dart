@@ -322,7 +322,7 @@ class Body extends StatelessWidget {
                             // final _cart =CartModel();
                             // Navigator.push(actions,)
                           }),
-                        // ignore: deprecated_member_use
+                    
                         style: ButtonStyle(backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
                         
                         shape: MaterialStateProperty.all(StadiumBorder(),) ),
