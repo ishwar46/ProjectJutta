@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:jutta_junction/Dashboard/NewHomePage.dart';
 import 'package:jutta_junction/pages/chatbot/ChatPage.dart';
 import 'package:jutta_junction/pages/drawer/faq.dart';
 import 'package:jutta_junction/pages/drawer/return_refund.dart';
@@ -12,14 +13,14 @@ import 'package:jutta_junction/pages/ChangePassword.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/onboarding_screen.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
-
-import 'package:firebase_core/firebase_core.dart';
 import 'package:jutta_junction/pages/signup_page.dart';
 import 'package:jutta_junction/services/local_notification.dart';
 import 'package:jutta_junction/viewmodels/auth_viewmodel.dart';
 import 'package:jutta_junction/viewmodels/global_ui_viewmodel.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:provider/provider.dart';
+
+
 
 //Global variable for the notification plugin
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -82,18 +83,19 @@ class Myapp extends StatelessWidget {
 
       //theme: MyTheme.lightTheme(context),
       //darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/onboardingRoute",
+      initialRoute: "/NewHomePage",
       debugShowCheckedModeBanner: false,
       // initialRoute: MyRoutes.homeRoute,
       routes: {
 
-        // "/": (context) => LoginPage(),
-        // MyRoutes.loginRoute: (context) => LoginPage(),
-        "/": (context) => SettingsUI(),
-        MyRoutes.profileRoute: (context) => SettingsUI(),
+        "/": (context) => Newhomepage(),
+        MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
+        MyRoutes.loginRoute: ((context) => Card()),
+        // "/": (context) => SettingsUI(),
+        // MyRoutes.profileRoute: (context) => SettingsUI(),
 
-        "/": (context) => HomePage(),
-        MyRoutes.homepageRoute: (context) => HomePage(),
+        // "/": (context) => HomePage(),
+        // MyRoutes.homepageRoute: (context) => HomePage(),
         MyRoutes.loginRoute: ((context) => LoginPage()),
         MyRoutes.homepageRoute: ((context) => HomePage()),
         MyRoutes.signupRoute: ((context) => RegPage()),
@@ -116,6 +118,7 @@ class CategoryViewModel {
 }
 
 class MyRoutes {
+   static String NewHomePageRoute = "/NewHomePage";
   static String loginRoute = "/login";
   static String homeRoute = "/home";
 
