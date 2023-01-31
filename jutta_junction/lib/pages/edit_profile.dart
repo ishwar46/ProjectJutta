@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:jutta_junction/pages/home_page.dart';
 import 'package:jutta_junction/pages/profilesettings.dart';
 
 import '../main.dart';
@@ -169,7 +170,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+               Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        HomePage(),
+                                  ),
+                                );
+            },
                     child: Text("Cancel",
                         style: TextStyle(
                             fontSize: 14,
