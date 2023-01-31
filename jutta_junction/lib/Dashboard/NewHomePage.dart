@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:jutta_junction/Dashboard/ItemCart.dart';
@@ -33,7 +34,8 @@ Widget _buildBrands(String image) {
 
 class _NewhomepageState extends State<Newhomepage> {
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
-    void updateList(String value) {
+  
+  void updateList(String value) {
     // this is the function that will filter our list
   }
 
@@ -106,11 +108,12 @@ class _NewhomepageState extends State<Newhomepage> {
     showNotification();
   }
 
-  
   get index => product1;
   //collecting data from fire base
   // final CollectionRefrence _items=
   // FirebaseFirestore.instance.collection('items');
+  get _handleNavigationChange => null;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -275,7 +278,7 @@ class _NewhomepageState extends State<Newhomepage> {
                         title: const Text('Logout'),
                         content: const Text('Are you sure you want to logout?'),
                         actions: [
-                           TextButton(
+                          TextButton(
                             onPressed: () {
                               SignUserOut();
                               Navigator.pop(context);
@@ -288,7 +291,6 @@ class _NewhomepageState extends State<Newhomepage> {
                               Navigator.pop(context);
                             },
                           ),
-                        
                         ],
                       );
                     });
@@ -317,7 +319,7 @@ class _NewhomepageState extends State<Newhomepage> {
           ],
         ),
       ),
-      bottomNavigationBar: CurvedNavigationBar(
+            bottomNavigationBar: CurvedNavigationBar(
         height: 60,
         backgroundColor: Color.fromARGB(255, 2, 5, 8),
         color: Color.fromARGB(255, 255, 255, 255),
@@ -332,22 +334,14 @@ class _NewhomepageState extends State<Newhomepage> {
               Navigator.pushNamed(context, MyRoutes.NewHomePageRoute);
             },
           ),
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              //Navigator.pushNamed(context, MyRoutes.searchRoute);
-            },
-          ),
+    
           IconButton(
             icon: Icon(
               Icons.shopping_cart,
               color: Colors.black,
             ),
             onPressed: () {
-              // Navigator.pushNamed(context, MyRoutes.CartRoute);
+              Navigator.pushNamed(context, MyRoutes.CartRoute);
             },
           ),
           IconButton(
@@ -356,11 +350,15 @@ class _NewhomepageState extends State<Newhomepage> {
               color: Colors.black,
             ),
             onPressed: () {
-              // Navigator.pushNamed(context, MyRoutes.loginRoute);
+              Navigator.pushNamed(context, MyRoutes.profileRoute);                                 
             },
           ),
         ],
       ),
+      //Ap
+
+          
+
       //App Bar
       appBar: AppBar(
         title: Row(
@@ -448,11 +446,13 @@ class _NewhomepageState extends State<Newhomepage> {
                   ],
                 ),
               ),
-              Top( press: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) =>
-                            Product_Detail(product: product1[index],))))),
+              Top(
+                  press: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => Product_Detail(
+                                product: product1[index],
+                              ))))),
               Container(
                 height: 50,
                 child: Column(
@@ -521,6 +521,7 @@ class _NewhomepageState extends State<Newhomepage> {
                   ),
                 ),
               ),
+
 //               ListView.builder(
 //   scrollDirection: Axis.horizontal,
 //   itemCount: product2.length,
@@ -538,8 +539,7 @@ class _NewhomepageState extends State<Newhomepage> {
 //     ),
 //   ),
 // ),
-   
-             
+
               Container(
                 height: 50,
                 child: Column(
@@ -563,11 +563,13 @@ class _NewhomepageState extends State<Newhomepage> {
                   ],
                 ),
               ),
-              Buttom( press: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) =>
-                            Product_Detail(product: product2[index],)))))
+              Buttom(
+                  press: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => Product_Detail(
+                                product: product2[index],
+                              )))))
               // Buttom(),
             ],
           ),
@@ -577,14 +579,14 @@ class _NewhomepageState extends State<Newhomepage> {
     // resizeToAvoidBottomInset: false,
   }
 }
+
 class Buttom extends StatelessWidget {
   final Function press;
   const Buttom({super.key, required this.press});
 
   @override
   Widget build(BuildContext context) {
-    return  SingleChildScrollView(
-      
+    return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Container(
         height: 200,
@@ -608,17 +610,18 @@ class Buttom extends StatelessWidget {
                 press: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: ((context) =>
-                            Product_Detail(product: product2[index],)))),
+                        builder: ((context) => Product_Detail(
+                              product: product2[index],
+                            )))),
               ),
             ))
           ],
         ),
       ),
-    
     );
   }
 }
+
 class Top extends StatelessWidget {
   final Function press;
   const Top({super.key, required this.press});
@@ -627,7 +630,6 @@ class Top extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
-     
       child: Container(
         height: 200,
         child: Column(
@@ -638,7 +640,7 @@ class Top extends StatelessWidget {
             Expanded(
                 child: ListView.builder(
               scrollDirection: Axis.horizontal,
-               physics: const BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               itemCount: product1.length,
               // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               //   crossAxisCount: 2,
@@ -650,8 +652,9 @@ class Top extends StatelessWidget {
                 press: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: ((context) =>
-                            Product_Detail(product: product1[index],)))),
+                        builder: ((context) => Product_Detail(
+                              product: product1[index],
+                            )))),
               ),
             ))
           ],

@@ -67,6 +67,7 @@ dependencies:
   smooth_star_rating_null_safety: ^1.0.4+2
   like_button: ^2.0.5
   flutter_barcode_scanner: ^2.0.0
+  fluid_bottom_nav_bar: ^1.4.0
 
 
 

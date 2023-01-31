@@ -462,15 +462,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.pushNamed(context, MyRoutes.homeRoute);
             },
           ),
-          // IconButton(
-          //   icon: Icon(
-          //     Icons.search,
-          //     color: Colors.black,
-          //   ),
-          //   onPressed: () {
-          //     //Navigator.pushNamed(context, MyRoutes.searchRoute);
-          //   },
-          // ),
+    
           IconButton(
             icon: Icon(
               Icons.shopping_cart,

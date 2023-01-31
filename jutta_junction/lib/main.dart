@@ -12,6 +12,7 @@ import 'package:jutta_junction/pages/home_page.dart';
 import 'package:jutta_junction/pages/ChangePassword.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/onboarding_screen.dart';
+import 'package:jutta_junction/pages/product_Detail/CartPage.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 import 'package:jutta_junction/pages/signup_page.dart';
 import 'package:jutta_junction/services/local_notification.dart';
@@ -104,6 +105,7 @@ class Myapp extends StatelessWidget {
         MyRoutes.faqRoute: ((context) => FaqPage()),
         MyRoutes.refundRoute: ((context) => RedturnRefund()),
         MyRoutes.onboardingRoute: ((context) => Onboarding()),
+         MyRoutes.CartRoute: ((context) => Cart()),
       },
     );
   }
@@ -125,7 +127,7 @@ class MyRoutes {
   static String signupRoute = "/signup";
   static String homepageRoute = "/HomePage";
   static String Product_detailRoute = "/Product_detail";
-  // static String profileRoute = "/profilepage";
+  static String CartRoute = "/Cart";
   static String chatRoute = "/chatpage";
   static String faqRoute = "/faqpage";
   static String refundRoute = "/returnrefundRoute";

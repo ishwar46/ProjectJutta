@@ -1,7 +1,10 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:jutta_junction/pages/profilesettings.dart';
+
+import '../main.dart';
 
 class SettingsUI extends StatelessWidget {
   @override
@@ -33,7 +36,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             color: Colors.green,
           ),
           onPressed: () {
-            Navigator.pushNamed(context, "/HomePage");
+            Navigator.pushNamed(context, "/NewHomePage");
           },
         ),
         actions: [
@@ -48,6 +51,44 @@ class _EditProfilePageState extends State<EditProfilePage> {
             },
           ),
         ],
+      ),
+       bottomNavigationBar: CurvedNavigationBar(
+        height: 60,
+        backgroundColor: Color.fromARGB(255, 2, 5, 8),
+        color: Color.fromARGB(255, 255, 255, 255),
+        //IconButtons
+        items: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.home,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, MyRoutes.NewHomePageRoute);
+            },
+          ),
+    
+          IconButton(
+            icon: Icon(
+              Icons.shopping_cart,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, MyRoutes.CartRoute);
+            },
+          ),
+          IconButton(
+            icon: Icon(
+              Icons.person,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, MyRoutes.profileRoute);                                 
+            },
+          ),
+        ], onTap: (index) {
+          //Handle button ta
+        },
       ),
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
