@@ -37,38 +37,38 @@ class _RegPageState extends State<RegPage> {
     super.initState();
   }
 
-
-  void register() async{
-    if(_formKey.currentState == null || !_formKey.currentState!.validate()){
+  void register() async {
+    if (_formKey.currentState == null || !_formKey.currentState!.validate()) {
       return;
     }
     _ui.loadState(true);
-    try{
-      await _authViewModel.register(
-          UserModel(
+    try {
+      await _authViewModel
+          .register(UserModel(
               email: email.text,
-              password:password.text,
-            phone:phonenumber.text,
-            username: username.text,
-            fullName: fullName.text
-          )).then((value) {
-
-            NotificationService.display(
-              title: "Welcome to this app",
-              body: "Hello ${_authViewModel.loggedInUser?.fullName},\n Thank you for registering in this application.",
-            );
-            Navigator.of(context).pushReplacementNamed("/dashboard");
-      })
-          .catchError((e){
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message.toString())));
+              password: password.text,
+              phone: phonenumber.text,
+              username: username.text,
+              fullName: fullName.text))
+          .then((value) {
+        NotificationService.display(
+          title: "Welcome to this app",
+          body:
+              "Hello ${_authViewModel.loggedInUser?.fullName},\n Thank you for registering in this application.",
+        );
+        Navigator.of(context).pushReplacementNamed("/dashboard");
+      }).catchError((e) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(e.message.toString())));
       });
-    }catch(err){
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(err.toString())));
+    } catch (err) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(err.toString())));
     }
     _ui.loadState(false);
   }
-  final _formKey = GlobalKey<FormState>();
 
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -308,7 +308,7 @@ class _RegPageState extends State<RegPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (_) => const LoginPage()));
+                                          builder: (_) => const LoginScreen()));
                                 },
                                 child: Text(
                                   "Signin ",

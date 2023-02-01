@@ -2,19 +2,68 @@ import 'dart:ui';
 // import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:jutta_junction/models/catelog.dart';
 import 'package:jutta_junction/models/product_model.dart';
+import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:flutter/src/material/theme_data.dart';
 
-class Body extends StatefulWidget {
-  const Body({super.key});
+import '../../Dashboard/ItemCart.dart';
+import '../../Dashboard/Product.dart';
 
-  @override
-  State<Body> createState() => _BodyState();
-}
 
-class _BodyState extends State<Body> {
+
+  Widget _buildNewArrivals(
+      {required String name, required double price, required String image}) {
+    return Card(
+      child: Container(
+        height: 200,
+        width: 150,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 120,
+              width: 120,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/$image"),
+                ),
+              ),
+            ),
+            Text(
+              "Rs. $price",
+              style: TextStyle(
+                  color: Color(0xff9b96d6),
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              name,
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+            ),
+
+            // IconButton(
+            //   icon: Icon(Icons.check),
+            //   onPressed: (() {}),
+            // ),
+          ],
+        ),
+      ),
+    );
+  }
+
+
+class Body extends StatelessWidget {
+    get index => product2;
+    final Product product;
+  const Body({super.key, required this.product});
+  // bool isAdded = false;
+ 
+
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size as Size;
+    bool isAdded = false;
+     Size size = MediaQuery.of(context).size as Size;
 
     return SingleChildScrollView(
       // resizeToAvoidBottomInset:false,
@@ -26,7 +75,7 @@ class _BodyState extends State<Body> {
               Padding(
                 padding: EdgeInsets.only(top: 0),
                 child: Text(
-                  "Nike",
+                  product.title,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -34,14 +83,21 @@ class _BodyState extends State<Body> {
                       color: Colors.black),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 0, bottom: 0),
-                child: Image.asset(
-                  "assets/images/nikes.png",
+              
+              Column(children: [
+               
+              
+                  
+                 Image.asset(
+                 product.image,
                   height: 200,
                   width: 200,
+                  
                 ),
-              ),
+              
+
+              ],),
+            
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -111,7 +167,7 @@ class _BodyState extends State<Body> {
                                 color: Colors.black)),
                         Padding(
                           padding: EdgeInsets.only(left: 90),
-                          child: Text("Rs 90000",
+                          child: Text("Rs${product.price}",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
@@ -125,7 +181,7 @@ class _BodyState extends State<Body> {
                       Padding(
                         padding: const EdgeInsets.all(10),
                         child: Text(
-                            "Dunk High Retro sneakersA basketball silhouette, the Nike Dunk Retro is presented in a supportive high-top design here. Contrasting white and black tones create an effortlessly eye-catching look for the pair."),
+                           product.description),
                       ),
                     ],
                   ),
@@ -259,13 +315,18 @@ class _BodyState extends State<Body> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
                         ElevatedButton(
-                          onPressed: (() {}),
-                          child: Text("Add to cart"),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
-                            elevation: 15,
-                            shadowColor: Colors.black54,
-                          ),
+                          onPressed: (() {
+                            isAdded = isAdded.toggle();
+                            // setState((){});
+                            // final _catalog = CatalogModel();
+                            // final _cart =CartModel();
+                            // Navigator.push(actions,)
+                          }),
+                        // ignore: deprecated_member_use
+                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
+                        
+                        shape: MaterialStateProperty.all(StadiumBorder(),) ),
+                        child: isAdded ? Icon(Icons.done) :"Add to Cart".text.make(),
                         ),
                         ElevatedButton(
                             onPressed: (() {}), child: Text("Buy now"))
@@ -293,46 +354,51 @@ class _BodyState extends State<Body> {
                               ),
                             ],
                           ),
-                          SingleChildScrollView(
-                            child: Padding(
-                              padding: const EdgeInsets.all(9),
-                              child: SingleChildScrollView(
-                                physics: BouncingScrollPhysics(),
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 10),
-                                          child: Row(
-                                            children: <Widget>[
-                                              _buildNewArrivals(
-                                                  image: "nb550.png",
-                                                  price: 9000,
-                                                  name: "New Balance 550"),
-                                              _buildNewArrivals(
-                                                  image: "vegan_black.png",
-                                                  price: 8000,
-                                                  name:
-                                                      "DR Martens Vegan Black"),
-                                              _buildNewArrivals(
-                                                  image: "stan.png",
-                                                  price: 9000,
-                                                  name: "Stan Smith"),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
+                          Buttom(press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            Product_Detail(product: product2[index],)))) )
+                          // SingleChildScrollView(
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.all(9),
+                          //     child: SingleChildScrollView(
+                          //       physics: BouncingScrollPhysics(),
+                          //       scrollDirection: Axis.horizontal,
+                          //       child: Row(
+                          //         children: [
+                          //           Column(
+                          //             crossAxisAlignment:
+                          //                 CrossAxisAlignment.start,
+                          //             children: [
+                          //               Padding(
+                          //                 padding:
+                          //                     const EdgeInsets.only(top: 10),
+                          //                 child: Row(
+                          //                   children: <Widget>[
+                          //                     _buildNewArrivals(
+                          //                         image: "nb550.png",
+                          //                         price: 9000,
+                          //                         name: "New Balance 550"),
+                          //                     _buildNewArrivals(
+                          //                         image: "vegan_black.png",
+                          //                         price: 8000,
+                          //                         name:
+                          //                             "DR Martens Vegan Black"),
+                          //                     _buildNewArrivals(
+                          //                         image: "stan.png",
+                          //                         price: 9000,
+                          //                         name: "Stan Smith"),
+                          //                   ],
+                          //                 ),
+                          //               ),
+                          //             ],
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
@@ -345,43 +411,46 @@ class _BodyState extends State<Body> {
       ),
     );
   }
+}
+class Buttom extends StatelessWidget {
+  final Function press;
+  const Buttom({super.key, required this.press});
 
-  Widget _buildNewArrivals(
-      {required String name, required double price, required String image}) {
-    return Card(
+  @override
+  Widget build(BuildContext context) {
+    return  SingleChildScrollView(
+      
+      scrollDirection: Axis.vertical,
       child: Container(
         height: 200,
-        width: 150,
         child: Column(
-          children: <Widget>[
-            Container(
-              height: 120,
-              width: 120,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/$image"),
-                ),
+          children: [
+            Row(
+              children: [],
+            ),
+            Expanded(
+                child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              itemCount: product2.length,
+              // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //   crossAxisCount: 2,
+              //   //height of ticket paper
+              //   childAspectRatio: 2.2,
+              // ),
+              itemBuilder: (context, index) => ItemCart(
+                product: product2[index],
+                press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            Product_Detail(product: product2[index],)))),
               ),
-            ),
-            Text(
-              "Rs. $price",
-              style: TextStyle(
-                  color: Color(0xff9b96d6),
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              name,
-              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-            ),
-
-            // IconButton(
-            //   icon: Icon(Icons.check),
-            //   onPressed: (() {}),
-            // ),
+            ))
           ],
         ),
       ),
+    
     );
   }
 }

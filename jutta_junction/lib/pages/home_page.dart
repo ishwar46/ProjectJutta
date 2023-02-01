@@ -8,9 +8,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:jutta_junction/Dashboard/ItemCart.dart';
+import 'package:jutta_junction/Dashboard/Product.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/models/product_model.dart';
+import 'package:jutta_junction/pages/chatbot/ChatPage.dart';
 import 'package:jutta_junction/pages/login_page.dart';
+// import 'package:jutta_junction/pages/Brands.dart';
+// import 'package:jutta_junction/pages/product_Detail/Product.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 import 'package:velocity_x/velocity_x.dart';
 //import products.dart';
@@ -33,20 +38,21 @@ class _HomePageState extends State<HomePage> {
   Widget _buildFeatureProduct(
       {required String name, required double price, required String image}) {
     return Card(
+      //container
       child: Container(
         height: 200,
         width: 150,
         child: Column(
           children: <Widget>[
             InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Product_detail(),
-                  ),
-                );
-              },
+              //  onTap: () {
+              //             Navigator.push(
+              //               context,
+              //               MaterialPageRoute(
+              //                 // builder: (context) => const Product_detail(),
+              //               ),
+              //             );
+              //           },
               child: Container(
                 height: 120,
                 width: 120,
@@ -55,6 +61,7 @@ class _HomePageState extends State<HomePage> {
                     image: AssetImage("assets/images/$image"),
                   ),
                 ),
+                //like button
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 90, left: 75),
                   child: LikeButton(
@@ -143,49 +150,52 @@ class _HomePageState extends State<HomePage> {
   Widget _buildNewArrivals(
       {required String name, required double price, required String image}) {
     return Card(
-      child: Container(
-        height: 200,
-        width: 150,
-        child: Column(
-          children: <Widget>[
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Product_detail(),
-                  ),
-                );
-              },
-              child: Container(
-                height: 120,
-                width: 120,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/$image"),
-                  ),
-                ),
-              ),
-            ),
-            Text(
-              "Rs. $price",
-              style: TextStyle(
-                  color: Color(0xff9b96d6),
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              name,
-              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-            ),
-            // IconButton(
-            //   icon: Icon(Icons.check),
-            //   onPressed: (() {}),
-            // ),
-          ],
-        ),
-      ),
-    );
+
+        // child: Container(
+        //   height: 200,
+        //   width: 150,
+
+        //   child: Column(
+        //     children: <Widget>[
+
+        //       InkWell(
+        //         onTap: () {
+        //                       Navigator.push(
+        //                         context,
+        //                         MaterialPageRoute(
+        //                           builder: (context) => const Product_detail(),
+        //                         ),
+        //                       );
+        //                     },
+        //         child: Container(
+        //           height: 120,
+        //           width: 120,
+        //           decoration: BoxDecoration(
+        //             image: DecorationImage(
+        //               image: AssetImage("assets/images/$image"),
+        //             ),
+        //           ),
+        //         ),
+        //       ),
+        // Text(
+        //   "Rs. $price",
+        //   style: TextStyle(
+        //       color: Color(0xff9b96d6),
+        //       fontSize: 12,
+        //       fontWeight: FontWeight.bold),
+        // ),
+        //       Text(
+        //         name,
+        //         style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+        //       ),
+        //       // IconButton(
+        //       //   icon: Icon(Icons.check),
+        //       //   onPressed: (() {}),
+        //       // ),
+        //     ],
+        //   ),
+        // ),
+        );
   }
 
   Widget _buildSearchBar() {
@@ -294,7 +304,10 @@ class _HomePageState extends State<HomePage> {
         child: Icon(Icons.chat),
         backgroundColor: Colors.grey,
         onPressed: () {
-          Navigator.pushNamed(context, MyRoutes.chatRoute);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatPage()),
+          );
         },
       ),
       backgroundColor: Colors.white,
@@ -331,7 +344,7 @@ class _HomePageState extends State<HomePage> {
               title: const Text('My Profile',
                   style: TextStyle(color: Colors.white)),
               onTap: () {
-                Navigator.pushNamed(context, "/profilepage");
+                Navigator.pushNamed(context, MyRoutes.profileRoute);
               },
             ),
             ListTile(
@@ -393,7 +406,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.of(context).pop();
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (BuildContext context) =>
-                                      LoginPage()));
+                                      LoginScreen()));
                             },
                             child: Text("Sign Out"),
                           ),
@@ -431,6 +444,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+      //bottom navigation bar started
       bottomNavigationBar: CurvedNavigationBar(
         height: 60,
         backgroundColor: Color.fromARGB(255, 2, 5, 8),
@@ -461,7 +475,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.black,
             ),
             onPressed: () {
-              // Navigator.pushNamed(context, MyRoutes.Product_detailRoute);
+              //Navigator.pushNamed(context, MyRoutes.CartRoute);
             },
           ),
           IconButton(
@@ -470,7 +484,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.black,
             ),
             onPressed: () {
-              // Navigator.pushNamed(context, MyRoutes.loginRoute);
+              Navigator.pushNamed(context, MyRoutes.profileRoute);
             },
           ),
         ],
@@ -599,39 +613,25 @@ class _HomePageState extends State<HomePage> {
                     height: 20,
                   ),
                   //Featured Products
-                  SingleChildScrollView(
-                    physics: BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: <Widget>[
-                                _buildFeatureProduct(
-                                    image: "nike.png",
-                                    price: 9000,
-                                    name: "Nike Blazers Mid '77"),
-                                _buildFeatureProduct(
-                                    image: "jordan.jpg",
-                                    price: 9000,
-                                    name: "Jordan University Blue"),
-                                _buildFeatureProduct(
-                                    image: "converse.png",
-                                    price: 9000,
-                                    name: "Converse High"),
-                                _buildFeatureProduct(
-                                    image: "vegan_black.png",
-                                    price: 12000,
-                                    name: "Dr. Martens Vegan Black"),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  //   Row(
+                  //     children: <Widget>[
+                  //        SingleChildScrollView(
+                  //     // physics: BouncingScrollPhysics(),
+                  //     scrollDirection: Axis.horizontal,
+                  //     child: Row(
+                  //       children: <Widget>[
+                  //               ListView.builder(
+                  //                   itemCount: product1.length,
+                  //                   itemBuilder: ((context, index) =>ItemCart(product: product1[index]))
+                  //                   )
+                  //               ],
+
+                  //     ),
+                  //   ),
+
+                  //     ],
+                  //   )
+                  //  ,
                   Container(
                     height: 50,
                     //color: Colors.amber,

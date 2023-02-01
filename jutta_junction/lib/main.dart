@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:jutta_junction/Dashboard/NewHomePage.dart';
 import 'package:jutta_junction/pages/chatbot/ChatPage.dart';
 import 'package:jutta_junction/pages/drawer/faq.dart';
 import 'package:jutta_junction/pages/drawer/return_refund.dart';
@@ -12,8 +13,6 @@ import 'package:jutta_junction/pages/ChangePassword.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/onboarding_screen.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
-
-import 'package:firebase_core/firebase_core.dart';
 import 'package:jutta_junction/pages/signup_page.dart';
 import 'package:jutta_junction/services/local_notification.dart';
 import 'package:jutta_junction/viewmodels/auth_viewmodel.dart';
@@ -59,61 +58,63 @@ class Myapp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider (create: (_) => GlobalUIViewModel()),
-        ChangeNotifierProvider (create: (_) => AuthViewModel()),
-     
+        ChangeNotifierProvider(create: (_) => GlobalUIViewModel()),
+        ChangeNotifierProvider(create: (_) => AuthViewModel()),
       ],
       child: GlobalLoaderOverlay(
         useDefaultLoading: false,
         overlayWidget: Center(
-          child: Image.asset("assets/images/Jutta.png", height: 100, width: 100,),
+          child: Image.asset(
+            "assets/images/Jutta.png",
+            height: 100,
+            width: 100,
+          ),
         ),
-      child: Consumer<GlobalUIViewModel>(
-          builder: (context, loader, child) {
-            if(loader.isLoading){
-              context.loaderOverlay.show();
-            }else{
-              context.loaderOverlay.hide();
-            }
+        child: Consumer<GlobalUIViewModel>(builder: (context, loader, child) {
+          if (loader.isLoading) {
+            context.loaderOverlay.show();
+          } else {
+            context.loaderOverlay.hide();
+          }
 
-    return MaterialApp(
-      //home: HomePage(),
-      themeMode: ThemeMode.system,
+          return MaterialApp(
+            //home: HomePage(),
+            themeMode: ThemeMode.system,
 
-      //theme: MyTheme.lightTheme(context),
-      //darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/onboardingRoute",
-      debugShowCheckedModeBanner: false,
-      // initialRoute: MyRoutes.homeRoute,
-      routes: {
+            //theme: MyTheme.lightTheme(context),
+            //darkTheme: MyTheme.darkTheme(context),
+            initialRoute: "/login",
+            debugShowCheckedModeBanner: false,
+            //initialRoute: MyRoutes.homeRoute,
+            routes: {
+              "/login": (context) => LoginScreen(),
+              MyRoutes.loginRoute: (context) => LoginScreen(),
+              // MyRoutes.loginRoute: ((context) => Card()),
+              // "/": (context) => SettingsUI(),
+              // MyRoutes.profileRoute: (context) => SettingsUI(),
 
-        // "/": (context) => LoginPage(),
-        // MyRoutes.loginRoute: (context) => LoginPage(),
-        "/": (context) => SettingsUI(),
-        MyRoutes.profileRoute: (context) => SettingsUI(),
-
-        "/": (context) => HomePage(),
-        MyRoutes.homepageRoute: (context) => HomePage(),
-        MyRoutes.loginRoute: ((context) => LoginPage()),
-        MyRoutes.homepageRoute: ((context) => HomePage()),
-        MyRoutes.signupRoute: ((context) => RegPage()),
-        MyRoutes.profileRoute: ((context) => EditProfilePage()),
-        MyRoutes.chatRoute: ((context) => ChatPage()),
-        MyRoutes.faqRoute: ((context) => FaqPage()),
-        MyRoutes.refundRoute: ((context) => RedturnRefund()),
-        MyRoutes.onboardingRoute: ((context) => Onboarding()),
-      },
+              // "/": (context) => HomePage(),
+              // MyRoutes.homepageRoute: (context) => HomePage(),
+              MyRoutes.loginRoute: ((context) => LoginScreen()),
+              MyRoutes.homepageRoute: ((context) => HomePage()),
+              MyRoutes.signupRoute: ((context) => RegPage()),
+              MyRoutes.profileRoute: ((context) => ProfileInfo()),
+              MyRoutes.chatRoute: ((context) => ChatPage()),
+              MyRoutes.faqRoute: ((context) => FaqPage()),
+              MyRoutes.refundRoute: ((context) => RedturnRefund()),
+              MyRoutes.onboardingRoute: ((context) => Onboarding()),
+            },
+          );
+        }),
+      ),
     );
   }
-  )
-  ,
-  ),);
-}}
-
-class CategoryViewModel {
 }
 
+class CategoryViewModel {}
+
 class MyRoutes {
+  static String NewHomePageRoute = "/NewHomePage";
   static String loginRoute = "/login";
   static String homeRoute = "/home";
 
@@ -126,6 +127,5 @@ class MyRoutes {
   static String chatRoute = "/chatpage";
   static String faqRoute = "/faqpage";
   static String refundRoute = "/returnrefundRoute";
-  static String onboardingRoute= "/onboardingRoute";
-
+  static String onboardingRoute = "/onboardingRoute";
 }
