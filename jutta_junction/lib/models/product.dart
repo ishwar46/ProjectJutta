@@ -12,6 +12,7 @@ class Product{
     required this.color,
 
   });
+}
   List<Product> products=[
     Product(
       id:1,
@@ -83,4 +84,3 @@ class Product{
   ];
 
 
-}

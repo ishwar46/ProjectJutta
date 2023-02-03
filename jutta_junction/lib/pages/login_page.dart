@@ -325,7 +325,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 children: [
                   Image.asset(
-                    "assets/images/logo.png",
+                    "assets/images/Jutta.png",
                     height: 100,
                     width: 100,
                   ),
@@ -426,7 +426,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               EdgeInsets.symmetric(vertical: 20)),
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, MyRoutes.NewHomePage)
+                          Navigator.pushNamed(
+                              context, MyRoutes.NewHomePageRoute);
                         },
                         child: Text(
                           "Log In",

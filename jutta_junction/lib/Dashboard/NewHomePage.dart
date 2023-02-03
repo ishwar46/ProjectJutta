@@ -1,8 +1,15 @@
+import 'dart:developer';
+
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:jutta_junction/Dashboard/ItemCart.dart';
 import 'package:jutta_junction/Dashboard/Product.dart';
+import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../main.dart';
 
@@ -28,11 +35,85 @@ Widget _buildBrands(String image) {
 
 class _NewhomepageState extends State<Newhomepage> {
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
-  
+
+  void updateList(String value) {
+    // this is the function that will filter our list
+  }
+
+  //User SignOut
+  void SignUserOut() async {
+    await FirebaseAuth.instance.signOut(
+        //show loading dialog
+        );
+  }
+
+  //method for notification
+  void showNotification() async {
+    AndroidNotificationDetails androidNotificationDetails =
+        AndroidNotificationDetails(
+      "channelId",
+      "channelName",
+      importance: Importance.max,
+      priority: Priority.max,
+      ticker: "test",
+      enableLights: true,
+      enableVibration: true,
+    );
+
+    //for ios
+    DarwinNotificationDetails darwinNotificationDetails =
+        DarwinNotificationDetails(
+      presentAlert: true,
+      presentBadge: true,
+      presentSound: true,
+    );
+
+    NotificationDetails notificationDetails = NotificationDetails(
+      android: androidNotificationDetails,
+      iOS: darwinNotificationDetails,
+    );
+
+    await flutterLocalNotificationsPlugin.show(
+      0,
+      "Jutta Junction",
+      "Welcome to Jutta Junction",
+      notificationDetails,
+    );
+
+    DateTime time = DateTime.now().add(Duration(seconds: 10));
+    //time based notification
+    await flutterLocalNotificationsPlugin.schedule(
+        0, "New Year Sale", "Nike Blazers Mid 77", time, notificationDetails,
+        payload: "ok");
+  }
+
+  //App launch notification
+  void checkForNotification() async {
+    NotificationAppLaunchDetails? details =
+        await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
+    if (details != null) {
+      if (details.didNotificationLaunchApp) {
+        NotificationResponse? response = details.notificationResponse;
+        if (response != null) {
+          String? payload = response.payload;
+          log("Noitification payload: $payload");
+        }
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkForNotification();
+    showNotification();
+  }
+
   get index => product1;
   //collecting data from fire base
   // final CollectionRefrence _items=
   // FirebaseFirestore.instance.collection('items');
+  get _handleNavigationChange => null;
 
   @override
   Widget build(BuildContext context) {
@@ -191,27 +272,29 @@ class _NewhomepageState extends State<Newhomepage> {
                   const Text('Logout', style: TextStyle(color: Colors.white)),
               onTap: () {
                 showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Logout'),
-                        content: const Text('Are you sure you want to logout?'),
-                        actions: [
-                          TextButton(
-                            child: const Text('Yes'),
-                            onPressed: () {
-                              Navigator.pushNamed(context, MyRoutes.loginRoute);
-                            },
-                          ),
-                          TextButton(
-                            child: const Text('No'),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                          ),
-                        ],
-                      );
-                    });
+                  context: context,
+                  builder: (ctx) => AlertDialog(
+                    title: const Text("You pressed Logout"),
+                    content: const Text("Are you sure you want to logout?"),
+                    actions: <Widget>[
+                      TextButton(
+                        child: const Text('yes'),
+                        onPressed: () {
+                          Navigator.of(ctx).pop();
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  LoginScreen()));
+                        },
+                      ),
+                      TextButton(
+                        child: const Text('No'),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ],
+                  ),
+                );
               },
             ),
             ListTile(
@@ -254,20 +337,11 @@ class _NewhomepageState extends State<Newhomepage> {
           ),
           IconButton(
             icon: Icon(
-              Icons.search,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              //Navigator.pushNamed(context, MyRoutes.searchRoute);
-            },
-          ),
-          IconButton(
-            icon: Icon(
               Icons.shopping_cart,
               color: Colors.black,
             ),
             onPressed: () {
-              // Navigator.pushNamed(context, MyRoutes.CartRoute);
+              Navigator.pushNamed(context, MyRoutes.CartRoute);
             },
           ),
           IconButton(
@@ -276,11 +350,13 @@ class _NewhomepageState extends State<Newhomepage> {
               color: Colors.black,
             ),
             onPressed: () {
-              // Navigator.pushNamed(context, MyRoutes.loginRoute);
+              Navigator.pushNamed(context, MyRoutes.profileRoute);
             },
           ),
         ],
       ),
+      //Ap
+
       //App Bar
       appBar: AppBar(
         title: Row(
@@ -289,7 +365,7 @@ class _NewhomepageState extends State<Newhomepage> {
             Image.asset(
               "assets/images/juttanew.png",
               fit: BoxFit.contain,
-              height: 120,
+              height: 150,
             ),
           ],
         ),
@@ -311,14 +387,18 @@ class _NewhomepageState extends State<Newhomepage> {
               Icons.notifications_none,
               color: Colors.black,
             ),
-            onPressed: () {},
+            onPressed: () {
+              showNotification();
+            },
           ),
           IconButton(
             icon: Icon(
               Icons.qr_code_sharp,
               color: Colors.black,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, MyRoutes.loginRoute);
+            },
           ),
         ],
       ),
@@ -364,11 +444,13 @@ class _NewhomepageState extends State<Newhomepage> {
                   ],
                 ),
               ),
-              Top( press: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) =>
-                            Product_Detail(product: product1[index],))))),
+              Top(
+                  press: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => Product_Detail(
+                                product: product1[index],
+                              ))))),
               Container(
                 height: 50,
                 child: Column(
@@ -437,25 +519,25 @@ class _NewhomepageState extends State<Newhomepage> {
                   ),
                 ),
               ),
-              // List.generate(
-              //     10,
-              //     (index) => "Product $index"
-              //         .text
-              //         .white
-              //         .make()
-              //         .box
-              //         .rounded
-              //         .alignCenter
-              //         .color(Vx.randomOpaqueColor)
-              //         .make()
-              //         .p4()).swiper(
-              //     height: context.isMobile ? 100 : 200,
-              //     enlargeCenterPage: true,
-              //     viewportFraction: context.isMobile ? 0.8 : 0.4,
-              //     autoPlay: true,
-              //     isFastScrollingEnabled: true,
-              //     scrollDirection:
-              //         context.isMobile ? Axis.horizontal : Axis.horizontal),
+
+//               ListView.builder(
+//   scrollDirection: Axis.horizontal,
+//   itemCount: product2.length,
+//   itemBuilder: (context, index) => Container(
+//     width: 160,
+//     height: 200,
+//     padding: EdgeInsets.all(4),
+//     decoration: BoxDecoration(
+//       color: Vx.randomOpaqueColor,
+//       borderRadius: BorderRadius.circular(10)
+//     ),
+//     child: Image.asset(product2[index].image,
+//       fit: BoxFit.contain,
+//       alignment: Alignment.center,
+//     ),
+//   ),
+// ),
+
               Container(
                 height: 50,
                 child: Column(
@@ -479,11 +561,13 @@ class _NewhomepageState extends State<Newhomepage> {
                   ],
                 ),
               ),
-              Buttom( press: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) =>
-                            Product_Detail(product: product2[index],)))))
+              Buttom(
+                  press: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => Product_Detail(
+                                product: product2[index],
+                              )))))
               // Buttom(),
             ],
           ),
@@ -493,14 +577,14 @@ class _NewhomepageState extends State<Newhomepage> {
     // resizeToAvoidBottomInset: false,
   }
 }
+
 class Buttom extends StatelessWidget {
   final Function press;
   const Buttom({super.key, required this.press});
 
   @override
   Widget build(BuildContext context) {
-    return  SingleChildScrollView(
-      
+    return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Container(
         height: 200,
@@ -524,17 +608,18 @@ class Buttom extends StatelessWidget {
                 press: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: ((context) =>
-                            Product_Detail(product: product2[index],)))),
+                        builder: ((context) => Product_Detail(
+                              product: product2[index],
+                            )))),
               ),
             ))
           ],
         ),
       ),
-    
     );
   }
 }
+
 class Top extends StatelessWidget {
   final Function press;
   const Top({super.key, required this.press});
@@ -543,7 +628,6 @@ class Top extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
-     
       child: Container(
         height: 200,
         child: Column(
@@ -554,7 +638,7 @@ class Top extends StatelessWidget {
             Expanded(
                 child: ListView.builder(
               scrollDirection: Axis.horizontal,
-               physics: const BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               itemCount: product1.length,
               // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               //   crossAxisCount: 2,
@@ -566,8 +650,9 @@ class Top extends StatelessWidget {
                 press: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: ((context) =>
-                            Product_Detail(product: product1[index],)))),
+                        builder: ((context) => Product_Detail(
+                              product: product1[index],
+                            )))),
               ),
             ))
           ],

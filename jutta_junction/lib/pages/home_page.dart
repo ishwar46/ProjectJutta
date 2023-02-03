@@ -13,10 +13,12 @@ import 'package:jutta_junction/Dashboard/Product.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/models/product_model.dart';
 import 'package:jutta_junction/pages/chatbot/ChatPage.dart';
-import 'package:jutta_junction/pages/login_page.dart';
 // import 'package:jutta_junction/pages/Brands.dart';
 // import 'package:jutta_junction/pages/product_Detail/Product.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
+import 'package:jutta_junction/pages/qr/qrhomepage.dart';
+import 'package:jutta_junction/pages/qr/scanqr.dart';
+// import 'package:jutta_junction/pages/search.dart';
 import 'package:velocity_x/velocity_x.dart';
 //import products.dart';
 import 'package:jutta_junction/models/product_model.dart';
@@ -198,27 +200,27 @@ class _HomePageState extends State<HomePage> {
         );
   }
 
-  Widget _buildSearchBar() {
-    return Container(
-      height: 50,
-      width: 350,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: TextField(
-        decoration: InputDecoration(
-          hintText: "Search",
-          hintStyle: TextStyle(color: Colors.grey),
-          border: InputBorder.none,
-          prefixIcon: Icon(
-            Icons.search,
-            color: Colors.grey,
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget _buildSearchBar() {
+  //   return Container(
+  //     height: 50,
+  //     width: 350,
+  //     decoration: BoxDecoration(
+  //       color: Colors.white,
+  //       borderRadius: BorderRadius.circular(10),
+  //     ),
+  //     child: TextField(
+  //       decoration: InputDecoration(
+  //         hintText: "Search",
+  //         hintStyle: TextStyle(color: Colors.grey),
+  //         border: InputBorder.none,
+  //         prefixIcon: Icon(
+  //           Icons.search,
+  //           color: Colors.grey,
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   // static List<ProductModel> products_details = [
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
@@ -344,7 +346,7 @@ class _HomePageState extends State<HomePage> {
               title: const Text('My Profile',
                   style: TextStyle(color: Colors.white)),
               onTap: () {
-                Navigator.pushNamed(context, MyRoutes.profileRoute);
+                Navigator.pushNamed(context, "/profilepage");
               },
             ),
             ListTile(
@@ -403,10 +405,8 @@ class _HomePageState extends State<HomePage> {
                         actions: [
                           TextButton(
                             onPressed: () {
-                              Navigator.of(context).pop();
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      LoginScreen()));
+                              SignUserOut();
+                              Navigator.pop(context);
                             },
                             child: Text("Sign Out"),
                           ),
@@ -460,15 +460,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.pushNamed(context, MyRoutes.homeRoute);
             },
           ),
-          // IconButton(
-          //   icon: Icon(
-          //     Icons.search,
-          //     color: Colors.black,
-          //   ),
-          //   onPressed: () {
-          //     //Navigator.pushNamed(context, MyRoutes.searchRoute);
-          //   },
-          // ),
+    
           IconButton(
             icon: Icon(
               Icons.shopping_cart,
@@ -529,7 +521,12 @@ class _HomePageState extends State<HomePage> {
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.loginRoute);
+             Navigator.push(
+              context,
+                MaterialPageRoute(
+                  builder: (context) =>qrhomepage(),
+                  ),
+              );
             },
           ),
         ],

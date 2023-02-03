@@ -316,16 +316,9 @@ class Body extends StatelessWidget {
                       children: <Widget>[
                         ElevatedButton(
                           onPressed: (() {
-                            isAdded = isAdded.toggle();
-                            // setState((){});
-                            // final _catalog = CatalogModel();
-                            // final _cart =CartModel();
-                            // Navigator.push(actions,)
+                            
                           }),
-                        // ignore: deprecated_member_use
-                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
-                        
-                        shape: MaterialStateProperty.all(StadiumBorder(),) ),
+                  
                         child: isAdded ? Icon(Icons.done) :"Add to Cart".text.make(),
                         ),
                         ElevatedButton(
