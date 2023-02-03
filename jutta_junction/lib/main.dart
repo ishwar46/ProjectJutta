@@ -21,8 +21,6 @@ import 'package:jutta_junction/viewmodels/global_ui_viewmodel.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:provider/provider.dart';
 
-
-
 //Global variable for the notification plugin
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -61,66 +59,65 @@ class Myapp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider (create: (_) => GlobalUIViewModel()),
-        ChangeNotifierProvider (create: (_) => AuthViewModel()),
-     
+        ChangeNotifierProvider(create: (_) => GlobalUIViewModel()),
+        ChangeNotifierProvider(create: (_) => AuthViewModel()),
       ],
       child: GlobalLoaderOverlay(
         useDefaultLoading: false,
         overlayWidget: Center(
-          child: Image.asset("assets/images/Jutta.png", height: 100, width: 100,),
+          child: Image.asset(
+            "assets/images/Jutta.png",
+            height: 100,
+            width: 100,
+          ),
         ),
-      child: Consumer<GlobalUIViewModel>(
-          builder: (context, loader, child) {
-            if(loader.isLoading){
-              context.loaderOverlay.show();
-            }else{
-              context.loaderOverlay.hide();
-            }
+        child: Consumer<GlobalUIViewModel>(builder: (context, loader, child) {
+          if (loader.isLoading) {
+            context.loaderOverlay.show();
+          } else {
+            context.loaderOverlay.hide();
+          }
 
-    return MaterialApp(
-      //home: HomePage(),
-      themeMode: ThemeMode.system,
+          return MaterialApp(
+            //home: HomePage(),
+            themeMode: ThemeMode.system,
 
-      //theme: MyTheme.lightTheme(context),
-      //darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/NewHomePage",
-      debugShowCheckedModeBanner: false,
-      // initialRoute: MyRoutes.homeRoute,
-      routes: {
+            //theme: MyTheme.lightTheme(context),
+            //darkTheme: MyTheme.darkTheme(context),
+            initialRoute: "/NewHomePage",
+            debugShowCheckedModeBanner: false,
+            // initialRoute: MyRoutes.homeRoute,
+            routes: {
+              "/": (context) => Newhomepage(),
+              MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
+              MyRoutes.loginRoute: ((context) => Card()),
+              // "/": (context) => SettingsUI(),
+              // MyRoutes.profileRoute: (context) => SettingsUI(),
 
-        "/": (context) => Newhomepage(),
-        MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
-        MyRoutes.loginRoute: ((context) => Card()),
-        // "/": (context) => SettingsUI(),
-        // MyRoutes.profileRoute: (context) => SettingsUI(),
-
-        // "/": (context) => HomePage(),
-        // MyRoutes.homepageRoute: (context) => HomePage(),
-        MyRoutes.loginRoute: ((context) => LoginScreen()),
-        MyRoutes.homepageRoute: ((context) => HomePage()),
-        MyRoutes.signupRoute: ((context) => RegPage()),
-        MyRoutes.profileRoute: ((context) => ProfileInfo()),
-        MyRoutes.chatRoute: ((context) => ChatPage()),
-        MyRoutes.faqRoute: ((context) => FaqPage()),
-        MyRoutes.refundRoute: ((context) => RedturnRefund()),
-        MyRoutes.onboardingRoute: ((context) => Onboarding()),
-        MyRoutes.CartRoute: ((context) => Cart()),
-        MyRoutes.changepassRoute: ((context) => ChangePassword()),
-
-      },
+              // "/": (context) => HomePage(),
+              // MyRoutes.homepageRoute: (context) => HomePage(),
+              MyRoutes.loginRoute: ((context) => LoginPage()),
+              MyRoutes.homepageRoute: ((context) => HomePage()),
+              MyRoutes.signupRoute: ((context) => RegPage()),
+              MyRoutes.profileRoute: ((context) => ProfileInfo()),
+              MyRoutes.chatRoute: ((context) => ChatPage()),
+              MyRoutes.faqRoute: ((context) => FaqPage()),
+              MyRoutes.refundRoute: ((context) => RedturnRefund()),
+              MyRoutes.onboardingRoute: ((context) => Onboarding()),
+              MyRoutes.CartRoute: ((context) => Cart()),
+              MyRoutes.changepassRoute: ((context) => ChangePassword()),
+            },
+          );
+        }),
+      ),
     );
   }
-  )
-  ,
-  ),);
-}}
-
-class CategoryViewModel {
 }
 
+class CategoryViewModel {}
+
 class MyRoutes {
-   static String NewHomePageRoute = "/NewHomePage";
+  static String NewHomePageRoute = "/NewHomePage";
   static String loginRoute = "/login";
   static String homeRoute = "/home";
 
@@ -133,8 +130,6 @@ class MyRoutes {
   static String chatRoute = "/chatpage";
   static String faqRoute = "/faqpage";
   static String refundRoute = "/returnrefundRoute";
-  static String onboardingRoute= "/onboardingRoute";  
-  static String changepassRoute= "/changepassRoute";
-
-
+  static String onboardingRoute = "/onboardingRoute";
+  static String changepassRoute = "/changepassRoute";
 }

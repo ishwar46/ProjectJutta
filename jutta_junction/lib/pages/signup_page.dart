@@ -308,7 +308,7 @@ class _RegPageState extends State<RegPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (_) => const LoginScreen()));
+                                          builder: (_) => const LoginPage()));
                                 },
                                 child: Text(
                                   "Signin ",

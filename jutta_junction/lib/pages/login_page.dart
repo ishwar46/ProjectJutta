@@ -20,13 +20,11 @@
 // }
 
 // class _LoginPageState extends State<LoginPage> {
-//   TextEditingController email = new TextEditingController();
-//   TextEditingController password = new TextEditingController();
-//   bool changebutton = false;
-//   bool _success = false;
-//   String _uid = "";
+//   TextEditingController _emailController = TextEditingController();
+//   TextEditingController _passwordController = TextEditingController();
 
 //   bool _obscureTextPassword = true;
+//   bool changebutton = false;
 
 //   final _formKey = GlobalKey<FormState>();
 
@@ -36,13 +34,15 @@
 //     }
 //     _ui.loadState(true);
 //     try {
-//       await _authViewModel.login(email.text, password.text).then((value) {
-//         // NotificationService.display(
-//         //   title: "Welcome back",
-//         //   body:
-//         //       "Hello ${_authViewModel.loggedInUser?.fullName},\n Hope you are having a wonderful day.",
-//         // );
-//         Navigator.of(context).pushReplacementNamed('/onboardingRoute');
+//       await _authViewModel
+//           .login(_emailController.text, _passwordController.text)
+//           .then((value) {
+//         NotificationService.display(
+//           title: "Welcome back",
+//           body:
+//               "Hello ${_authViewModel.loggedInUser?.fullName},\n Hope you are having a wonderful day.",
+//         );
+//         Navigator.of(context).pushReplacementNamed('/dashboard');
 //       }).catchError((e) {
 //         ScaffoldMessenger.of(context)
 //             .showSnackBar(SnackBar(content: Text(e.message.toString())));
@@ -101,7 +101,7 @@
 //                   child: Column(
 //                     children: [
 //                       TextFormField(
-//                         controller: email,
+//                         controller: _emailController,
 //                         validator: ValidateLogin.emailValidate,
 //                         // ignore: prefer_const_constructors
 //                         decoration: InputDecoration(
@@ -123,7 +123,7 @@
 //                         height: 20,
 //                       ),
 //                       TextFormField(
-//                         controller: password,
+//                         controller: _passwordController,
 //                         validator: ValidateLogin.password,
 
 //                         obscureText: true,
@@ -263,14 +263,14 @@ import '../../viewmodels/auth_viewmodel.dart';
 import '../../viewmodels/global_ui_viewmodel.dart';
 import '../services/local_notification.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginPage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
@@ -335,7 +335,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
-                    validator: ValidateLogin.emailValidate,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Email cannot be empty";
+                      }
+                      return null;
+                    },
                     style: const TextStyle(
                         fontFamily: 'WorkSansSemiBold',
                         fontSize: 16.0,
@@ -362,7 +367,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextFormField(
                     controller: _passwordController,
                     obscureText: _obscureTextPassword,
-                    validator: ValidateLogin.password,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Password cannot be empty";
+                      }
+                      return null;
+                    },
                     style: const TextStyle(
                         fontFamily: 'WorkSansSemiBold',
                         fontSize: 16.0,
@@ -464,19 +474,19 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-class ValidateLogin {
-  static String? emailValidate(String? value) {
-    if (value == null || value.isEmpty) {
-      return "Email is required";
-    }
+// class ValidateLogin {
+//   static String? emailValidate(String? value) {
+//     if (value == null || value.isEmpty) {
+//       return "Email is required";
+//     }
 
-    return null;
-  }
+//     return null;
+//   }
 
-  static String? password(String? value) {
-    if (value == null || value.isEmpty) {
-      return "Password is required";
-    }
-    return null;
-  }
-}
+//   static String? password(String? value) {
+//     if (value == null || value.isEmpty) {
+//       return "Password is required";
+//     }
+//     return null;
+//   }
+// }
