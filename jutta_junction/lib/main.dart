@@ -14,6 +14,7 @@ import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/onboarding_screen.dart';
 import 'package:jutta_junction/pages/product_Detail/CartPage.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
+import 'package:jutta_junction/pages/review.dart';
 import 'package:jutta_junction/pages/signup_page.dart';
 import 'package:jutta_junction/services/local_notification.dart';
 import 'package:jutta_junction/viewmodels/auth_viewmodel.dart';
@@ -84,7 +85,7 @@ class Myapp extends StatelessWidget {
 
       //theme: MyTheme.lightTheme(context),
       //darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/NewHomePage",
+      initialRoute: "/",
       debugShowCheckedModeBanner: false,
       // initialRoute: MyRoutes.homeRoute,
       routes: {
@@ -105,12 +106,11 @@ class Myapp extends StatelessWidget {
         MyRoutes.faqRoute: ((context) => FaqPage()),
         MyRoutes.refundRoute: ((context) => RedturnRefund()),
         MyRoutes.onboardingRoute: ((context) => Onboarding()),
-<<<<<<< HEAD
-         MyRoutes.CartRoute: ((context) => Cart()),
-=======
-                MyRoutes.changepassRoute: ((context) => ChangePassword()),
+        MyRoutes.CartRoute: ((context) => Cart()),
+        MyRoutes.changepassRoute: ((context) => ChangePassword()),
+        MyRoutes.ratingRoute: ((context) => UserRatingReview()),
 
->>>>>>> 6c7599d5031d0b43388ae38156ffb50b81c9744f
+
       },
     );
   }
@@ -138,6 +138,7 @@ class MyRoutes {
   static String refundRoute = "/returnrefundRoute";
   static String onboardingRoute= "/onboardingRoute";  
   static String changepassRoute= "/changepassRoute";
+  static String ratingRoute= "/ratingRoute";
 
 
 }

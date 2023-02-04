@@ -20,7 +20,7 @@ class Product{
       price:14000,
       description:"jdhfjahfsdahfuhdfjhadsh",
       image:"assets/images/jordan4.png",
-      color: Color.fromARGB(255, 195, 195, 195),
+      color: Color.fromARGB(255, 236, 226, 226),
 ),
        Product(
       id:2,

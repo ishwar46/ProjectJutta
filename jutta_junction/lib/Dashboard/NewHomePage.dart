@@ -176,60 +176,60 @@ class _NewhomepageState extends State<Newhomepage> {
                 );
               },
             ),
-            ListTile(
-              iconColor: Colors.white,
-              leading: const Icon(Icons.category),
-              title:
-                  const Text('Brands', style: TextStyle(color: Colors.white)),
-              onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Brands'),
-                        content: const Text('Under Construction'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('Close'),
-                          ),
-                        ],
-                      );
-                    });
-              },
-            ),
-            ListTile(
-              iconColor: Colors.white,
-              leading: const Icon(Icons.wallet_giftcard_rounded),
-              title:
-                  const Text('Offers', style: TextStyle(color: Colors.white)),
-              onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Offers'),
-                        content: const Text('No Offers Available'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('OK'),
-                          ),
-                        ],
-                      );
-                    });
-              },
-            ),
+            // ListTile(
+            //   iconColor: Colors.white,
+            //   leading: const Icon(Icons.category),
+            //   title:
+            //       const Text('Review', style: TextStyle(color: Colors.white)),
+            //   onTap: () {
+            //     showDialog(
+            //         context: context,
+            //         builder: (BuildContext context) {
+            //           return AlertDialog(
+            //             title: const Text('Review'),
+            //             content: const Text('Under Construction'),
+            //             actions: [
+            //               TextButton(
+            //                 onPressed: () {
+            //                   Navigator.of(context).pop();
+            //                 },
+            //                 child: const Text('Close'),
+            //               ),
+            //             ],
+            //           );
+            //         });
+            //   },
+            // ),
+            // ListTile(
+            //   iconColor: Colors.white,
+            //   leading: const Icon(Icons.wallet_giftcard_rounded),
+            //   title:
+            //       const Text('Offers', style: TextStyle(color: Colors.white)),
+            //   onTap: () {
+            //     showDialog(
+            //         context: context,
+            //         builder: (BuildContext context) {
+            //           return AlertDialog(
+            //             title: const Text('Offers'),
+            //             content: const Text('No Offers Available'),
+            //             actions: [
+            //               TextButton(
+            //                 onPressed: () {
+            //                   Navigator.of(context).pop();
+            //                 },
+            //                 child: const Text('OK'),
+            //               ),
+            //             ],
+            //           );
+            //         });
+            //   },
+            // ),
             ListTile(
               iconColor: Colors.white,
               leading: const Icon(Icons.question_answer),
               title: const Text('FAQ', style: TextStyle(color: Colors.white)),
               onTap: () {
-                //Navigator.pushNamed(context, MyRoutes.faqRoute);
+                Navigator.pushNamed(context, MyRoutes.faqRoute);
               },
             ),
             ListTile(
@@ -238,7 +238,15 @@ class _NewhomepageState extends State<Newhomepage> {
               title: const Text('Refund & Return',
                   style: TextStyle(color: Colors.white)),
               onTap: () {
-                //Navigator.pushNamed(context, MyRoutes.returnrefundRoute);
+                // Navigator.pushNamed(context, MyRoutes.returnrefundRoute);
+              },
+            ),
+            ListTile(
+              iconColor: Colors.white,
+              leading: const Icon(Icons.question_answer),
+              title: const Text('Review', style: TextStyle(color: Colors.white)),
+              onTap: () {
+                Navigator.pushNamed(context, MyRoutes.faqRoute);
               },
             ),
             ListTile(

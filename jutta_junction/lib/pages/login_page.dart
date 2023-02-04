@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'dart:ui';
 
+import '../Dashboard/NewHomePage.dart';
 import '../services/local_notification.dart';
 import '../viewmodels/global_ui_viewmodel.dart';
 
@@ -201,7 +202,7 @@ class _LoginPageState extends State<LoginPage> {
         context,
         MaterialPageRoute(
           builder: (context) =>
-              HomePage(),
+              Newhomepage(),
         ),
       );
     },
