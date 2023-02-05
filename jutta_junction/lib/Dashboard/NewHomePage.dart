@@ -282,7 +282,8 @@ class _NewhomepageState extends State<Newhomepage> {
                         onPressed: () {
                           Navigator.of(ctx).pop();
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) => LoginPage()));
+                              builder: (BuildContext context) =>
+                                  LoginScreen()));
                         },
                       ),
                       TextButton(

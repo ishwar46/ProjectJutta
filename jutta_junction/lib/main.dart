@@ -84,7 +84,7 @@ class Myapp extends StatelessWidget {
 
             //theme: MyTheme.lightTheme(context),
             //darkTheme: MyTheme.darkTheme(context),
-            initialRoute: "/NewHomePage",
+            initialRoute: "/login",
             debugShowCheckedModeBanner: false,
             // initialRoute: MyRoutes.homeRoute,
             routes: {
@@ -96,9 +96,9 @@ class Myapp extends StatelessWidget {
 
               // "/": (context) => HomePage(),
               // MyRoutes.homepageRoute: (context) => HomePage(),
-              MyRoutes.loginRoute: ((context) => LoginPage()),
+              MyRoutes.loginRoute: ((context) => LoginScreen()),
               MyRoutes.homepageRoute: ((context) => HomePage()),
-              MyRoutes.signupRoute: ((context) => RegPage()),
+              MyRoutes.signupRoute: ((context) => RegisterScreen()),
               MyRoutes.profileRoute: ((context) => ProfileInfo()),
               MyRoutes.chatRoute: ((context) => ChatPage()),
               MyRoutes.faqRoute: ((context) => FaqPage()),
