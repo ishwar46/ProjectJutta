@@ -35,10 +35,13 @@ class AuthRepository {
 
   Future<UserCredential> login(String email, String password) async {
     try {
+      print(email);
       UserCredential uc = await FirebaseService.firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
+      print("REPOSITORY " " " + uc.toString());
       return uc;
     } catch (err) {
+      print(err);
       rethrow;
     }
   }
@@ -47,9 +50,9 @@ class AuthRepository {
     try {
       final response = await userRef.where("user_id", isEqualTo: id).get();
 
-      var user = response.docs.single.data();
+      var user = response.docs[0].data();
       user.fcm = "";
-      await userRef.doc(user.id).set(user);
+      await userRef.doc(user.userId).set(user);
       return user;
     } catch (err) {
       rethrow;

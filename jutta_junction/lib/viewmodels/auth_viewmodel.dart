@@ -18,10 +18,14 @@ class AuthViewModel with ChangeNotifier {
   Future<void> login(String email, String password) async {
     try {
       var response = await AuthRepository().login(email, password);
+      print(response);
       _user = response.user;
+      print("VM " " " + _user.toString());
       _loggedInUser = await AuthRepository().getUserDetail(_user!.uid);
+      print("VM " " " + _loggedInUser.toString());
       notifyListeners();
     } catch (err) {
+      print(err);
       // AuthRepository().logout();
       rethrow;
     }
