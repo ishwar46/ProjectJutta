@@ -49,6 +49,7 @@ class _UserRatingReviewState extends State<UserRatingReview> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Rating and review'),
+          backgroundColor: Colors.black,
         ),
         body: SingleChildScrollView(
           child: Form(

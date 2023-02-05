@@ -87,7 +87,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               fontWeight: FontWeight.w400,
             ),
           ),
-            
           TextFormField(
             controller: _emailController,
             style: const TextStyle(color: Colors.white),
@@ -121,7 +120,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             },
           ),
           SizedBox(height: 20),
-
           CustomButton(
             title: "Send OTP",
             onPressed: () {
@@ -129,10 +127,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
               // Navigator.push(
 
-                  // context,
-                  // MaterialPageRoute(
-                  //   builder: (context) => OtpVerify(),
-                  // ));
+              // context,
+              // MaterialPageRoute(
+              //   builder: (context) => OtpVerify(),
+              // ));
             },
             //  ),
             //       const SizedBox(height: 20),
