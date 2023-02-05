@@ -81,8 +81,12 @@ class Myapp extends StatelessWidget {
           }
 
           return MaterialApp(
+            
             //home: HomePage(),
-            themeMode: ThemeMode.system,
+            theme: ThemeData(
+              primaryColor: Colors.black,
+            ),
+            
 
 
       // //theme: MyTheme.lightTheme(context),

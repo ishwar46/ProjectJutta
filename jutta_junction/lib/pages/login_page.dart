@@ -83,9 +83,9 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 children: [
                   Image.asset(
-                    "assets/images/logo.png",
-                    height: 100,
-                    width: 100,
+                    "assets/images/Jutta-Junction.png",
+                    height: 300,
+                    width: 400,
                   ),
                   SizedBox(
                     height: 10,
@@ -186,7 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child:const Text(
                               'Forgot Password?',
                               style: TextStyle(
-                                color: Colors.blue,
+                                color: Color.fromARGB(255, 11, 12, 12),
                                 fontWeight: FontWeight.bold,
                           
                               ),),
@@ -194,27 +194,27 @@ class _LoginScreenState extends State<LoginScreen> {
                         ],
                       )),
 
-                      const SizedBox(
-                        height: 40.0,
-                      ),
-                      Material(
-                        color: Colors.purple.shade300,
-                        // borderRadius: BorderRadius.circular(
-                        //   // changebutton ? 50 : 8,
-                        // ),
-                        child: InkWell(
-                          onTap: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) =>
-              Newhomepage(),
-        ),
-      );
-    },
-                          child: AnimatedContainer(
-                            duration: Duration(seconds: 1),
-                            height: 40,
+    //                   const SizedBox(
+    //                     height: 40.0,
+    //                   ),
+    //                   Material(
+    //                     color: Colors.purple.shade300,
+    //                     // borderRadius: BorderRadius.circular(
+    //                     //   // changebutton ? 50 : 8,
+    //                     // ),
+    //                     child: InkWell(
+    //                       onTap: () {zsd
+    //   Navigator.push(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) =>
+    //           Newhomepage(),
+    //     ),
+    //   );
+    // },
+                          // child: AnimatedContainer(
+                          //   duration: Duration(seconds: 1),
+                          //   height: 40,
                             // width: changebutton ? 50 : 150,
                             // alignment: Alignment.center,
                             // child: changebutton
@@ -229,29 +229,29 @@ class _LoginScreenState extends State<LoginScreen> {
                             //             fontWeight: FontWeight.bold,
                             //             fontSize: 18),
                             //       ),
-                          ),
-                        ),
-                      ),
+                      //     ),
+                      //   ),
+                      // ),
                   //     TextButton(
                   //       onPressed: () {
                   //         Navigator.pushNamed(context, MyRoutes.signupRoute);}
 
                   //   ),
                   // ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Align(
-                      alignment: Alignment.centerRight,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.of(context).pushNamed("/forget-password");
-                        },
-                        child: Text(
-                          "Forgot password?",
-                          style: TextStyle(color: Colors.grey.shade800),
-                        ),
-                      )),
+                  // SizedBox(
+                  //   height: 10,
+                  // ),
+                  // Align(
+                  //     alignment: Alignment.centerRight,
+                  //     child: InkWell(
+                  //       onTap: () {
+                  //         Navigator.of(context).pushNamed("/forget-password");
+                  //       },
+                  //       child: Text(
+                  //         "Forgot password?",
+                  //         style: TextStyle(color: Colors.grey.shade800),
+                  //       ),
+                  //     )),
                   SizedBox(
                     height: 10,
                   ),
@@ -263,7 +263,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20),
-                                      side: BorderSide(color: Colors.blue))),
+                                      side: BorderSide(color: Color.fromARGB(255, 14, 16, 18)))),
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               EdgeInsets.symmetric(vertical: 20)),
                         ),
@@ -291,7 +291,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           child: Text(
                             "Sign up",
-                            style: TextStyle(color: Colors.blue),
+                            style: TextStyle(color: Color.fromARGB(255, 16, 17, 18)),
                           ))
                     ],
                   ),
