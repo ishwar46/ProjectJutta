@@ -53,44 +53,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           ),
         ],
       ),
-       bottomNavigationBar: CurvedNavigationBar(
-        height: 60,
-        backgroundColor: Color.fromARGB(255, 2, 5, 8),
-        color: Color.fromARGB(255, 255, 255, 255),
-        //IconButtons
-        items: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.home,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.NewHomePageRoute);
-            },
-          ),
-    
-          IconButton(
-            icon: Icon(
-              Icons.shopping_cart,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.CartRoute);
-            },
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.person,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.profileRoute);                                 
-            },
-          ),
-        ], onTap: (index) {
-          //Handle button ta
-        },
-      ),
+      
       body: Container(
         padding: EdgeInsets.only(left: 16, top: 25, right: 16),
         child: GestureDetector(
@@ -170,15 +133,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                     ),
-                    onPressed: () {
-               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        HomePage(),
-                                  ),
-                                );
-            },
+                    onPressed: () {},
                     child: Text("Cancel",
                         style: TextStyle(
                             fontSize: 14,

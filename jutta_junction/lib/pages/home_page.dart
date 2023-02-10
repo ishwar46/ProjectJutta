@@ -13,13 +13,8 @@ import 'package:jutta_junction/Dashboard/ItemCart.dart';
 import 'package:jutta_junction/Dashboard/Product.dart';
 import 'package:jutta_junction/main.dart';
 import 'package:jutta_junction/models/product_model.dart';
-<<<<<<< HEAD
 import 'package:jutta_junction/pages/edit_profile.dart';
 import 'package:jutta_junction/pages/login_page.dart';
-=======
-// import 'package:jutta_junction/pages/Brands.dart';
-// import 'package:jutta_junction/pages/product_Detail/Product.dart';
->>>>>>> 16c5b52b141c889409b53e3aae4902fdd5890437
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 import 'package:jutta_junction/pages/qr/qrhomepage.dart';
 import 'package:jutta_junction/pages/qr/scanqr.dart';

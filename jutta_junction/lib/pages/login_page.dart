@@ -65,9 +65,15 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-        color: context.canvasColor,
-        child: SingleChildScrollView(
+    
+    return Form(
+      
+      // color: context.canvasColor,
+      child:Scaffold(
+        body: Center(
+          child: 
+      SingleChildScrollView(
+        
           child: Form(
             key: _formKey,
             child: Column(
@@ -246,7 +252,7 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           ),
-        ));
+        ))));
   }
 }
 class ValidateLogin {

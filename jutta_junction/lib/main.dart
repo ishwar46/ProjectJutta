@@ -20,6 +20,9 @@ import 'package:jutta_junction/viewmodels/auth_viewmodel.dart';
 import 'package:jutta_junction/viewmodels/global_ui_viewmodel.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:provider/provider.dart';
+import 'package:velocity_x/velocity_x.dart';
+
+import 'core/store.dart';
 
 
 
@@ -28,6 +31,7 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 void main() async {
+    // runApp(VxState(store: MyStore(), child: Myapp()));
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   NotificationService.initialize();
@@ -84,19 +88,19 @@ class Myapp extends StatelessWidget {
 
       //theme: MyTheme.lightTheme(context),
       //darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/NewHomePage",
+      initialRoute: "NewHomePage",
       debugShowCheckedModeBanner: false,
       // initialRoute: MyRoutes.homeRoute,
       routes: {
 
         "/": (context) => Newhomepage(),
         MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
-        MyRoutes.loginRoute: ((context) => Card()),
+       
         // "/": (context) => SettingsUI(),
         // MyRoutes.profileRoute: (context) => SettingsUI(),
 
         // "/": (context) => HomePage(),
-        // MyRoutes.homepageRoute: (context) => HomePage(),
+        MyRoutes.homepageRoute: (context) => HomePage(),
         MyRoutes.loginRoute: ((context) => LoginPage()),
         MyRoutes.homepageRoute: ((context) => HomePage()),
         MyRoutes.signupRoute: ((context) => RegPage()),
@@ -105,12 +109,9 @@ class Myapp extends StatelessWidget {
         MyRoutes.faqRoute: ((context) => FaqPage()),
         MyRoutes.refundRoute: ((context) => RedturnRefund()),
         MyRoutes.onboardingRoute: ((context) => Onboarding()),
-<<<<<<< HEAD
-         MyRoutes.CartRoute: ((context) => Cart()),
-=======
-                MyRoutes.changepassRoute: ((context) => ChangePassword()),
+        MyRoutes.CartPageRoute: ((context) => CartPage()),
+        MyRoutes.changepassRoute: ((context) => ChangePassword()),
 
->>>>>>> 6c7599d5031d0b43388ae38156ffb50b81c9744f
       },
     );
   }
@@ -132,7 +133,7 @@ class MyRoutes {
   static String signupRoute = "/signup";
   static String homepageRoute = "/HomePage";
   static String Product_detailRoute = "/Product_detail";
-  static String CartRoute = "/Cart";
+  static String CartPageRoute = "/CartPage";
   static String chatRoute = "/chatpage";
   static String faqRoute = "/faqpage";
   static String refundRoute = "/returnrefundRoute";

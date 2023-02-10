@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jutta_junction/models/product.dart';
+import 'package:jutta_junction/Dashboard/Product.dart';
+
 
 
 class SearchPage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _SearchState extends State<SearchPage> {
       String productImage = product.image;
       int productPrice = product.price;
     }
-    _filteredProducts = products;
+    _filteredProducts = product1;
     }
   
   @override

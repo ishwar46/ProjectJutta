@@ -341,7 +341,7 @@ class _NewhomepageState extends State<Newhomepage> {
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.CartRoute);
+              Navigator.pushNamed(context, MyRoutes.CartPageRoute);
             },
           ),
           IconButton(
