@@ -53,9 +53,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(133, 143, 177, 21),
+      backgroundColor: Color.fromARGB(235, 18, 19, 21),
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(133, 143, 177, 21),
+        backgroundColor: Color.fromARGB(235, 20, 21, 23),
         elevation: 0,
         //   children: [
         leading: Center(
@@ -77,6 +77,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             child: Text("Forgot Password?",
                 style: TextStyle(
                   fontSize: 32,
+                  color: Colors.white,
                   fontWeight: FontWeight.w400,
                 )),
           ),
@@ -84,10 +85,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             "E-Mail",
             style: TextStyle(
               fontSize: 15,
+              color: Colors.white,
               fontWeight: FontWeight.w400,
             ),
           ),
-            
           TextFormField(
             controller: _emailController,
             style: const TextStyle(color: Colors.white),
@@ -121,7 +122,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             },
           ),
           SizedBox(height: 20),
-
           CustomButton(
             title: "Send OTP",
             onPressed: () {
@@ -129,10 +129,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
               // Navigator.push(
 
-                  // context,
-                  // MaterialPageRoute(
-                  //   builder: (context) => OtpVerify(),
-                  // ));
+              // context,
+              // MaterialPageRoute(
+              //   builder: (context) => OtpVerify(),
+              // ));
             },
             //  ),
             //       const SizedBox(height: 20),

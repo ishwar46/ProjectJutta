@@ -114,7 +114,7 @@ class _SettingPageState extends State<SettingPage> {
                             Navigator.of(ctx).pop();
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    LoginPage()));
+                                    LoginScreen()));
                           },
                           child: Container(
                             color: Colors.grey,

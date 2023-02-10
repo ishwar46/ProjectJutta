@@ -1,0 +1,26 @@
+book ko table
+custumer
+reln table (buy)
+pom.xml
+user table
+rollwrite management auth 
+custom user service impl file chahinxa
+user entity chahinxa
+spring web security chahinxa
+
+request matcher ma user lai open
+get by id
+action ma route ani method
+user controller ma route 
+request mapping
+get mapping 
+postmapping
+validation ko lagi pogo banauney
+service ra repo chahinxa
+
+
+controller lai interface ma inject
+template loads data in pojo ani pojo to userservice ma load hunxa
+
+
+ 

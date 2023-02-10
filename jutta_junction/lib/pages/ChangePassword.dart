@@ -84,7 +84,6 @@ class _ChangePasswordState extends State<ChangePassword> {
                     ),
                   ),
                 ),
-                
                 Container(
                   height: deviceHeight * 0.75,
                   width: double.infinity,
