@@ -37,6 +37,10 @@ This is an online shopping platform where users can buy and sell products with e
 - Add the file to the `android/app` folder
 5. Run the app
 
+## Screenshots
+
+![screenshot](#)
+
 ## Maintainers
 
 - Ishwar Chaudhary - [Ishu](https://github.com/ishwar46)
