@@ -45,8 +45,6 @@ This is an online shopping platform where users can buy and sell products with e
 - Sijan - [](#)
 - Roz Magarjan - [](#)
 
-
-
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://github.com/YOUR_USERNAME/e-commerce-project/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
