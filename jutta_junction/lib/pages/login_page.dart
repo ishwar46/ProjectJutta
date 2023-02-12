@@ -165,8 +165,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20),
-                                      side: BorderSide(color: Colors.blue))),
+                            borderRadius: BorderRadius.circular(20),
+                            //side: BorderSide(color: Colors.purple)
+                          )),
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               EdgeInsets.symmetric(vertical: 20)),
                         ),
@@ -194,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           child: Text(
                             "Sign up",
-                            style: TextStyle(color: Colors.blue),
+                            style: TextStyle(color: Colors.purple),
                           ))
                     ],
                   ),
