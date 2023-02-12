@@ -313,16 +313,27 @@ class Body extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
-                        ElevatedButton(
+                        OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                    ),
                           onPressed: () {
                             
                             cartController.to.addProduct(product);
                           },
                         
-                          child: Text("Add to cart"),
+                          child: Text("Add to cart",style: TextStyle(color: Colors.white),),
                         ),
-                        ElevatedButton(
-                            onPressed: (() {}), child: Text("Buy now"))
+                        OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                    ),
+                    onPressed: (() {}),
+                    child: Text(
+                      "Buy now",
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                    ))
                       ],
                     ),
                   ),
