@@ -30,21 +30,21 @@ class Product_Detail extends StatelessWidget {
        
       ),
       
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Color.fromARGB(255, 2, 5, 8),
-        items: <Widget>[
-          Icon(Icons.home),
-          Icon(Icons.chat),
-          Icon(Icons.shopping_cart),
-          Icon(
-            Icons.account_box,
-            size: 30,
-          ),
-        ],
-        onTap: (index) {
-          //Handle button ta
-        },
-      ),
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   backgroundColor: Color.fromARGB(255, 2, 5, 8),
+      //   items: <Widget>[
+      //     Icon(Icons.home),
+      //     Icon(Icons.chat),
+      //     Icon(Icons.shopping_cart),
+      //     Icon(
+      //       Icons.account_box,
+      //       size: 30,
+      //     ),
+      //   ],
+      //   onTap: (index) {
+      //     //Handle button ta
+      //   },
+      // ),
     );
 }
 }

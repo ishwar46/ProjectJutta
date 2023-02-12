@@ -151,94 +151,103 @@ class _NewhomepageState extends State<Newhomepage> {
             SizedBox(height: 20),
             const Divider(
                 thickness: 1, color: Color.fromARGB(255, 255, 255, 255)),
-            ListTile(
-              iconColor: Colors.white,
-              leading: const Icon(Icons.person),
-              title: const Text('My Profile',
-                  style: TextStyle(color: Colors.white)),
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: const Text('My Profile'),
-                      content: const Text('Under Construction'),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: const Text('Close'),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-            ),
-            ListTile(
-              iconColor: Colors.white,
-              leading: const Icon(Icons.category),
-              title:
-                  const Text('Brands', style: TextStyle(color: Colors.white)),
-              onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Brands'),
-                        content: const Text('Under Construction'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('Close'),
-                          ),
-                        ],
-                      );
-                    });
-              },
-            ),
-            ListTile(
-              iconColor: Colors.white,
-              leading: const Icon(Icons.wallet_giftcard_rounded),
-              title:
-                  const Text('Offers', style: TextStyle(color: Colors.white)),
-              onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Offers'),
-                        content: const Text('No Offers Available'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('OK'),
-                          ),
-                        ],
-                      );
-                    });
-              },
-            ),
+            // ListTile(
+            //   iconColor: Colors.white,
+            //   leading: const Icon(Icons.person),
+            //   title: const Text('My Profile',
+            //       style: TextStyle(color: Colors.white)),
+            //   onTap: () {
+            //     showDialog(
+            //       context: context,
+            //       builder: (BuildContext context) {
+            //         return AlertDialog(
+            //           title: const Text('My Profile'),
+            //           content: const Text('Under Construction'),
+            //           actions: [
+            //             TextButton(
+            //               onPressed: () {
+            //                 Navigator.of(context).pop();
+            //               },
+            //               child: const Text('Close'),
+            //             ),
+            //           ],
+            //         );
+            //       },
+            //     );
+            //   },
+            // ),
+            // ListTile(
+            //   iconColor: Colors.white,
+            //   leading: const Icon(Icons.category),
+            //   title:
+            //       const Text('Review', style: TextStyle(color: Colors.white)),
+            //   onTap: () {
+            //     showDialog(
+            //         context: context,
+            //         builder: (BuildContext context) {
+            //           return AlertDialog(
+            //             title: const Text('Review'),
+            //             content: const Text('Under Construction'),
+            //             actions: [
+            //               TextButton(
+            //                 onPressed: () {
+            //                   Navigator.of(context).pop();
+            //                 },
+            //                 child: const Text('Close'),
+            //               ),
+            //             ],
+            //           );
+            //         });
+            //   },
+            // ),
+            // ListTile(
+            //   iconColor: Colors.white,
+            //   leading: const Icon(Icons.wallet_giftcard_rounded),
+            //   title:
+            //       const Text('Offers', style: TextStyle(color: Colors.white)),
+            //   onTap: () {
+            //     showDialog(
+            //         context: context,
+            //         builder: (BuildContext context) {
+            //           return AlertDialog(
+            //             title: const Text('Offers'),
+            //             content: const Text('No Offers Available'),
+            //             actions: [
+            //               TextButton(
+            //                 onPressed: () {
+            //                   Navigator.of(context).pop();
+            //                 },
+            //                 child: const Text('OK'),
+            //               ),
+            //             ],
+            //           );
+            //         });
+            //   },
+            // ),
             ListTile(
               iconColor: Colors.white,
               leading: const Icon(Icons.question_answer),
               title: const Text('FAQ', style: TextStyle(color: Colors.white)),
               onTap: () {
-                //Navigator.pushNamed(context, MyRoutes.faqRoute);
+                Navigator.pushNamed(context, MyRoutes.faqRoute);
               },
             ),
+             
             ListTile(
               iconColor: Colors.white,
               leading: const Icon(Icons.assignment_return_rounded),
               title: const Text('Refund & Return',
                   style: TextStyle(color: Colors.white)),
               onTap: () {
-                //Navigator.pushNamed(context, MyRoutes.returnrefundRoute);
+                // Navigator.pushNamed(context, MyRoutes.returnrefundRoute);
+              },
+            ),
+            ListTile(
+              iconColor: Colors.white,
+              leading: const Icon(Icons.question_answer),
+              title: const Text('Review', style: TextStyle(color: Colors.white)),
+              onTap: () {
+                // Navigator.pushNamed(context, MyRoutes.ratingRoute);
               },
             ),
             ListTile(
@@ -335,13 +344,22 @@ class _NewhomepageState extends State<Newhomepage> {
               Navigator.pushNamed(context, MyRoutes.NewHomePageRoute);
             },
           ),
+            IconButton(
+            icon: Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, MyRoutes.searchRoute);
+            },
+          ),
           IconButton(
             icon: Icon(
               Icons.shopping_cart,
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.CartRoute);
+              Navigator.pushNamed(context, MyRoutes.CartPageRoute);
             },
           ),
           IconButton(
@@ -397,7 +415,7 @@ class _NewhomepageState extends State<Newhomepage> {
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.loginRoute);
+              Navigator.pushNamed(context, MyRoutes.qrRoute);
             },
           ),
         ],
@@ -410,17 +428,17 @@ class _NewhomepageState extends State<Newhomepage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextField(
-                decoration: InputDecoration(
-                  filled: true,
-                  prefixIcon: Icon(Icons.search),
-                  hintText: "The best shoes for best people.",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-              ),
+              // TextField(
+              //   decoration: InputDecoration(
+              //     filled: true,
+              //     prefixIcon: Icon(Icons.search),
+              //     hintText: "The best shoes for best people.",
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10),
+              //       borderSide: BorderSide.none,
+              //     ),
+              //   ),
+              // ),
               Container(
                 height: 50,
                 child: Column(

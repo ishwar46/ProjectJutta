@@ -4,6 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:jutta_junction/services/local_notification.dart';
 import 'package:provider/provider.dart';
 
+import 'dart:ui';
+
+import '../Dashboard/NewHomePage.dart';
+
+import '../../viewmodels/auth_viewmodel.dart';
+import '../../viewmodels/global_ui_viewmodel.dart';
+
+import '../services/local_notification.dart';
+import 'ForgotPassword.dart';
+
 import '../../viewmodels/auth_viewmodel.dart';
 import '../../viewmodels/global_ui_viewmodel.dart';
 
@@ -70,9 +80,9 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 children: [
                   Image.asset(
-                    "assets/images/logo.png",
-                    height: 100,
-                    width: 100,
+                    "assets/images/Jutta-Junction.png",
+                    height: 300,
+                    width: 400,
                   ),
                   SizedBox(
                     height: 10,
@@ -141,19 +151,28 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Align(
-                      alignment: Alignment.centerRight,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.of(context).pushNamed("/forget-password");
-                        },
-                        child: Text(
-                          "Forgot password?",
-                          style: TextStyle(color: Colors.grey.shade800),
-                        ),
+                  SizedBox(height: 10),
+                  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return ForgotPassword();
+                              }));
+                            },
+                            child: const Text(
+                              'Forgot Password?',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 11, 12, 12),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          )
+                        ],
                       )),
                   SizedBox(
                     height: 10,
@@ -162,12 +181,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: double.infinity,
                     child: ElevatedButton(
                         style: ButtonStyle(
+<<<<<<< HEAD
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                             //side: BorderSide(color: Colors.purple)
                           )),
+=======
+                          shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                  side: BorderSide(
+                                      color: Color.fromARGB(255, 14, 16, 18)))),
+>>>>>>> d911fc600a4e77fc23e63dfe1b4804a94405582c
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               EdgeInsets.symmetric(vertical: 20)),
                         ),
@@ -195,7 +223,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           child: Text(
                             "Sign up",
+<<<<<<< HEAD
                             style: TextStyle(color: Colors.purple),
+=======
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 16, 17, 18)),
+>>>>>>> d911fc600a4e77fc23e63dfe1b4804a94405582c
                           ))
                     ],
                   ),

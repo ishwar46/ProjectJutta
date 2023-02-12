@@ -8,24 +8,30 @@ import 'package:jutta_junction/pages/chatbot/ChatPage.dart';
 import 'package:jutta_junction/pages/drawer/faq.dart';
 import 'package:jutta_junction/pages/drawer/return_refund.dart';
 import 'package:jutta_junction/pages/edit_profile.dart';
-import 'package:jutta_junction/pages/home_page.dart';
 import 'package:jutta_junction/pages/ChangePassword.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/onboarding_screen.dart';
 import 'package:jutta_junction/pages/product_Detail/CartPage.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
+import 'package:jutta_junction/pages/qr/qrhomepage.dart';
+import 'package:jutta_junction/pages/review.dart';
+import 'package:jutta_junction/pages/search.dart';
 import 'package:jutta_junction/pages/signup_page.dart';
 import 'package:jutta_junction/services/local_notification.dart';
 import 'package:jutta_junction/viewmodels/auth_viewmodel.dart';
 import 'package:jutta_junction/viewmodels/global_ui_viewmodel.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:provider/provider.dart';
+import 'package:velocity_x/velocity_x.dart';
+
+import 'core/store.dart';
 
 //Global variable for the notification plugin
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 void main() async {
+  // runApp(VxState(store: MyStore(), child: Myapp()));
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   NotificationService.initialize();
@@ -88,28 +94,30 @@ class Myapp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             // initialRoute: MyRoutes.homeRoute,
             routes: {
-              "/": (context) => Newhomepage(),
+              "/": (context) => LoginScreen(),
+                           // MyRoutes.profileRoute: (context) => SettingsUI(),
+              MyRoutes.loginRoute: ((context) => LoginScreen()),
               MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
               MyRoutes.loginRoute: ((context) => Card()),
               // "/": (context) => SettingsUI(),
-              // MyRoutes.profileRoute: (context) => SettingsUI(),
-
-              // "/": (context) => HomePage(),
-              // MyRoutes.homepageRoute: (context) => HomePage(),
-              MyRoutes.loginRoute: ((context) => LoginScreen()),
-              MyRoutes.homepageRoute: ((context) => HomePage()),
+ 
+              // MyRoutes.homepageRoute: ((context) => HomePage()),
               MyRoutes.signupRoute: ((context) => RegisterScreen()),
               MyRoutes.profileRoute: ((context) => ProfileInfo()),
               MyRoutes.chatRoute: ((context) => ChatPage()),
               MyRoutes.faqRoute: ((context) => FaqPage()),
               MyRoutes.refundRoute: ((context) => RedturnRefund()),
               MyRoutes.onboardingRoute: ((context) => Onboarding()),
-              MyRoutes.CartRoute: ((context) => Cart()),
+              MyRoutes.qrRoute: ((context) => QrHomePage()),
+              MyRoutes.searchRoute: ((context) => SearchPage()),
+              MyRoutes.ratingRoute: ((context) => UserRatingReview()),
               MyRoutes.changepassRoute: ((context) => ChangePassword()),
+              MyRoutes.CartPageRoute:((context) => CartPage())
             },
           );
         }),
       ),
+
     );
   }
 }
@@ -118,18 +126,26 @@ class CategoryViewModel {}
 
 class MyRoutes {
   static String NewHomePageRoute = "/NewHomePage";
+  static String searchRoute = "/searchPage";
   static String loginRoute = "/login";
   static String homeRoute = "/home";
+  static String qrRoute= "/qr";
 
   static String profileRoute = "/profile";
 
   static String signupRoute = "/signup";
   static String homepageRoute = "/HomePage";
   static String Product_detailRoute = "/Product_detail";
-  static String CartRoute = "/Cart";
+  static String CartPageRoute = "/CartPage";
   static String chatRoute = "/chatpage";
   static String faqRoute = "/faqpage";
   static String refundRoute = "/returnrefundRoute";
-  static String onboardingRoute = "/onboardingRoute";
-  static String changepassRoute = "/changepassRoute";
+
+  static String onboardingRoute= "/onboardingRoute";  
+  static String changepassRoute= "/changepassRoute";
+  static String ratingRoute= "/ratingRoute";
+
+
+  // static String onboardingRoute = "/onboardingRoute";
+  // static String changepassRoute = "/changepassRoute";
 }

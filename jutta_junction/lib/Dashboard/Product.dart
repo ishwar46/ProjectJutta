@@ -1,5 +1,17 @@
 import 'package:flutter/material.dart';
+// class CatalogModel {
+//   static List<Product> product;
+
+//   // Get Item by ID
+//   Product getById(int id) =>
+//       product.firstWhere((element) => element.id == id, orElse: null);
+
+//   // Get Item by position
+//   Product getByPosition(int pos) => product[pos];
+// }
+
 class Product{
+  
   final String image, title,description;
   final int price,id;
   final Color color;
@@ -12,6 +24,10 @@ class Product{
     required this.color,
 
   });
+
+  get length => null;
+
+  get product1 => null;
 } 
   List<Product> product1=[
     Product(
@@ -20,7 +36,7 @@ class Product{
       price:14000,
       description:"jdhfjahfsdahfuhdfjhadsh",
       image:"assets/images/jordan4.png",
-      color: Color.fromARGB(255, 195, 195, 195),
+      color: Color.fromARGB(255, 236, 226, 226),
 ),
        Product(
       id:2,
