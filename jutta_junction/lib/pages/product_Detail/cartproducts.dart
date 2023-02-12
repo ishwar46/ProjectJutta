@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jutta_junction/Controller/cart_controller.dart';
 import 'package:jutta_junction/Dashboard/Product.dart';
+import 'package:jutta_junction/pages/chatbot/ChatPage.dart';
 
 class CartProducts extends StatelessWidget {
   final CartController controller = Get.put(CartController());
@@ -12,7 +13,7 @@ class CartProducts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => SizedBox(
-          height: 600,
+          height: 450,
           child: ListView.builder(
               itemCount: controller.products.length,
               itemBuilder: ((BuildContext context, int index) {
@@ -49,6 +50,7 @@ class CartProductCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top:10,bottom: 10),
             child: Image.asset(
+              
               product.image,
               width: 80,
               height: 60,

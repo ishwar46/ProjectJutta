@@ -17,7 +17,7 @@ class CartController extends GetxController {
     Get.snackbar(
       "Product Added",
       "You have added the ${product.title} to the cart",
-      snackPosition: SnackPosition.BOTTOM,
+      snackPosition: SnackPosition.TOP,
       duration: Duration(seconds: 2),
     );
   }
@@ -32,7 +32,7 @@ class CartController extends GetxController {
       Get.snackbar(
         "Product Removed",
         "you have removed the ${product.title} from the cart",
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
         duration: Duration(seconds: 2),
       );
     }
@@ -41,4 +41,5 @@ class CartController extends GetxController {
   get products => _products;
   get productSubtotal => _products.entries.map((product) => product.key.price *product.value).toList();
   get total => _products.entries.map((product) => product.key.price *product.value).toList().reduce((value, element) => value + element).toStringAsFixed(2);
+  get sum => _products.entries.map((product) => (product.key.price *product.value) + 200).toList();
 }
