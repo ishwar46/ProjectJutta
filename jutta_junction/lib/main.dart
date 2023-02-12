@@ -90,14 +90,15 @@ class Myapp extends StatelessWidget {
 
             //theme: MyTheme.lightTheme(context),
             //darkTheme: MyTheme.darkTheme(context),
-            initialRoute: "/login",
+            initialRoute: "/NewHomePage",
             debugShowCheckedModeBanner: false,
             // initialRoute: MyRoutes.homeRoute,
             routes: {
-              "/": (context) => LoginScreen(),
+              "/": (context) => Newhomepage(),
                            // MyRoutes.profileRoute: (context) => SettingsUI(),
+                                         MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
               MyRoutes.loginRoute: ((context) => LoginScreen()),
-              MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
+
               MyRoutes.loginRoute: ((context) => Card()),
               // "/": (context) => SettingsUI(),
  
@@ -130,9 +131,7 @@ class MyRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
   static String qrRoute= "/qr";
-
   static String profileRoute = "/profile";
-
   static String signupRoute = "/signup";
   static String homepageRoute = "/HomePage";
   static String Product_detailRoute = "/Product_detail";
@@ -140,7 +139,6 @@ class MyRoutes {
   static String chatRoute = "/chatpage";
   static String faqRoute = "/faqpage";
   static String refundRoute = "/returnrefundRoute";
-
   static String onboardingRoute= "/onboardingRoute";  
   static String changepassRoute= "/changepassRoute";
   static String ratingRoute= "/ratingRoute";

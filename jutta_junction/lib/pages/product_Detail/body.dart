@@ -1,20 +1,17 @@
-import 'dart:ui';
+
 // import 'package:smooth_star_rating/smooth_star_rating.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:jutta_junction/Controller/cart_controller.dart';
-import 'package:jutta_junction/models/catelog.dart';
-import 'package:jutta_junction/models/product_model.dart';
-import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
-import 'package:velocity_x/velocity_x.dart';
-import 'package:flutter/src/material/theme_data.dart';
 
+import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
+
+
+import '../../Controller/cart_controller.dart';
 import '../../Dashboard/ItemCart.dart';
 import '../../Dashboard/Product.dart';
-import '../../core/store.dart';
+
 
 Widget _buildNewArrivals(
     {required String name, required double price, required String image}) {
@@ -58,9 +55,11 @@ Widget _buildNewArrivals(
 class Body extends StatelessWidget {
   get index => product2;
   final Product product;
-  get CartController => Get.put(CartController());
+   final cartController =Get.put(CartController());
 
-  Body({super.key, required this.product});
+
+
+  Body({key, required this.product}) :super(key: key);
   // bool isAdded = false;
 
   @override
@@ -315,17 +314,13 @@ class Body extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
                         ElevatedButton(
-                            onPressed: () {
-                              CartController.addProduct(
-                                  Product: product1[index]);
-                               
-                            },
-                            style: ButtonStyle(
-                                // backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
-                                shape: MaterialStateProperty.all(
-                              StadiumBorder(),
-                            )),
-                            child: Text("add to cart")),
+                          onPressed: () {
+                            
+                            cartController.to.addProduct(product);
+                          },
+                        
+                          child: Text("Add to cart"),
+                        ),
                         ElevatedButton(
                             onPressed: (() {}), child: Text("Buy now"))
                       ],
