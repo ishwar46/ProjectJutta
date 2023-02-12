@@ -27,7 +27,6 @@ class CartProducts extends StatelessWidget {
   }
 }
 
-
 class CartProductCard extends StatelessWidget {
   final CartController controller;
   final Product product;
@@ -48,20 +47,28 @@ class CartProductCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: const EdgeInsets.all(10),
-            child: CircleAvatar( backgroundImage: AssetImage(product.image),
-                          backgroundColor: product.color,
-                          
-                            
-                          maxRadius: 30,
-                          minRadius: 30
-                          // backgroundImage: AssetImage("assets/images/bus_App_Logo.png"),
-                          ),
+            padding: const EdgeInsets.only(top:10,bottom: 10),
+            child: Image.asset(
+              product.image,
+              width: 80,
+              height: 60,
+              fit: BoxFit.cover,
+            ),
           ),
-          SizedBox(
-            width: 20,
-          ),
-          Expanded(child: Text(product.title)),
+          Expanded(
+              child: Column(
+            children: [
+              Text(
+                product.title,
+                style: TextStyle(
+
+                    // fontWeight: FontWeight.bold
+                    ),
+              ),
+              Text("Rs${product.price}",
+                  style: TextStyle(fontWeight: FontWeight.bold))
+            ],
+          )),
           IconButton(
               onPressed: () {
                 controller.removeProduct(product);
