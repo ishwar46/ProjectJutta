@@ -181,21 +181,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: double.infinity,
                     child: ElevatedButton(
                         style: ButtonStyle(
-<<<<<<< HEAD
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            //side: BorderSide(color: Colors.purple)
-                          )),
-=======
                           shape: MaterialStateProperty.all<
                                   RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                   side: BorderSide(
                                       color: Color.fromARGB(255, 14, 16, 18)))),
->>>>>>> f28be4170880dd69d43e3548dd27c4c091a961c2
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               EdgeInsets.symmetric(vertical: 20)),
                         ),
@@ -223,12 +214,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           child: Text(
                             "Sign up",
-<<<<<<< HEAD
-                            style: TextStyle(color: Colors.purple),
-=======
                             style: TextStyle(
                                 color: Color.fromARGB(255, 16, 17, 18)),
->>>>>>> f28be4170880dd69d43e3548dd27c4c091a961c2
                           ))
                     ],
                   ),

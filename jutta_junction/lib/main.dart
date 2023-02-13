@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:jutta_junction/Dashboard/NewHomePage.dart';
 import 'package:jutta_junction/pages/Profile/account_screen.dart';
+import 'package:jutta_junction/pages/Profile/change_your_email.dart';
 import 'package:jutta_junction/pages/Profile/edit_profile.dart';
 import 'package:jutta_junction/pages/chatbot/ChatPage.dart';
 import 'package:jutta_junction/pages/drawer/faq.dart';
@@ -95,14 +96,9 @@ class Myapp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             // initialRoute: MyRoutes.homeRoute,
             routes: {
-<<<<<<< HEAD
-              "/": (context) => LoginScreen(),
-              // MyRoutes.profileRoute: (context) => SettingsUI(),
-=======
               "/": (context) => Newhomepage(),
-                           // MyRoutes.profileRoute: (context) => SettingsUI(),
-                                         MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
->>>>>>> f28be4170880dd69d43e3548dd27c4c091a961c2
+              // MyRoutes.profileRoute: (context) => SettingsUI(),
+              MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
               MyRoutes.loginRoute: ((context) => LoginScreen()),
 
               MyRoutes.loginRoute: ((context) => Card()),
@@ -119,7 +115,10 @@ class Myapp extends StatelessWidget {
               MyRoutes.searchRoute: ((context) => SearchPage()),
               MyRoutes.ratingRoute: ((context) => UserRatingReview()),
               MyRoutes.changepassRoute: ((context) => ChangePassword()),
-              MyRoutes.CartPageRoute: ((context) => CartPage())
+              MyRoutes.CartPageRoute: ((context) => CartPage()),
+              // profile ko routes
+              "/change_email": (BuildContext context) => ChangeEmail(),
+              "/your_profile": (BuildContext context) => ProfileInfo(),
             },
           );
         }),
@@ -135,12 +134,7 @@ class MyRoutes {
   static String searchRoute = "/searchPage";
   static String loginRoute = "/login";
   static String homeRoute = "/home";
-<<<<<<< HEAD
   static String qrRoute = "/qr";
-
-=======
-  static String qrRoute= "/qr";
->>>>>>> f28be4170880dd69d43e3548dd27c4c091a961c2
   static String profileRoute = "/profile";
   static String signupRoute = "/signup";
   static String homepageRoute = "/HomePage";
@@ -149,17 +143,9 @@ class MyRoutes {
   static String chatRoute = "/chatpage";
   static String faqRoute = "/faqpage";
   static String refundRoute = "/returnrefundRoute";
-<<<<<<< HEAD
-
   static String onboardingRoute = "/onboardingRoute";
   static String changepassRoute = "/changepassRoute";
   static String ratingRoute = "/ratingRoute";
-=======
-  static String onboardingRoute= "/onboardingRoute";  
-  static String changepassRoute= "/changepassRoute";
-  static String ratingRoute= "/ratingRoute";
-
->>>>>>> f28be4170880dd69d43e3548dd27c4c091a961c2
 
   // static String onboardingRoute = "/onboardingRoute";
   // static String changepassRoute = "/changepassRoute";
