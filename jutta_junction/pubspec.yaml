@@ -52,6 +52,7 @@ dependencies:
   firebase_storage: ^11.0.10
   image_picker: ^0.8.6
   provider: ^6.0.5
+  email_validator: ^2.1.17
   local_image_provider: ^4.3.0
   path_provider: ^2.0.11
   loader_overlay: ^2.1.0

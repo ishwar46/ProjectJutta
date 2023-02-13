@@ -4,10 +4,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:jutta_junction/Dashboard/NewHomePage.dart';
+import 'package:jutta_junction/pages/Profile/account_screen.dart';
+import 'package:jutta_junction/pages/Profile/edit_profile.dart';
 import 'package:jutta_junction/pages/chatbot/ChatPage.dart';
 import 'package:jutta_junction/pages/drawer/faq.dart';
 import 'package:jutta_junction/pages/drawer/return_refund.dart';
-import 'package:jutta_junction/pages/edit_profile.dart';
 import 'package:jutta_junction/pages/ChangePassword.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/onboarding_screen.dart';
@@ -95,15 +96,15 @@ class Myapp extends StatelessWidget {
             // initialRoute: MyRoutes.homeRoute,
             routes: {
               "/": (context) => LoginScreen(),
-                           // MyRoutes.profileRoute: (context) => SettingsUI(),
+              // MyRoutes.profileRoute: (context) => SettingsUI(),
               MyRoutes.loginRoute: ((context) => LoginScreen()),
               MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
               MyRoutes.loginRoute: ((context) => Card()),
               // "/": (context) => SettingsUI(),
- 
+
               // MyRoutes.homepageRoute: ((context) => HomePage()),
               MyRoutes.signupRoute: ((context) => RegisterScreen()),
-              MyRoutes.profileRoute: ((context) => ProfileInfo()),
+              MyRoutes.profileRoute: ((context) => AccountScreen()),
               MyRoutes.chatRoute: ((context) => ChatPage()),
               MyRoutes.faqRoute: ((context) => FaqPage()),
               MyRoutes.refundRoute: ((context) => RedturnRefund()),
@@ -112,12 +113,11 @@ class Myapp extends StatelessWidget {
               MyRoutes.searchRoute: ((context) => SearchPage()),
               MyRoutes.ratingRoute: ((context) => UserRatingReview()),
               MyRoutes.changepassRoute: ((context) => ChangePassword()),
-              MyRoutes.CartPageRoute:((context) => CartPage())
+              MyRoutes.CartPageRoute: ((context) => CartPage())
             },
           );
         }),
       ),
-
     );
   }
 }
@@ -129,7 +129,7 @@ class MyRoutes {
   static String searchRoute = "/searchPage";
   static String loginRoute = "/login";
   static String homeRoute = "/home";
-  static String qrRoute= "/qr";
+  static String qrRoute = "/qr";
 
   static String profileRoute = "/profile";
 
@@ -141,10 +141,9 @@ class MyRoutes {
   static String faqRoute = "/faqpage";
   static String refundRoute = "/returnrefundRoute";
 
-  static String onboardingRoute= "/onboardingRoute";  
-  static String changepassRoute= "/changepassRoute";
-  static String ratingRoute= "/ratingRoute";
-
+  static String onboardingRoute = "/onboardingRoute";
+  static String changepassRoute = "/changepassRoute";
+  static String ratingRoute = "/ratingRoute";
 
   // static String onboardingRoute = "/onboardingRoute";
   // static String changepassRoute = "/changepassRoute";
