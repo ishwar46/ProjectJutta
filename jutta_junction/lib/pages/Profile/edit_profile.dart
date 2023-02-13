@@ -87,7 +87,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
     return Consumer<AuthViewModel>(builder: (context, authVM, chid) {
       return Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.deepOrangeAccent,
+            backgroundColor: Colors.purpleAccent,
             centerTitle: true,
             title: Text("Profile Information"),
           ),

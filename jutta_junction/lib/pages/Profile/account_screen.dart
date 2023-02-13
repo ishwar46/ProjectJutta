@@ -23,7 +23,7 @@ class _AccountScreenState extends State<AccountScreen> {
       }).catchError((e) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(e.message.toString()),
-          backgroundColor: Colors.deepOrangeAccent,
+          backgroundColor: Colors.purpleAccent,
           behavior: SnackBarBehavior.floating,
           margin: EdgeInsets.all(50),
           elevation: 20,
@@ -32,7 +32,7 @@ class _AccountScreenState extends State<AccountScreen> {
     } catch (err) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(err.toString()),
-        backgroundColor: Colors.deepOrangeAccent,
+        backgroundColor: Colors.purpleAccent,
         behavior: SnackBarBehavior.floating,
         margin: EdgeInsets.all(50),
         elevation: 20,
@@ -76,7 +76,7 @@ class _AccountScreenState extends State<AccountScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Text("Your Profile"),
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Colors.purple,
         actions: [
           IconButton(
               icon: const Icon(Icons.sell),
@@ -126,8 +126,8 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               title: Text("Personal Data",
                   style: TextStyle(fontWeight: FontWeight.w700)),
-              trailing: Icon(Icons.arrow_forward_ios,
-                  color: Colors.deepOrange, size: 20),
+              trailing:
+                  Icon(Icons.arrow_forward_ios, color: Colors.purple, size: 20),
               onTap: () {
                 Navigator.of(context).pushNamed("/your_profile");
               },
@@ -145,8 +145,8 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               title: Text("Change your email",
                   style: TextStyle(fontWeight: FontWeight.w700)),
-              trailing: Icon(Icons.arrow_forward_ios,
-                  color: Colors.deepOrange, size: 20),
+              trailing:
+                  Icon(Icons.arrow_forward_ios, color: Colors.purple, size: 20),
               onTap: () {
                 Navigator.of(context).pushNamed("/change_email");
               },
@@ -164,8 +164,8 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               title: Text("Change your password",
                   style: TextStyle(fontWeight: FontWeight.w700)),
-              trailing: Icon(Icons.arrow_forward_ios,
-                  color: Colors.deepOrange, size: 20),
+              trailing:
+                  Icon(Icons.arrow_forward_ios, color: Colors.purple, size: 20),
               onTap: () {
                 Navigator.of(context).pushNamed("/change_password");
               },
@@ -183,8 +183,8 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               title: Text("Change your address",
                   style: TextStyle(fontWeight: FontWeight.w700)),
-              trailing: Icon(Icons.arrow_forward_ios,
-                  color: Colors.deepOrange, size: 20),
+              trailing:
+                  Icon(Icons.arrow_forward_ios, color: Colors.purple, size: 20),
               onTap: () {
                 Navigator.of(context).pushNamed("/change_address");
               },
@@ -219,11 +219,9 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               title: Text("Order History",
                   style: TextStyle(fontWeight: FontWeight.w700)),
-              trailing: Icon(Icons.arrow_forward_ios,
-                  color: Colors.deepOrange, size: 20),
-              onTap: () {
-                Navigator.of(context).pushNamed("/history");
-              },
+              trailing:
+                  Icon(Icons.arrow_forward_ios, color: Colors.purple, size: 20),
+              onTap: () {},
             ),
             divider(),
             ListTile(
@@ -240,7 +238,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   style: TextStyle(fontWeight: FontWeight.w700)),
               trailing: Switch(
                 value: _notificationEnabled,
-                activeColor: Colors.deepOrange,
+                activeColor: Colors.purple,
                 inactiveTrackColor: Colors
                     .grey, // _notificationEnabled is a boolean variable that indicates the current state of the toggle switch
                 onChanged: (bool value) {
@@ -263,8 +261,8 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               title:
                   Text("FAQ's", style: TextStyle(fontWeight: FontWeight.w700)),
-              trailing: Icon(Icons.arrow_forward_ios,
-                  color: Colors.deepOrange, size: 20),
+              trailing:
+                  Icon(Icons.arrow_forward_ios, color: Colors.purple, size: 20),
               onTap: () {
                 Navigator.of(context).pushNamed("/faqs");
               },
@@ -282,8 +280,8 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               title: Text("Rate Our App",
                   style: TextStyle(fontWeight: FontWeight.w700)),
-              trailing: Icon(Icons.arrow_forward_ios,
-                  color: Colors.deepOrange, size: 20),
+              trailing:
+                  Icon(Icons.arrow_forward_ios, color: Colors.purple, size: 20),
               onTap: () {
                 Navigator.push(context, showPopUpRatingDialog(context));
               },
@@ -399,7 +397,7 @@ class _AccountScreenState extends State<AccountScreen> {
             // Add your code for logging out here
           },
           style: ElevatedButton.styleFrom(
-            primary: Colors.deepOrange,
+            primary: Colors.purple,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(28),
             ),
