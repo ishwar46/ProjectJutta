@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import 'cart_total.dart';
 import 'cartproducts.dart';
 
 class CartPage extends StatelessWidget {
@@ -11,12 +12,16 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: AppBar(
-      title: Text("Your Cart"),
+        elevation: 0.0,
+      title: Text("Your Cart",style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),),
+      backgroundColor: Colors.grey,
     ),
     body:Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      
       children: [
         CartProducts(),
-        // CartTotal(),
+        CartTotal(),
         
       ],
     )

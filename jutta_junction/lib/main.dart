@@ -95,10 +95,16 @@ class Myapp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             // initialRoute: MyRoutes.homeRoute,
             routes: {
+<<<<<<< HEAD
               "/": (context) => LoginScreen(),
               // MyRoutes.profileRoute: (context) => SettingsUI(),
+=======
+              "/": (context) => Newhomepage(),
+                           // MyRoutes.profileRoute: (context) => SettingsUI(),
+                                         MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
+>>>>>>> f28be4170880dd69d43e3548dd27c4c091a961c2
               MyRoutes.loginRoute: ((context) => LoginScreen()),
-              MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
+
               MyRoutes.loginRoute: ((context) => Card()),
               // "/": (context) => SettingsUI(),
 
@@ -129,10 +135,13 @@ class MyRoutes {
   static String searchRoute = "/searchPage";
   static String loginRoute = "/login";
   static String homeRoute = "/home";
+<<<<<<< HEAD
   static String qrRoute = "/qr";
 
+=======
+  static String qrRoute= "/qr";
+>>>>>>> f28be4170880dd69d43e3548dd27c4c091a961c2
   static String profileRoute = "/profile";
-
   static String signupRoute = "/signup";
   static String homepageRoute = "/HomePage";
   static String Product_detailRoute = "/Product_detail";
@@ -140,10 +149,17 @@ class MyRoutes {
   static String chatRoute = "/chatpage";
   static String faqRoute = "/faqpage";
   static String refundRoute = "/returnrefundRoute";
+<<<<<<< HEAD
 
   static String onboardingRoute = "/onboardingRoute";
   static String changepassRoute = "/changepassRoute";
   static String ratingRoute = "/ratingRoute";
+=======
+  static String onboardingRoute= "/onboardingRoute";  
+  static String changepassRoute= "/changepassRoute";
+  static String ratingRoute= "/ratingRoute";
+
+>>>>>>> f28be4170880dd69d43e3548dd27c4c091a961c2
 
   // static String onboardingRoute = "/onboardingRoute";
   // static String changepassRoute = "/changepassRoute";
