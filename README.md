@@ -47,7 +47,7 @@ This is an online shopping platform where users can buy and sell products with e
 - Prasna Aryal - [](#)
 - Kritika Paudel - [](#)
 - Sijan - [](#)
-- Roz Magarjan - [](#)
+- Roz Maharjan - [](#)
 
 ## Contributing
 
