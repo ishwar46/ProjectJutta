@@ -121,7 +121,10 @@ class _NewhomepageState extends State<Newhomepage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.chat),
         backgroundColor: Colors.grey,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, MyRoutes.chatRoute);
+
+        },
       ),
       backgroundColor: Colors.white,
       key: _key,
@@ -239,7 +242,7 @@ class _NewhomepageState extends State<Newhomepage> {
               title: const Text('Refund & Return',
                   style: TextStyle(color: Colors.white)),
               onTap: () {
-                // Navigator.pushNamed(context, MyRoutes.returnrefundRoute);
+                Navigator.pushNamed(context, MyRoutes.refundRoute);
               },
             ),
             ListTile(

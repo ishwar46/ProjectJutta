@@ -29,7 +29,7 @@ class Onboarding extends StatelessWidget {
         ),
         image: Center(
           child: Image.asset("assets/images/a.png"),
-          heightFactor: 100,
+          heightFactor: 200,
           widthFactor: 100,
         ),
         decoration: const PageDecoration(

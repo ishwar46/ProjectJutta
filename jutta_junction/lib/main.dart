@@ -11,6 +11,7 @@ import 'package:jutta_junction/pages/edit_profile.dart';
 import 'package:jutta_junction/pages/ChangePassword.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/onboarding_screen.dart';
+import 'package:jutta_junction/pages/payment.dart';
 import 'package:jutta_junction/pages/product_Detail/CartPage.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 import 'package:jutta_junction/pages/qr/qrhomepage.dart';
@@ -121,7 +122,7 @@ class Myapp extends StatelessWidget {
 
             //theme: MyTheme.lightTheme(context),
             //darkTheme: MyTheme.darkTheme(context),
-            initialRoute: "/login",
+            initialRoute: "/splash",
             debugShowCheckedModeBanner: false,
             // initialRoute: MyRoutes.homeRoute,
             routes: {
@@ -146,6 +147,8 @@ class Myapp extends StatelessWidget {
               MyRoutes.refundRoute: ((context) => RedturnRefund()),
               MyRoutes.onboardingRoute: ((context) => Onboarding()),
               MyRoutes.qrRoute: ((context) => qrhomepage()),
+              MyRoutes.splashRoute: ((context) => Onboarding()),
+              MyRoutes.paymentRoute: ((context) => Payment()),
               
             
   
@@ -170,6 +173,8 @@ class MyRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
   static String qrRoute= "/qr";
+  static String splashRoute= "/splash";
+  static String paymentRoute= "/payment";
 
   static String profileRoute = "/profile";
 
