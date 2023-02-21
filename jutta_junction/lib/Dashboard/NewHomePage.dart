@@ -250,7 +250,7 @@ class _NewhomepageState extends State<Newhomepage> {
               leading: const Icon(Icons.question_answer),
               title: const Text('Review', style: TextStyle(color: Colors.white)),
               onTap: () {
-                Navigator.pushNamed(context, MyRoutes.ratingRoute);
+                // Navigator.pushNamed(context, MyRoutes.ratingRoute);
               },
             ),
             ListTile(
@@ -362,7 +362,7 @@ class _NewhomepageState extends State<Newhomepage> {
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.pushNamed(context, MyRoutes.CartRoute);
+              Navigator.pushNamed(context, MyRoutes.CartPageRoute);
             },
           ),
           IconButton(

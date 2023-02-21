@@ -63,6 +63,14 @@ class AuthViewModel with ChangeNotifier {
     }
   }
 
+  Future<void> editMyEmail(UserModel user, String userId) async {
+    try {
+      await AuthRepository().editEmail(user: user, userId: userId);
+      // await AuthRepository().getUserDetail(_user!.uid);
+      notifyListeners();
+    } catch (e) {}
+  }
+
   Future<void> logout() async {
     try {
       await AuthRepository().logout();

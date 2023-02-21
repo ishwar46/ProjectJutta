@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 
 import 'dart:ui';
 
-
 import '../Dashboard/NewHomePage.dart';
 
 import '../../viewmodels/auth_viewmodel.dart';
@@ -15,10 +14,8 @@ import '../../viewmodels/global_ui_viewmodel.dart';
 import '../services/local_notification.dart';
 import 'ForgotPassword.dart';
 
-
 import '../../viewmodels/auth_viewmodel.dart';
 import '../../viewmodels/global_ui_viewmodel.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -152,106 +149,31 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Colors.black,
                         ),
                       ),
-
-                        ),
-                        // validator: (value) {
-                        //   if (value!.isEmpty) {
-                        //     return "Password cannot be empty";
-                        //   } else if (value.length < 6) {
-                        //     return "Password length should be atleast 6 charachter";
-                        //   }
-
-                        //   return null;
-                        // },
-                      ),
-
-
-                      SizedBox(height:10),
-
-                      Padding(padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           GestureDetector(
-                            onTap: (){
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context){
-                                    return ForgotPassword();
-                                  }
-                                )
-                              );
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return ForgotPassword();
+                              }));
                             },
-                            child:const Text(
+                            child: const Text(
                               'Forgot Password?',
                               style: TextStyle(
                                 color: Color.fromARGB(255, 11, 12, 12),
                                 fontWeight: FontWeight.bold,
-                          
-                              ),),
+                              ),
+                            ),
                           )
                         ],
                       )),
-
-    //                   const SizedBox(
-    //                     height: 40.0,
-    //                   ),
-    //                   Material(
-    //                     color: Colors.purple.shade300,
-    //                     // borderRadius: BorderRadius.circular(
-    //                     //   // changebutton ? 50 : 8,
-    //                     // ),
-    //                     child: InkWell(
-    //                       onTap: () {zsd
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(
-    //       builder: (context) =>
-    //           Newhomepage(),
-    //     ),
-    //   );
-    // },
-                          // child: AnimatedContainer(
-                          //   duration: Duration(seconds: 1),
-                          //   height: 40,
-                            // width: changebutton ? 50 : 150,
-                            // alignment: Alignment.center,
-                            // child: changebutton
-                            //     ? const Icon(
-                            //         Icons.done,
-                            //         color: Colors.white,
-                            //       )
-                            //     : const Text(
-                            //         "Login",
-                            //         style: TextStyle(
-                            //             color: Colors.white,
-                            //             fontWeight: FontWeight.bold,
-                            //             fontSize: 18),
-                            //       ),
-                      //     ),
-                      //   ),
-                      // ),
-                  //     TextButton(
-                  //       onPressed: () {
-                  //         Navigator.pushNamed(context, MyRoutes.signupRoute);}
-
-                  //   ),
-                  // ),
-                  // SizedBox(
-                  //   height: 10,
-                  // ),
-                  // Align(
-                  //     alignment: Alignment.centerRight,
-                  //     child: InkWell(
-                  //       onTap: () {
-                  //         Navigator.of(context).pushNamed("/forget-password");
-                  //       },
-                  //       child: Text(
-                  //         "Forgot password?",
-                  //         style: TextStyle(color: Colors.grey.shade800),
-                  //       ),
-                  //     )),
                   SizedBox(
                     height: 10,
                   ),
@@ -259,11 +181,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: double.infinity,
                     child: ElevatedButton(
                         style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20),
-                                      side: BorderSide(color: Color.fromARGB(255, 14, 16, 18)))),
+                          shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                  side: BorderSide(
+                                      color: Color.fromARGB(255, 14, 16, 18)))),
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               EdgeInsets.symmetric(vertical: 20)),
                         ),
@@ -291,7 +214,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           child: Text(
                             "Sign up",
-                            style: TextStyle(color: Color.fromARGB(255, 16, 17, 18)),
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 16, 17, 18)),
                           ))
                     ],
                   ),

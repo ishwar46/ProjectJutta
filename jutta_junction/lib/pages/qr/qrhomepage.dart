@@ -6,14 +6,14 @@ import 'package:jutta_junction/customs/custom_icons.dart';
 import 'package:jutta_junction/pages/qr/generateqr.dart';
 import 'package:jutta_junction/pages/qr/scanqr.dart';
 
-class qrhomepage extends StatefulWidget {
-  const qrhomepage({super.key});
+class QrHomePage extends StatefulWidget {
+  const QrHomePage({super.key});
 
   @override
-  State<qrhomepage> createState() => _qrhomepageState();
+  State<QrHomePage> createState() => _QrHomePageState();
 }
 
-class _qrhomepageState extends State<qrhomepage> {
+class _QrHomePageState extends State<QrHomePage> {
  
 @override
 Widget build(BuildContext context) {

@@ -1,69 +1,75 @@
-import 'dart:ui';
+
 // import 'package:smooth_star_rating/smooth_star_rating.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:jutta_junction/models/catelog.dart';
-import 'package:jutta_junction/models/product_model.dart';
-import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
-import 'package:velocity_x/velocity_x.dart';
-import 'package:flutter/src/material/theme_data.dart';
+import 'package:get/get.dart';
 
+import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
+
+
+import '../../Controller/cart_controller.dart';
 import '../../Dashboard/ItemCart.dart';
 import '../../Dashboard/Product.dart';
 
 
-
-  Widget _buildNewArrivals(
-      {required String name, required double price, required String image}) {
-    return Card(
-      child: Container(
-        height: 200,
-        width: 150,
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 120,
-              width: 120,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/$image"),
-                ),
+Widget _buildNewArrivals(
+    {required String name, required double price, required String image}) {
+  return Card(
+    child: Container(
+      height: 200,
+      width: 150,
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 120,
+            width: 120,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/$image"),
               ),
             ),
-            Text(
-              "Rs. $price",
-              style: TextStyle(
-                  color: Color(0xff9b96d6),
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              name,
-              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
-            ),
+          ),
+          Text(
+            "Rs. $price",
+            style: TextStyle(
+                color: Color(0xff9b96d6),
+                fontSize: 12,
+                fontWeight: FontWeight.bold),
+          ),
+          Text(
+            name,
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+          ),
 
-            // IconButton(
-            //   icon: Icon(Icons.check),
-            //   onPressed: (() {}),
-            // ),
-          ],
-        ),
+          // IconButton(
+          //   icon: Icon(Icons.check),
+          //   onPressed: (() {}),
+          // ),
+        ],
       ),
-    );
-  }
-
+    ),
+  );
+}
 
 class Body extends StatelessWidget {
-    get index => product2;
-    final Product product;
-  const Body({super.key, required this.product});
+  get index => product2;
+  final Product product;
+   final cartController =Get.put(CartController());
+
+
+
+  Body({key, required this.product}) :super(key: key);
   // bool isAdded = false;
- 
 
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
+    // VxState.watch(context, on: [AddMutation, RemoveMutation]);
+    // final CartModel _cart = (VxState.store as MyStore).cart;
+    // bool isInCart = _cart.items.contains(product) ?? false;
     bool isAdded = false;
-     Size size = MediaQuery.of(context).size as Size;
+    Size size = MediaQuery.of(context).size as Size;
 
     return SingleChildScrollView(
       // resizeToAvoidBottomInset:false,
@@ -83,21 +89,15 @@ class Body extends StatelessWidget {
                       color: Colors.black),
                 ),
               ),
-              
-              Column(children: [
-               
-              
-                  
-                 Image.asset(
-                 product.image,
-                  height: 200,
-                  width: 200,
-                  
-                ),
-              
-
-              ],),
-            
+              Column(
+                children: [
+                  Image.asset(
+                    product.image,
+                    height: 200,
+                    width: 200,
+                  ),
+                ],
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -180,8 +180,7 @@ class Body extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(10),
-                        child: Text(
-                           product.description),
+                        child: Text(product.description),
                       ),
                     ],
                   ),
@@ -314,15 +313,27 @@ class Body extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
-                        ElevatedButton(
-                          onPressed: (() {
+                        OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                    ),
+                          onPressed: () {
                             
-                          }),
-                  
-                        child: isAdded ? Icon(Icons.done) :"Add to Cart".text.make(),
+                            cartController.to.addProduct(product);
+                          },
+                        
+                          child: Text("Add to cart",style: TextStyle(color: Colors.white),),
                         ),
-                        ElevatedButton(
-                            onPressed: (() {}), child: Text("Buy now"))
+                        OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                    ),
+                    onPressed: (() {}),
+                    child: Text(
+                      "Buy now",
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                    ))
                       ],
                     ),
                   ),
@@ -347,11 +358,13 @@ class Body extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Buttom(press: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) =>
-                            Product_Detail(product: product2[index],)))) )
+                          Buttom(
+                              press: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => Product_Detail(
+                                            product: product2[index],
+                                          )))))
                           // SingleChildScrollView(
                           //   child: Padding(
                           //     padding: const EdgeInsets.all(9),
@@ -405,14 +418,14 @@ class Body extends StatelessWidget {
     );
   }
 }
+
 class Buttom extends StatelessWidget {
   final Function press;
   const Buttom({super.key, required this.press});
 
   @override
   Widget build(BuildContext context) {
-    return  SingleChildScrollView(
-      
+    return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Container(
         height: 200,
@@ -436,14 +449,14 @@ class Buttom extends StatelessWidget {
                 press: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: ((context) =>
-                            Product_Detail(product: product2[index],)))),
+                        builder: ((context) => Product_Detail(
+                              product: product2[index],
+                            )))),
               ),
             ))
           ],
         ),
       ),
-    
     );
   }
 }

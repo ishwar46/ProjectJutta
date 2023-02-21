@@ -4,10 +4,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:jutta_junction/Dashboard/NewHomePage.dart';
+import 'package:jutta_junction/pages/Profile/account_screen.dart';
+import 'package:jutta_junction/pages/Profile/change_your_email.dart';
+import 'package:jutta_junction/pages/Profile/edit_profile.dart';
 import 'package:jutta_junction/pages/chatbot/ChatPage.dart';
 import 'package:jutta_junction/pages/drawer/faq.dart';
 import 'package:jutta_junction/pages/drawer/return_refund.dart';
-import 'package:jutta_junction/pages/edit_profile.dart';
 import 'package:jutta_junction/pages/ChangePassword.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/onboarding_screen.dart';
@@ -23,12 +25,16 @@ import 'package:jutta_junction/viewmodels/auth_viewmodel.dart';
 import 'package:jutta_junction/viewmodels/global_ui_viewmodel.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:provider/provider.dart';
+import 'package:velocity_x/velocity_x.dart';
+
+import 'core/store.dart';
 
 //Global variable for the notification plugin
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 void main() async {
+  // runApp(VxState(store: MyStore(), child: Myapp()));
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   NotificationService.initialize();
@@ -82,43 +88,8 @@ class Myapp extends StatelessWidget {
           }
 
           return MaterialApp(
-            
             //home: HomePage(),
-            theme: ThemeData(
-              primaryColor: Colors.black,
-            ),
-            
-
-
-      // //theme: MyTheme.lightTheme(context),
-      // //darkTheme: MyTheme.darkTheme(context),
-      // initialRoute: "/",
-      // debugShowCheckedModeBanner: false,
-      // // initialRoute: MyRoutes.homeRoute,
-      // routes: {
-
-      //   "/": (context) => Newhomepage(),
-      //   MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
-      //   MyRoutes.loginRoute: ((context) => Card()),
-      //   // "/": (context) => SettingsUI(),
-      //   // MyRoutes.profileRoute: (context) => SettingsUI(),
-
-      //   // "/": (context) => HomePage(),
-      //   // MyRoutes.homepageRoute: (context) => HomePage(),
-      //   MyRoutes.loginRoute: ((context) => LoginPage()),
-      //   MyRoutes.homepageRoute: ((context) => HomePage()),
-      //   MyRoutes.signupRoute: ((context) => RegPage()),
-      //   MyRoutes.profileRoute: ((context) => EditProfilePage()),
-      //   MyRoutes.chatRoute: ((context) => ChatPage()),
-      //   MyRoutes.faqRoute: ((context) => FaqPage()),
-      //   MyRoutes.refundRoute: ((context) => RedturnRefund()),
-      //   MyRoutes.onboardingRoute: ((context) => Onboarding()),
-      //   MyRoutes.CartRoute: ((context) => Cart()),
-      //   MyRoutes.changepassRoute: ((context) => ChangePassword()),
-      //   MyRoutes.ratingRoute: ((context) => UserRatingReview()),
-
-
-      // },
+            themeMode: ThemeMode.system,
 
             //theme: MyTheme.lightTheme(context),
             //darkTheme: MyTheme.darkTheme(context),
@@ -127,40 +98,34 @@ class Myapp extends StatelessWidget {
             // initialRoute: MyRoutes.homeRoute,
             routes: {
               "/": (context) => Newhomepage(),
+              // MyRoutes.profileRoute: (context) => SettingsUI(),
               MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
+              MyRoutes.loginRoute: ((context) => LoginScreen()),
               MyRoutes.loginRoute: ((context) => Card()),
               // "/": (context) => SettingsUI(),
-              // MyRoutes.profileRoute: (context) => SettingsUI(),
-
-              // "/": (context) => HomePage(),
-              // MyRoutes.homepageRoute: (context) => HomePage(),
-
-              // MyRoutes.loginRoute: ((context) => LoginPage()),
-              // MyRoutes.homepageRoute: ((context) => HomePage()),
-              // MyRoutes.signupRoute: ((context) => RegPage()),
-              MyRoutes.loginRoute: ((context) => LoginScreen()),
               // MyRoutes.homepageRoute: ((context) => HomePage()),
               MyRoutes.signupRoute: ((context) => RegisterScreen()),
-              MyRoutes.profileRoute: ((context) => ProfileInfo()),
+              MyRoutes.profileRoute: ((context) => AccountScreen()),
               MyRoutes.chatRoute: ((context) => ChatPage()),
               MyRoutes.faqRoute: ((context) => FaqPage()),
               MyRoutes.refundRoute: ((context) => RedturnRefund()),
               MyRoutes.onboardingRoute: ((context) => Onboarding()),
-              MyRoutes.qrRoute: ((context) => qrhomepage()),
+              MyRoutes.qrRoute: ((context) => QrHomePage()),
               MyRoutes.splashRoute: ((context) => Onboarding()),
               MyRoutes.paymentRoute: ((context) => Payment()),
-              
-            
-  
-              MyRoutes.CartRoute: ((context) => Cart()),
+              MyRoutes.CartPageRoute: ((context) => CartPage()),
+              MyRoutes.qrRoute: ((context) => QrHomePage()),
               MyRoutes.searchRoute: ((context) => SearchPage()),
               MyRoutes.ratingRoute: ((context) => UserRatingReview()),
               MyRoutes.changepassRoute: ((context) => ChangePassword()),
+              MyRoutes.CartPageRoute: ((context) => CartPage()),
+              // profile ko routes
+              "/change_email": (BuildContext context) => ChangeEmail(),
+              "/your_profile": (BuildContext context) => ProfileInfo(),
             },
           );
         }),
       ),
-
     );
   }
 }
@@ -175,21 +140,17 @@ class MyRoutes {
   static String qrRoute= "/qr";
   static String splashRoute= "/splash";
   static String paymentRoute= "/payment";
-
   static String profileRoute = "/profile";
-
   static String signupRoute = "/signup";
   static String homepageRoute = "/HomePage";
   static String Product_detailRoute = "/Product_detail";
-  static String CartRoute = "/Cart";
+  static String CartPageRoute = "/CartPage";
   static String chatRoute = "/chatpage";
   static String faqRoute = "/faqpage";
   static String refundRoute = "/returnrefundRoute";
-
-  static String onboardingRoute= "/onboardingRoute";  
-  static String changepassRoute= "/changepassRoute";
-  static String ratingRoute= "/ratingRoute";
-
+  static String onboardingRoute = "/onboardingRoute";
+  static String changepassRoute = "/changepassRoute";
+  static String ratingRoute = "/ratingRoute";
 
   // static String onboardingRoute = "/onboardingRoute";
   // static String changepassRoute = "/changepassRoute";

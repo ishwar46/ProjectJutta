@@ -76,4 +76,14 @@ class AuthRepository {
       rethrow;
     }
   }
+
+  Future<bool?> editEmail(
+      {required UserModel user, required String userId}) async {
+    try {
+      final response = await userRef.doc(userId).set(user);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
 }

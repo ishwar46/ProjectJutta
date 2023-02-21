@@ -420,7 +420,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Column(
                 children: [
                   Image.asset(
-                    "assets/images/logo.png",
+                    "assets/images/Jutta.png",
                     height: 100,
                     width: 100,
                   ),
@@ -473,7 +473,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Colors.black,
                         size: 22.0,
                       ),
-                      hintText: 'Phone Number',
+                      hintText: 'Address',
                       hintStyle: TextStyle(
                           fontFamily: 'WorkSansSemiBold', fontSize: 17.0),
                     ),
