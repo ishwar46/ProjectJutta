@@ -52,7 +52,7 @@ Widget build(BuildContext context) {
 			qrCodeResult = barcodeScanRes;
 		});
 		},
-		child: Text("Open Scanner",style: TextStyle(color: Colors.indigo[900]),),
+		child: Text("Open Scanner",style: TextStyle(color: Color.fromARGB(255, 15, 15, 19)),),
     style: ButtonStyle(
 		//Button having rounded rectangle border
 		shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(

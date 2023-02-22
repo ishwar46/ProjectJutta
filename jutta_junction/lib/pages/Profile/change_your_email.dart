@@ -1,10 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jutta_junction/models/user_model.dart';
-import 'package:jutta_junction/viewmodels/auth_viewmodel.dart';
-import 'package:jutta_junction/viewmodels/global_ui_viewmodel.dart';
 import 'package:provider/provider.dart';
+
+import '../../services/firebase_service.dart';
+import '../../viewmodels/auth_viewmodel.dart';
+import '../../viewmodels/global_ui_viewmodel.dart';
 
 class ChangeEmail extends StatefulWidget {
   const ChangeEmail({Key? key}) : super(key: key);
@@ -17,17 +19,12 @@ class _ChangeEmailState extends State<ChangeEmail> {
   late GlobalUIViewModel _ui;
   late AuthViewModel _authViewModel;
   String? userId;
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _ui = Provider.of<GlobalUIViewModel>(context, listen: false);
       _authViewModel = Provider.of<AuthViewModel>(context, listen: false);
-      final args = ModalRoute.of(context)!.settings.arguments.toString();
-      setState(() {
-        userId = args;
-      });
-      print(args);
-      getData(args);
     });
     super.initState();
   }
@@ -35,31 +32,27 @@ class _ChangeEmailState extends State<ChangeEmail> {
   void editEmail() async {
     _ui.loadState(true);
     try {
-      final UserModel data = UserModel(
-        email: new_emailController.text,
-        userId: _authViewModel.loggedInUser!.userId,
-      );
-      await _authViewModel.editMyEmail(data, userId!);
+      _authViewModel.user?.updateEmail(new_emailController.text);
+      FirebaseService.db
+          .collection("users")
+          .where("user_id", isEqualTo: _authViewModel.user?.uid)
+          .get()
+          .then((querySnapshot) {
+        querySnapshot.docs.forEach((doc) {
+          doc.reference.set({
+            "email": new_emailController.text,
+          }, SetOptions(merge: true));
+        });
+      }).catchError((error) {
+        print("Error updating email : $error");
+      });
+
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Success")));
+          .showSnackBar(SnackBar(content: Text("Email updated")));
       Navigator.of(context).pop();
     } catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Error")));
-    }
-    _ui.loadState(false);
-  }
-
-  getData(String args) async {
-    _ui.loadState(true);
-    try {
-      AuthViewModel? user =
-          _authViewModel.loggedInUser?.email.toString() as AuthViewModel?;
-      if (user != null) {
-        emailController.text = user.loggedInUser?.email.toString() ?? "";
-      }
-    } catch (e) {
-      print(e);
     }
     _ui.loadState(false);
   }
@@ -75,6 +68,7 @@ class _ChangeEmailState extends State<ChangeEmail> {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController new_emailController = TextEditingController();
+  TextEditingController confirm_emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthViewModel>(builder: (context, authVM, child) {
@@ -220,11 +214,11 @@ class _ChangeEmailState extends State<ChangeEmail> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 15, vertical: 30),
                     child: TextFormField(
-                        controller: emailController,
+                        controller: confirm_emailController,
                         validator: (value) {
                           if (value != null || value!.isEmpty) {
                             final bool isValid = EmailValidator.validate(
-                                emailController.text.trim());
+                                confirm_emailController.text.trim());
                             if (!isValid) {
                               return "Invalid email";
                             }

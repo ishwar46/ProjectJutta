@@ -13,6 +13,7 @@ import 'package:jutta_junction/pages/drawer/return_refund.dart';
 import 'package:jutta_junction/pages/ChangePassword.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/onboarding_screen.dart';
+import 'package:jutta_junction/pages/payment.dart';
 import 'package:jutta_junction/pages/product_Detail/CartPage.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 import 'package:jutta_junction/pages/qr/qrhomepage.dart';
@@ -92,7 +93,11 @@ class Myapp extends StatelessWidget {
 
             //theme: MyTheme.lightTheme(context),
             //darkTheme: MyTheme.darkTheme(context),
+<<<<<<< HEAD
             initialRoute: "/onboardingRoute",
+=======
+            initialRoute: "/splash",
+>>>>>>> 08b100a51782758a68c53b49871dfc602f704c1b
             debugShowCheckedModeBanner: false,
             // initialRoute: MyRoutes.homeRoute,
             routes: {
@@ -100,10 +105,8 @@ class Myapp extends StatelessWidget {
               // MyRoutes.profileRoute: (context) => SettingsUI(),
               MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
               MyRoutes.loginRoute: ((context) => LoginScreen()),
-
               MyRoutes.loginRoute: ((context) => Card()),
               // "/": (context) => SettingsUI(),
-
               // MyRoutes.homepageRoute: ((context) => HomePage()),
               MyRoutes.signupRoute: ((context) => RegisterScreen()),
               MyRoutes.profileRoute: ((context) => AccountScreen()),
@@ -111,6 +114,10 @@ class Myapp extends StatelessWidget {
               MyRoutes.faqRoute: ((context) => FaqPage()),
               MyRoutes.refundRoute: ((context) => RedturnRefund()),
               MyRoutes.onboardingRoute: ((context) => Onboarding()),
+              MyRoutes.qrRoute: ((context) => QrHomePage()),
+              MyRoutes.splashRoute: ((context) => Onboarding()),
+              MyRoutes.paymentRoute: ((context) => Payment()),
+              MyRoutes.CartPageRoute: ((context) => CartPage()),
               MyRoutes.qrRoute: ((context) => QrHomePage()),
               MyRoutes.searchRoute: ((context) => SearchPage()),
               MyRoutes.ratingRoute: ((context) => UserRatingReview()),
@@ -134,7 +141,9 @@ class MyRoutes {
   static String searchRoute = "/searchPage";
   static String loginRoute = "/login";
   static String homeRoute = "/home";
-  static String qrRoute = "/qr";
+  static String qrRoute= "/qr";
+  static String splashRoute= "/splash";
+  static String paymentRoute= "/payment";
   static String profileRoute = "/profile";
   static String signupRoute = "/signup";
   static String homepageRoute = "/HomePage";
