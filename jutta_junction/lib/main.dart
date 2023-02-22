@@ -93,11 +93,7 @@ class Myapp extends StatelessWidget {
 
             //theme: MyTheme.lightTheme(context),
             //darkTheme: MyTheme.darkTheme(context),
-<<<<<<< HEAD
-            initialRoute: "/onboardingRoute",
-=======
             initialRoute: "/splash",
->>>>>>> 08b100a51782758a68c53b49871dfc602f704c1b
             debugShowCheckedModeBanner: false,
             // initialRoute: MyRoutes.homeRoute,
             routes: {

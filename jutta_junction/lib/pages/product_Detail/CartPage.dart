@@ -18,7 +18,7 @@ class CartPage extends StatelessWidget {
     ),
     body:Column(
       
-      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       
       children: [
         CartProducts(),
