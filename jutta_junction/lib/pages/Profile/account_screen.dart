@@ -7,6 +7,7 @@ import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/viewmodels/auth_viewmodel.dart';
 import 'package:jutta_junction/viewmodels/global_ui_viewmodel.dart';
 import 'package:provider/provider.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -74,10 +75,40 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   centerTitle: true,
+      //   title: Text("Your Profile"),
+      //   backgroundColor: Colors.purple,
+      //   actions: [
+      //     IconButton(
+      //         icon: const Icon(Icons.sell),
+      //         tooltip: 'Open shopping cart',
+      //         onPressed: () {
+      //           Navigator.of(context).pushNamed("/my-products");
+      //         })
+      //   ],
+      // ),
       appBar: AppBar(
-        centerTitle: true,
-        title: Text("Your Profile"),
         backgroundColor: Colors.purple,
+        elevation: 0.0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new)
+              .iconColor(Color.fromARGB(255, 255, 255, 255))
+              .box
+              .make(),
+          onPressed: () {
+            Navigator.pushNamed(context, "/NewHomePage");
+          },
+        ),
+        centerTitle: true,
+        title: Text(
+          "Profile",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         actions: [
           IconButton(
               icon: const Icon(Icons.sell),
