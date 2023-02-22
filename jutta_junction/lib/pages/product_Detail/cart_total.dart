@@ -90,7 +90,9 @@ class CartTotal extends StatelessWidget {
                       style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.black,
                       ),
-                      onPressed: (() {}),
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/payment");
+                      },
                       child: Text(
                         "Buy now",
                         style: TextStyle(

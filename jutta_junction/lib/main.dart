@@ -23,6 +23,7 @@ import 'package:jutta_junction/pages/signup_page.dart';
 import 'package:jutta_junction/services/local_notification.dart';
 import 'package:jutta_junction/viewmodels/auth_viewmodel.dart';
 import 'package:jutta_junction/viewmodels/global_ui_viewmodel.dart';
+import 'package:khalti_flutter/khalti_flutter.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -64,68 +65,78 @@ void main() async {
 class Myapp extends StatelessWidget {
   const Myapp({Key? key}) : super(key: key);
 
-  @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => GlobalUIViewModel()),
-        ChangeNotifierProvider(create: (_) => AuthViewModel()),
-      ],
-      child: GlobalLoaderOverlay(
-        useDefaultLoading: false,
-        overlayWidget: Center(
-          child: Image.asset(
-            "assets/images/Jutta.png",
-            height: 100,
-            width: 100,
+    return KhaltiScope(
+      publicKey: 'test_public_key_5a22ad67e707441b8362fc7bed556a8d',
+      enabledDebugging: true,
+      builder: (context, navKey) {
+        return MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (_) => GlobalUIViewModel()),
+            ChangeNotifierProvider(create: (_) => AuthViewModel()),
+          ],
+          child: GlobalLoaderOverlay(
+            useDefaultLoading: false,
+            overlayWidget: Center(
+              child: Image.asset(
+                "assets/images/Jutta.png",
+                height: 100,
+                width: 100,
+              ),
+            ),
+            child:
+                Consumer<GlobalUIViewModel>(builder: (context, loader, child) {
+              if (loader.isLoading) {
+                context.loaderOverlay.show();
+              } else {
+                context.loaderOverlay.hide();
+              }
+
+              return MaterialApp(
+                navigatorKey: navKey,
+                localizationsDelegates: const [
+                  KhaltiLocalizations.delegate,
+                ],
+                //home: HomePage(),
+                themeMode: ThemeMode.system,
+
+                //theme: MyTheme.lightTheme(context),
+                //darkTheme: MyTheme.darkTheme(context),
+                initialRoute: "/splash",
+                debugShowCheckedModeBanner: false,
+                // initialRoute: MyRoutes.homeRoute,
+                routes: {
+                  "/": (context) => Newhomepage(),
+                  // MyRoutes.profileRoute: (context) => SettingsUI(),
+                  MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
+                  MyRoutes.loginRoute: ((context) => LoginScreen()),
+                  MyRoutes.loginRoute: ((context) => Card()),
+                  // "/": (context) => SettingsUI(),
+                  // MyRoutes.homepageRoute: ((context) => HomePage()),
+                  MyRoutes.signupRoute: ((context) => RegisterScreen()),
+                  MyRoutes.profileRoute: ((context) => AccountScreen()),
+                  MyRoutes.chatRoute: ((context) => ChatPage()),
+                  MyRoutes.faqRoute: ((context) => FaqPage()),
+                  MyRoutes.refundRoute: ((context) => RedturnRefund()),
+                  MyRoutes.onboardingRoute: ((context) => Onboarding()),
+                  MyRoutes.qrRoute: ((context) => QrHomePage()),
+                  MyRoutes.splashRoute: ((context) => Onboarding()),
+                  MyRoutes.paymentRoute: ((context) => Payment()),
+                  MyRoutes.CartPageRoute: ((context) => CartPage()),
+                  MyRoutes.qrRoute: ((context) => QrHomePage()),
+                  MyRoutes.searchRoute: ((context) => SearchPage()),
+                  MyRoutes.ratingRoute: ((context) => UserRatingReview()),
+                  MyRoutes.changepassRoute: ((context) => ChangePassword()),
+                  MyRoutes.CartPageRoute: ((context) => CartPage()),
+                  // profile ko routes
+                  "/change_email": (BuildContext context) => ChangeEmail(),
+                  "/your_profile": (BuildContext context) => ProfileInfo(),
+                },
+              );
+            }),
           ),
-        ),
-        child: Consumer<GlobalUIViewModel>(builder: (context, loader, child) {
-          if (loader.isLoading) {
-            context.loaderOverlay.show();
-          } else {
-            context.loaderOverlay.hide();
-          }
-
-          return MaterialApp(
-            //home: HomePage(),
-            themeMode: ThemeMode.system,
-
-            //theme: MyTheme.lightTheme(context),
-            //darkTheme: MyTheme.darkTheme(context),
-            initialRoute: "/splash",
-            debugShowCheckedModeBanner: false,
-            // initialRoute: MyRoutes.homeRoute,
-            routes: {
-              "/": (context) => Newhomepage(),
-              // MyRoutes.profileRoute: (context) => SettingsUI(),
-              MyRoutes.NewHomePageRoute: (context) => Newhomepage(),
-              MyRoutes.loginRoute: ((context) => LoginScreen()),
-              MyRoutes.loginRoute: ((context) => Card()),
-              // "/": (context) => SettingsUI(),
-              // MyRoutes.homepageRoute: ((context) => HomePage()),
-              MyRoutes.signupRoute: ((context) => RegisterScreen()),
-              MyRoutes.profileRoute: ((context) => AccountScreen()),
-              MyRoutes.chatRoute: ((context) => ChatPage()),
-              MyRoutes.faqRoute: ((context) => FaqPage()),
-              MyRoutes.refundRoute: ((context) => RedturnRefund()),
-              MyRoutes.onboardingRoute: ((context) => Onboarding()),
-              MyRoutes.qrRoute: ((context) => QrHomePage()),
-              MyRoutes.splashRoute: ((context) => Onboarding()),
-              MyRoutes.paymentRoute: ((context) => Payment()),
-              MyRoutes.CartPageRoute: ((context) => CartPage()),
-              MyRoutes.qrRoute: ((context) => QrHomePage()),
-              MyRoutes.searchRoute: ((context) => SearchPage()),
-              MyRoutes.ratingRoute: ((context) => UserRatingReview()),
-              MyRoutes.changepassRoute: ((context) => ChangePassword()),
-              MyRoutes.CartPageRoute: ((context) => CartPage()),
-              // profile ko routes
-              "/change_email": (BuildContext context) => ChangeEmail(),
-              "/your_profile": (BuildContext context) => ProfileInfo(),
-            },
-          );
-        }),
-      ),
+        );
+      },
     );
   }
 }
@@ -137,9 +148,9 @@ class MyRoutes {
   static String searchRoute = "/searchPage";
   static String loginRoute = "/login";
   static String homeRoute = "/home";
-  static String qrRoute= "/qr";
-  static String splashRoute= "/splash";
-  static String paymentRoute= "/payment";
+  static String qrRoute = "/qr";
+  static String splashRoute = "/splash";
+  static String paymentRoute = "/payment";
   static String profileRoute = "/profile";
   static String signupRoute = "/signup";
   static String homepageRoute = "/HomePage";
