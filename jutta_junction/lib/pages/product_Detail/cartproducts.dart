@@ -74,12 +74,30 @@ class CartProductCard extends StatelessWidget {
           IconButton(
               onPressed: () {
                 controller.removeProduct(product);
+                       ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text("Product is Removed"
+      "You have added the ${product.title} to the cart",
+      textAlign: TextAlign.center,
+    ),
+    duration: Duration(seconds: 2),
+  ),
+);
               },
               icon: Icon(Icons.remove_circle_outline)),
           Text('${quantity}'),
           IconButton(
               onPressed: () {
                 controller.addProduct(product);
+                   ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text("Product is Added"
+      "You have added the ${product.title} to the cart",
+      textAlign: TextAlign.center,
+    ),
+    duration: Duration(seconds: 2),
+  ),
+);
               },
               icon: Icon(Icons.add_circle_outline)),
         ],

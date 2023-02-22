@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jutta_junction/Dashboard/Product.dart';
+import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 
 
 
@@ -27,6 +28,7 @@ class _SearchState extends State<SearchPage> {
   
   @override
   Widget build(BuildContext context) {
+     final Product product;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -70,13 +72,13 @@ class _SearchState extends State<SearchPage> {
                             margin: const EdgeInsets.symmetric(vertical: 2),
                             child: ListTile(
                               onTap: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //     builder: (context) =>
-                                //         DetailScreen(_filteredProducts[index]),
-                                //   ),
-                                // );
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        Product_Detail( product: product2[index]),
+                                  ),
+                                );
                               },
                               leading: CircleAvatar(
                                 radius: 30.0,

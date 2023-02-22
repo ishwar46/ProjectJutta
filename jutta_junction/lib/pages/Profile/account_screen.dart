@@ -168,7 +168,7 @@ class _AccountScreenState extends State<AccountScreen> {
               trailing:
                   Icon(Icons.arrow_forward_ios, color: Colors.purple, size: 20),
               onTap: () {
-                Navigator.of(context).pushNamed("/change_password");
+                Navigator.of(context).pushNamed("/changepassRoute");
               },
             ),
             divider(),

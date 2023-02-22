@@ -1,4 +1,3 @@
-
 // import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 import 'package:flutter/material.dart';
@@ -7,11 +6,9 @@ import 'package:get/get.dart';
 
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 
-
 import '../../Controller/cart_controller.dart';
 import '../../Dashboard/ItemCart.dart';
 import '../../Dashboard/Product.dart';
-
 
 Widget _buildNewArrivals(
     {required String name, required double price, required String image}) {
@@ -55,11 +52,9 @@ Widget _buildNewArrivals(
 class Body extends StatelessWidget {
   get index => product2;
   final Product product;
-   final cartController =Get.put(CartController());
+  final cartController = Get.put(CartController());
 
-
-
-  Body({key, required this.product}) :super(key: key);
+  Body({key, required this.product}) : super(key: key);
   // bool isAdded = false;
 
   @override
@@ -318,22 +313,32 @@ class Body extends StatelessWidget {
                       backgroundColor: Colors.black,
                     ),
                           onPressed: () {
-                            
-                            cartController.to.addProduct(product);
-                          },
-                        
-                          child: Text("Add to cart",style: TextStyle(color: Colors.white),),
+  cartController.to.addProduct(product);
+   ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text("Product is Added"
+      "You have added the ${product.title} to the cart",
+      textAlign: TextAlign.center,
+    ),
+    duration: Duration(seconds: 2),
+  ),
+);
+
+},
+                          child: Text("Add to cart",style: TextStyle(color: Colors.white),
+                          ),
                         ),
+                       
                         OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                    ),
-                    onPressed: (() {}),
-                    child: Text(
-                      "Buy now",
-                      style:
-                          TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-                    ))
+                            style: OutlinedButton.styleFrom(
+                              backgroundColor: Colors.black,
+                            ),
+                            onPressed: (() {}),
+                            child: Text(
+                              "Buy now",
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 255, 255, 255)),
+                            ))
                       ],
                     ),
                   ),

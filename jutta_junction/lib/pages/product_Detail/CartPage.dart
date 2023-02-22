@@ -17,7 +17,8 @@ class CartPage extends StatelessWidget {
       backgroundColor: Colors.grey,
     ),
     body:Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       
       children: [
         CartProducts(),
