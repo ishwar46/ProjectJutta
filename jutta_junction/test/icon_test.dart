@@ -1,5 +1,3 @@
-//icon test
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:jutta_junction/pages/login_page.dart';
