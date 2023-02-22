@@ -93,8 +93,8 @@ class CartTotal extends StatelessWidget {
                       onPressed: (() {}),
                       child: Text(
                         "Buy now",
-                        style:
-                            TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255)),
                       ))
                 ])),
       ),

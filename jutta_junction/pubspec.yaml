@@ -70,6 +70,7 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0
   fluid_bottom_nav_bar: ^1.4.0
   get: ^4.6.5
+  khalti_flutter: ^2.1.0
 
 
 

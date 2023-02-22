@@ -9,31 +9,33 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 import '../../Dashboard/Product.dart';
 import '../../models/catelog.dart';
+
 class Product_Detail extends StatelessWidget {
   final Product product;
-  final cartController =Get.put(CartController());
-   Product_Detail({key, required this.product}) :super(key: key);
+  final cartController = Get.put(CartController());
+  Product_Detail({key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     List<Item> _cart = [];
-    return  Scaffold(
-      resizeToAvoidBottomInset:false,
-      
+    List<Item> _cart = [];
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+
       backgroundColor: product.color,
       appBar: AppBar(
         backgroundColor: product.color,
         elevation: 0.0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Color.fromARGB(255, 255, 255, 255)),
+          icon:
+              Icon(Icons.arrow_back, color: Color.fromARGB(255, 255, 255, 255)),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      
-      body: Body (product: product, 
-       
+
+      body: Body(
+        product: product,
       ),
-      
+
       // bottomNavigationBar: CurvedNavigationBar(
       //   backgroundColor: Color.fromARGB(255, 2, 5, 8),
       //   items: <Widget>[
@@ -50,5 +52,5 @@ class Product_Detail extends StatelessWidget {
       //   },
       // ),
     );
-}
+  }
 }

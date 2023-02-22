@@ -309,26 +309,27 @@ class Body extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
                         OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                    ),
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: Colors.black,
+                          ),
                           onPressed: () {
-  cartController.to.addProduct(product);
-   ScaffoldMessenger.of(context).showSnackBar(
-  SnackBar(
-    content: Text("Product is Added"
-      " You have added the ${product.title} to the cart",
-      textAlign: TextAlign.center,
-    ),
-    duration: Duration(seconds: 2),
-  ),
-);
-
-},
-                          child: Text("Add to cart",style: TextStyle(color: Colors.white),
+                            cartController.to.addProduct(product);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Product is Added"
+                                  " You have added the ${product.title} to the cart",
+                                  textAlign: TextAlign.center,
+                                ),
+                                duration: Duration(seconds: 2),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Add to cart",
+                            style: TextStyle(color: Colors.white),
                           ),
                         ),
-                       
                         OutlinedButton(
                             style: OutlinedButton.styleFrom(
                               backgroundColor: Colors.black,
