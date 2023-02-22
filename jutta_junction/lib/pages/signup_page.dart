@@ -420,7 +420,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Column(
                 children: [
                   Image.asset(
-                    "assets/images/Jutta.png",
+                    "assets/images/Jutta-Junction.png",
                     height: 100,
                     width: 100,
                   ),
