@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:jutta_junction/pages/product_Detail/CartPage.dart';
 
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
 
@@ -334,7 +335,13 @@ class Body extends StatelessWidget {
                             style: OutlinedButton.styleFrom(
                               backgroundColor: Colors.black,
                             ),
-                            onPressed: (() {}),
+                            onPressed: (() {
+                              cartController.to.addProduct(product);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => CartPage())));
+                            }),
                             child: Text(
                               "Buy now",
                               style: TextStyle(

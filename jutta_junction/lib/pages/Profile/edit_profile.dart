@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../../viewmodels/auth_viewmodel.dart';
 
@@ -87,9 +88,26 @@ class _ProfileInfoState extends State<ProfileInfo> {
     return Consumer<AuthViewModel>(builder: (context, authVM, chid) {
       return Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.purpleAccent,
+            backgroundColor: Colors.purple,
+            elevation: 0.0,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios_new)
+                  .iconColor(Color.fromARGB(255, 255, 255, 255))
+                  .box
+                  .make(),
+              onPressed: () {
+                Navigator.pushNamed(context, "/NewHomePage");
+              },
+            ),
             centerTitle: true,
-            title: Text("Profile Information"),
+            title: Text(
+              "Profile",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.start,

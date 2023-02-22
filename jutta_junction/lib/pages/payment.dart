@@ -26,7 +26,7 @@ class _PaymentState extends State<Payment> {
               .box
               .make(),
           onPressed: () {
-            Navigator.pushNamed(context, "/homepage");
+            Navigator.pushNamed(context, "/NewHomePage");
           },
         ),
       ),
