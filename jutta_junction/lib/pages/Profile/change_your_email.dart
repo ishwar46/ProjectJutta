@@ -76,7 +76,7 @@ class _ChangeEmailState extends State<ChangeEmail> {
         appBar: AppBar(
           centerTitle: true,
           title: Text('Change your Email'),
-          backgroundColor: Colors.deepOrange,
+          backgroundColor: Colors.purple,
         ),
         body: Container(
           color: Color(0xFFD6D6D6),
@@ -124,14 +124,14 @@ class _ChangeEmailState extends State<ChangeEmail> {
                           }
                         },
                         keyboardType: TextInputType.emailAddress,
-                        cursorColor: Colors.deepOrange,
+                        cursorColor: Colors.purple,
                         cursorHeight: 25,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.grey[350],
                           prefixIcon: Icon(
                             Icons.email_rounded,
-                            color: Colors.deepOrange,
+                            color: Colors.purple,
                             size: 25,
                           ),
                           hintText: "Previous email",
@@ -175,14 +175,14 @@ class _ChangeEmailState extends State<ChangeEmail> {
                           }
                         },
                         keyboardType: TextInputType.emailAddress,
-                        cursorColor: Colors.deepOrange,
+                        cursorColor: Colors.purple,
                         cursorHeight: 25,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.grey[350],
                           prefixIcon: Icon(
                             Icons.email_rounded,
-                            color: Colors.deepOrange,
+                            color: Colors.purple,
                             size: 25,
                           ),
                           hintText: "Enter your new email",
@@ -225,14 +225,14 @@ class _ChangeEmailState extends State<ChangeEmail> {
                           }
                         },
                         keyboardType: TextInputType.emailAddress,
-                        cursorColor: Colors.deepOrange,
+                        cursorColor: Colors.purple,
                         cursorHeight: 25,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.grey[350],
                           prefixIcon: Icon(
                             Icons.email_rounded,
-                            color: Colors.deepOrange,
+                            color: Colors.purple,
                             size: 25,
                           ),
                           hintText: "Verify your email",
@@ -265,7 +265,7 @@ class _ChangeEmailState extends State<ChangeEmail> {
             // Add your code for logging out here
           },
           style: ElevatedButton.styleFrom(
-            primary: Colors.deepOrange,
+            primary: Colors.purple,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(28),
             ),
