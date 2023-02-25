@@ -46,7 +46,7 @@ This is an online shopping platform where users can buy and sell products with e
 - Ishwar Chaudhary - [Ishu](https://github.com/ishwar46)
 - Prasna Aryal - [](#)
 - Kritika Paudel - [](#)
-- Sijan - [](#)
+- Sijan Kasalawat- [Najis](https://github.com/sijankasalawat)
 - Roz Maharjan - [](#)
 
 ## Contributing
