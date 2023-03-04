@@ -1,14 +1,10 @@
-// To parse this JSON data, do
-//
-//     final userModel = userModelFromJson(jsonString);
-
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-UserModel? userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
+UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 
-String userModelToJson(UserModel? data) => json.encode(data!.toJson());
+String userModelToJson(UserModel data) => json.encode(data.toJson());
 
 class UserModel {
   UserModel({
@@ -38,7 +34,7 @@ class UserModel {
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
         id: json["id"],
         userId: json["user_id"],
-       fullName: json["name"],
+        fullName: json["name"],
         username: json["username"],
         phone: json["phone"],
         imageUrl: json["imageUrl"],
@@ -60,7 +56,10 @@ class UserModel {
         "email": email,
         "password": password,
       };
-  factory UserModel.fromFirebaseSnapshot(DocumentSnapshot<Map<String, dynamic>> json) => UserModel(
+
+  factory UserModel.fromFirebaseSnapshot(
+          DocumentSnapshot<Map<String, dynamic>> json) =>
+      UserModel(
         id: json.id,
         userId: json["user_id"],
         fullName: json["name"],
@@ -73,4 +72,29 @@ class UserModel {
         password: json["password"],
       );
 
+  UserModel copyWith({
+    String? id,
+    String? userId,
+    String? fullName,
+    String? username,
+    String? phone,
+    String? imageUrl,
+    String? imagePath,
+    String? fcm,
+    String? email,
+    String? password,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      userId: userId ?? this.userId,
+      fullName: fullName ?? this.fullName,
+      username: username ?? this.username,
+      phone: phone ?? this.phone,
+      imageUrl: imageUrl ?? this.imageUrl,
+      imagePath: imagePath ?? this.imagePath,
+      fcm: fcm ?? this.fcm,
+      email: email ?? this.email,
+      password: password ?? this.password,
+    );
+  }
 }
