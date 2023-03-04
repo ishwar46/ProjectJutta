@@ -10,11 +10,11 @@ class GreetingWidget extends StatelessWidget {
 
     String greeting = "";
     if (hour >= 0 && hour < 12) {
-      greeting = "Good Morning";
+      greeting = "Good Morning!";
     } else if (hour >= 12 && hour < 18) {
-      greeting = "Good Afternoon";
+      greeting = "Good Afternoon!";
     } else {
-      greeting = "Good Evening";
+      greeting = "Good Evening!";
     }
 
     return Text(
