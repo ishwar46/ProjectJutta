@@ -9,6 +9,7 @@ import 'package:jutta_junction/Dashboard/ItemCart.dart';
 import 'package:jutta_junction/Dashboard/Product.dart';
 import 'package:jutta_junction/pages/login_page.dart';
 import 'package:jutta_junction/pages/product_Detail/Product_Detail.dart';
+import 'package:jutta_junction/widgets/greeting_widget.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../main.dart';
@@ -35,6 +36,21 @@ Widget _buildBrands(String image) {
 
 class _NewhomepageState extends State<Newhomepage> {
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
+
+  String? username;
+  String? email;
+
+  Future<void> getUserData() async {
+    // Get the current user from Firebase Authentication
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      // Retrieve the username and email from the user data
+      setState(() {
+        username = user.displayName;
+        email = user.email;
+      });
+    }
+  }
 
   void updateList(String value) {
     // this is the function that will filter our list
@@ -107,6 +123,7 @@ class _NewhomepageState extends State<Newhomepage> {
     super.initState();
     checkForNotification();
     showNotification();
+    getUserData();
   }
 
   get index => product1;
@@ -114,6 +131,8 @@ class _NewhomepageState extends State<Newhomepage> {
   // final CollectionRefrence _items=
   // FirebaseFirestore.instance.collection('items');
   get _handleNavigationChange => null;
+
+  // Get the current time of day
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +142,6 @@ class _NewhomepageState extends State<Newhomepage> {
         backgroundColor: Colors.grey,
         onPressed: () {
           Navigator.pushNamed(context, MyRoutes.chatRoute);
-
         },
       ),
       backgroundColor: Colors.white,
@@ -135,7 +153,7 @@ class _NewhomepageState extends State<Newhomepage> {
           children: [
             DrawerHeader(
               child: Column(
-                children: const [
+                children: [
                   SizedBox(height: 10),
                   Center(
                     child: CircleAvatar(
@@ -144,10 +162,17 @@ class _NewhomepageState extends State<Newhomepage> {
                     ),
                   ),
                   SizedBox(height: 10),
-                  Text("Jutta Junction",
-                      style: TextStyle(fontSize: 20, color: Colors.white)),
-                  Text("support.juttaj@gmail.com",
-                      style: TextStyle(fontSize: 15, color: Colors.white)),
+                  //geeting widget
+                  GreetingWidget(),
+                  // Text(
+                  //   username ?? "",
+                  //   style: TextStyle(fontSize: 20, color: Colors.white),
+                  // ),
+                  SizedBox(height: 10),
+                  Text(
+                    email ?? "",
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
                 ],
               ),
             ),
@@ -235,7 +260,7 @@ class _NewhomepageState extends State<Newhomepage> {
                 Navigator.pushNamed(context, MyRoutes.faqRoute);
               },
             ),
-             
+
             ListTile(
               iconColor: Colors.white,
               leading: const Icon(Icons.assignment_return_rounded),
@@ -248,7 +273,8 @@ class _NewhomepageState extends State<Newhomepage> {
             ListTile(
               iconColor: Colors.white,
               leading: const Icon(Icons.question_answer),
-              title: const Text('Review', style: TextStyle(color: Colors.white)),
+              title:
+                  const Text('Review', style: TextStyle(color: Colors.white)),
               onTap: () {
                 // Navigator.pushNamed(context, MyRoutes.ratingRoute);
               },
@@ -347,7 +373,7 @@ class _NewhomepageState extends State<Newhomepage> {
               Navigator.pushNamed(context, MyRoutes.NewHomePageRoute);
             },
           ),
-            IconButton(
+          IconButton(
             icon: Icon(
               Icons.search,
               color: Colors.black,

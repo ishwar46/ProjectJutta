@@ -22,8 +22,6 @@ class LoginScreen extends StatefulWidget {
 
   //
 
-
-
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -101,9 +99,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Colors.black),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
                       border: InputBorder.none,
                       prefixIcon: Icon(
                         Icons.email,
@@ -128,9 +130,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Colors.black),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
                       prefixIcon: const Icon(
                         Icons.lock,
                         size: 22.0,
@@ -213,14 +219,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(color: Colors.grey.shade800),
                       ),
                       InkWell(
-                          onTap: () {
-                            Navigator.of(context).pushNamed("/signup");
-                          },
-                          child: Text(
-                            "Sign up",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 16, 17, 18)),
-                          ))
+                        onTap: () {
+                          Navigator.of(context).pushNamed("/signup");
+                        },
+                        child: Text(
+                          "Sign up",
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                      )
                     ],
                   ),
                 ],

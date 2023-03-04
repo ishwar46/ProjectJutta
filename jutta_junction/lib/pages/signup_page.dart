@@ -432,23 +432,34 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     validator: ValidateSignup.name,
                     keyboardType: TextInputType.name,
                     style: const TextStyle(
-                        fontFamily: 'WorkSansSemiBold',
-                        fontSize: 16.0,
-                        color: Colors.black),
+                      fontFamily: 'WorkSansSemiBold',
+                      fontSize: 16.0,
+                      color: Colors.black,
+                    ),
                     decoration: InputDecoration(
+                      labelText: 'First Name',
+                      labelStyle: TextStyle(
+                        fontFamily: 'WorkSansSemiBold',
+                        fontSize: 18.0,
+                        color: Colors.grey,
+                      ),
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      border: InputBorder.none,
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
                       prefixIcon: Icon(
                         Icons.person,
                         color: Colors.black,
                         size: 22.0,
                       ),
-                      hintText: 'First Name',
-                      hintStyle: TextStyle(
-                          fontFamily: 'WorkSansSemiBold', fontSize: 17.0),
+                      suffixIcon: _nameController.text.isNotEmpty &&
+                              _nameController.text.length < 3
+                          ? Icon(Icons.error, color: Colors.red)
+                          : null,
                     ),
                   ),
                   SizedBox(
@@ -464,12 +475,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Colors.black),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      border: InputBorder.none,
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
                       prefixIcon: Icon(
-                        Icons.phone,
+                        Icons.location_city,
                         color: Colors.black,
                         size: 22.0,
                       ),
@@ -491,10 +505,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Colors.black),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      border: InputBorder.none,
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
                       prefixIcon: Icon(
                         Icons.verified_user,
                         color: Colors.black,
@@ -518,10 +535,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Colors.black),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      border: InputBorder.none,
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
                       prefixIcon: Icon(
                         Icons.email,
                         color: Colors.black,
@@ -546,9 +566,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Colors.black),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
                       prefixIcon: const Icon(
                         Icons.lock,
                         size: 22.0,
@@ -587,9 +611,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Colors.black),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
                       prefixIcon: const Icon(
                         Icons.lock_clock,
                         size: 22.0,
